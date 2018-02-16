@@ -15,6 +15,6 @@ class GameScenario:
 
    	def showGraph(self):
    		nx.draw_networkx_nodes(self.graph,self.pos)
-		nx.draw_networkx_edges(self.graph,self.pos)
-		nx.draw_networkx_labels(self.graph,self.pos)
-		plt.show()
+		  nx.draw_networkx_edges(self.graph,self.pos)
+		  nx.draw_networkx_labels(self.graph,self.pos)
+		  plt.show()

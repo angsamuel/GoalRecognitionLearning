@@ -12,12 +12,12 @@ class GameScenario:
       self.nodesNum = newNodesNum
       self.graph = nx.Graph()
       self.graph.add_edges_from(self.edges)
-      self.pos = nx.spring_layout(self.graph)
+      self.pos = nx.spectral_layout(self.graph)
       self.start_state = start_state
 
     def showGraph(self):
-      nx.draw_networkx_nodes(self.graph,self.pos, node_color = 'r')
-      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.targets,  node_color = 'g')
+      nx.draw_networkx_nodes(self.graph,self.pos, node_color = 'Grey')
+      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.targets,  node_color = 'Pink')
       nx.draw_networkx_nodes(self.graph, self.pos, nodelist = [self.start_state],  node_color = "Cyan")
       nx.draw_networkx_edges(self.graph,self.pos)
 
