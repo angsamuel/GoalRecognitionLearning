@@ -23,7 +23,6 @@ class GameScenario:
       plt.show()
 
     def refreshGameMatrix(self):
-      self.matrixDict = dict()
       self.matrix = np.matrix(np.ones(shape=(self.nodesNum, self.nodesNum)))
       self.matrix *= -1
       for edge in self.edges:
@@ -89,6 +88,7 @@ class GameScenario:
       steps = [current_state]
       q_table = new_agent.q_table
       while current_state != goal_state:
+          print(current_state)
           next_step_index = np.where(q_table[current_state,] == np.max(q_table[current_state,]))[1]
           if next_step_index.shape[0] > 1:
               next_step_index = int(np.random.choice(next_step_index, size = 1))
