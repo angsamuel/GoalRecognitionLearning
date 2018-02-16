@@ -6,17 +6,21 @@ from AgentModule import Agent
 
 class GameScenario:
 
-    def __init__(self, newEdges, newTargets, newNodesNum):
+    def __init__(self, newEdges, newTargets, newNodesNum, start_state):
       self.edges = newEdges
       self.targets = newTargets
       self.nodesNum = newNodesNum
       self.graph = nx.Graph()
       self.graph.add_edges_from(self.edges)
       self.pos = nx.spring_layout(self.graph)
+      self.start_state = start_state
 
     def showGraph(self):
-      nx.draw_networkx_nodes(self.graph,self.pos)
+      nx.draw_networkx_nodes(self.graph,self.pos, node_color = 'r')
+      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.targets,  node_color = 'g')
+      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = [self.start_state],  node_color = "Cyan")
       nx.draw_networkx_edges(self.graph,self.pos)
+
       nx.draw_networkx_labels(self.graph,self.pos)
       plt.show()
 
@@ -56,17 +60,19 @@ class GameScenario:
       next_action = int(np.random.choice(available_act,1))
       return next_action
 
-    def train_agent(self, start_state, games):
+    def train_agent(self, games):
       new_agent = Agent("Bella", False)
       new_agent.generateQTables(self.nodesNum, .8, self.targets)
 
       for target in self.targets:
+        print(target)
+        print(self.targets)
         self.refreshGameMatrix(target)
 
-        possible_action = self.get_possible_actions(start_state)
+        possible_action = self.get_possible_actions(self.start_state)
         action = self.preview_next_action(possible_action)
 
-        new_agent.update(start_state, action, self.matrix, target)
+        new_agent.update(self.start_state, action, self.matrix, target)
         scores = []
         for i in range(games):
           current_state = np.random.randint(0, int(new_agent.q_table_dict[target].shape[0]))
@@ -82,7 +88,7 @@ class GameScenario:
 
         #test results
         # Testing
-        current_state = start_state
+        current_state = self.start_state
         steps = [current_state]
         q_table = new_agent.q_table_dict[target]
         while current_state != target:
@@ -99,4 +105,4 @@ class GameScenario:
         print(steps)
         plt.plot(scores)
         plt.show()
-        return new_agent
+      return new_agent

@@ -12,9 +12,9 @@ edges = [(0,1), (0,13), (1,13), (1,2), (2,3), (2,4), (2,14), (3,4),
 
 targets = [6, 11, 15]
 
-gs = GameScenario(edges, targets, 17)
+gs = GameScenario(edges, targets, 17, 0)
 
 gs.showGraph()
-gs.train_agent(0, 2000)
+gs.train_agent(2000)
 
 outer_list = ['one', 'two', 'three']
