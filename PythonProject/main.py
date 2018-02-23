@@ -17,7 +17,7 @@ probDist = probDistribution, shadowNodes = shadowNodes, shadowGroups = shadowGro
 newNodesNum = 11, startState = 0, guessReward = 10)
 
 gs.showGraph()
-#gs.train_agent(2000)
+gs.train_agent(2000)
 
 #outer_list = ['one', 'two', 'three']
 
