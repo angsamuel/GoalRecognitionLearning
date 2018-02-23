@@ -6,19 +6,28 @@ from AgentModule import Agent
 
 class GameScenario:
 
-    def __init__(self, newEdges, newTargets, newNodesNum, start_state):
+    def __init__(self, newEdges, newTargets, probDist, shadowNodes, shadowGroups, newNodesNum, startState, guessReward):
+      reversedEdges = []
+      for i in range(0, len(newEdges)):
+        reversedEdges.append( tuple(reversed(newEdges[i])))
+      newEdges.extend(reversedEdges)
       self.edges = newEdges
+
+      self.shadowNodes = shadowNodes
       self.targets = newTargets
       self.nodesNum = newNodesNum
       self.graph = nx.Graph()
       self.graph.add_edges_from(self.edges)
-      self.pos = nx.spectral_layout(self.graph)
-      self.start_state = start_state
+      self.startState = startState
+      self.probDist = probDist
+      self.guessReward = guessReward
 
     def showGraph(self):
-      nx.draw_networkx_nodes(self.graph,self.pos, node_color = 'Grey')
-      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.targets,  node_color = 'Pink')
-      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = [self.start_state],  node_color = "Cyan")
+      self.pos = nx.shell_layout(self.graph)
+      nx.draw_networkx_nodes(self.graph,self.pos, node_color = "Cyan")
+      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.targets,  node_color = "Purple")
+      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = [self.startState],  node_color = "Green")
+      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.shadowNodes,  node_color = "Grey")
       nx.draw_networkx_edges(self.graph,self.pos)
 
       nx.draw_networkx_labels(self.graph,self.pos)
@@ -69,10 +78,10 @@ class GameScenario:
         print(self.targets)
         self.refreshGameMatrix(target)
 
-        possible_action = self.get_possible_actions(self.start_state)
+        possible_action = self.get_possible_actions(self.startState)
         action = self.preview_next_action(possible_action)
 
-        new_agent.update(self.start_state, action, self.matrix, target)
+        new_agent.update(self.startState, action, self.matrix, target)
         scores = []
         for i in range(games):
           current_state = np.random.randint(0, int(new_agent.q_table_dict[target].shape[0]))
@@ -88,7 +97,7 @@ class GameScenario:
 
         #test results
         # Testing
-        current_state = self.start_state
+        current_state = self.startState
         steps = [current_state]
         q_table = new_agent.q_table_dict[target]
         while current_state != target:

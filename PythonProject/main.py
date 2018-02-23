@@ -4,20 +4,28 @@ import networkx as nx
 
 from GameScenarioModule import GameScenario
 from AgentModule import Agent
+from LPHandlerModule import LPHandler
 
-#edges = [(0,1), (1,5), (5,6), (5,4), (1,2), (2,3), (2,7)]
-edges = [(0,1), (0,13), (1,13), (1,2), (2,3), (2,4), (2,14), (3,4), 
-(3,16), (4,5), (5,6), (5,8), (5,16), (6,7), (7,8), (7,9), (8,9), (8,11), (9,10),
-(10,11),(11,12), (11,15),(12, 13), (15,14)]
+edges = [(0,1),(1,2),(2,3),(3,4),(4,5),(0,6),(6,7),(7,8),(8,9),(9,10),(3,7)]
+targets = [5, 10]
+probDistribution = [.5, .5]
+shadowNodes = [2,3,6,7]
+shadowGroups = [[2,3,6,7]]
 
-targets = [6, 10, 16, 15]
-
-gs = GameScenario(edges, targets, 17, 0)
+gs = GameScenario(newEdges = edges, newTargets = targets, 
+probDist = probDistribution, shadowNodes = shadowNodes, shadowGroups = shadowGroups,
+newNodesNum = 11, startState = 0, guessReward = 10)
 
 gs.showGraph()
-gs.train_agent(2000)
+#gs.train_agent(2000)
 
-outer_list = ['one', 'two', 'three']
+#outer_list = ['one', 'two', 'three']
+
+lph = LPHandler(gs)
+lph.WriteLP("test.lp")
+
+
+
 
 #partially observable mdp
 #fi(s) now uses the same s for all states belonging to non observable portion of the graph
