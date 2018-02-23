@@ -12,8 +12,8 @@ class GameScenario:
         reversedEdges.append( tuple(reversed(newEdges[i])))
       newEdges.extend(reversedEdges)
       self.edges = newEdges
-
       self.shadowNodes = shadowNodes
+      self.shadowGroups = shadowGroups
       self.targets = newTargets
       self.nodesNum = newNodesNum
       self.graph = nx.Graph()

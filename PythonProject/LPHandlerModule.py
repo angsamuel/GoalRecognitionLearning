@@ -25,8 +25,11 @@ class LPHandler:
 							row += str(self.gs.guessReward)
 						else:
 							row += "0"
-
-						row += "F(" + str(e[0]) + "," + str(gt) + ")"
+						shadowGroupIndex = self.getShadowGroupIndex(e[0])
+						if shadowGroupIndex > -1:
+							row += "F(" + str("S" + str(shadowGroupIndex)) + "," + str(gt) + ")"
+						else:
+							row += "F(" + str(e[0]) + "," + str(gt) + ")"
 					row += " - V(" + str(e[1]) + "," + str(t) + ") <= 0"
 				else:
 					row = "V(" + str(t) + "," + str(t) + ") = 0"
@@ -34,8 +37,12 @@ class LPHandler:
  		#write f constraints
 		for i in range(0, self.gs.nodesNum):
 			conRow = ""
+			shadowGroupIndex = self.getShadowGroupIndex(i)
 			for j in range(0, len(self.gs.targets)):
-				conRow += "F(" + str(i) + "," + str(self.gs.targets[j]) + ")"
+				if shadowGroupIndex > -1:
+					conRow += "F(" + str("S" + str(shadowGroupIndex)) + "," + str(self.gs.targets[j]) + ")"
+				else:
+					conRow += "F(" + str(i) + "," + str(self.gs.targets[j]) + ")"
 				if j != len(self.gs.targets) - 1:
 					conRow += " + "
 			conRow += " = 1"
@@ -43,7 +50,11 @@ class LPHandler:
 		file.write("bounds\n")
 		for i in range(0, self.gs.nodesNum):
 			for t in self.gs.targets:
-				bfRow = "F(" + str(i) + "," + str(t) + ") >= 0" 
+				shadowGroupIndex = self.getShadowGroupIndex(i)
+				if shadowGroupIndex > -1:
+					bfRow = "F(" + str("S" + str(shadowGroupIndex)) + "," + str(t) + ") >= 0" 
+				else:
+					bfRow = "F(" + str(i) + "," + str(t) + ") >= 0" 
 			file.write(bfRow + "\n")
 		for i in range(0, self.gs.nodesNum):
 			for t in self.gs.targets:
@@ -51,3 +62,11 @@ class LPHandler:
 			file.write(vFree + "\n")
 		file.write("end")
 		file.close()
+
+	def getShadowGroupIndex(self, node):
+		shadowGroupIndex = -1
+		for i in range(0, len(self.gs.shadowGroups)):
+			if node in self.gs.shadowGroups[i]:
+				shadowGroupIndex = i
+		return shadowGroupIndex	
+

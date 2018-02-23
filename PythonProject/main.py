@@ -9,8 +9,8 @@ from LPHandlerModule import LPHandler
 edges = [(0,1),(1,2),(2,3),(3,4),(4,5),(0,6),(6,7),(7,8),(8,9),(9,10),(3,7)]
 targets = [5, 10]
 probDistribution = [.5, .5]
-shadowNodes = [2,3,6,7]
-shadowGroups = [[2,3,6,7]]
+shadowNodes = [2,3,7,8]
+shadowGroups = [[2,3,7,8]]
 
 gs = GameScenario(newEdges = edges, newTargets = targets, 
 probDist = probDistribution, shadowNodes = shadowNodes, shadowGroups = shadowGroups,
