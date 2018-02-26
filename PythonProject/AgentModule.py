@@ -11,6 +11,7 @@ class Agent:
 
     def generateQTables(self, tableSize, newGamma, targets):
       self.q_table_dict = dict()
+      self.path_dict = dict()
       self.gamma = newGamma
       for target in targets:
         q_table = np.matrix(np.zeros([tableSize,tableSize]))
@@ -56,6 +57,9 @@ class Agent:
         else:
           self.matrix[edge[::-1]] = 0
 
+    def get_best_path(self, target):
+      return self.path_dict[target]
+
     def train_agent(self, games):
       self.generateQTables(self.gs.nodesNum, .8, self.gs.targets)
 
@@ -96,8 +100,7 @@ class Agent:
             current_state = next_step_index
         print("Most efficient path:")
         print(steps)
+        self.path_dict.update({target: steps})
         plt.plot(scores)
         plt.show()
-      return new_agent
-James Maxey Adjunct professor
-icon 7781
+      return self

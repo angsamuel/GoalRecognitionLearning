@@ -3,6 +3,7 @@ import pylab as plt
 import networkx as nx
 
 from AgentModule import Agent
+from ObserverModule import Observer
 
 class GameScenario:
 
@@ -38,3 +39,8 @@ class GameScenario:
       new_agent = Agent("Bella", False, self)
       new_agent.train_agent(games)
       return new_agent
+
+    def train_observer(self, games, agent):
+      new_observer = Observer(self)
+      new_observer.train_observer(games, agent)
+      return new_observer

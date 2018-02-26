@@ -5,6 +5,7 @@ import networkx as nx
 from GameScenarioModule import GameScenario
 from AgentModule import Agent
 from LPHandlerModule import LPHandler
+from ObserverModule import Observer
 
 edges = [(0,1),(1,2),(2,3),(3,4),(4,5),(0,6),(6,7),(7,8),(8,9),(9,10),(3,7)]
 targets = [5, 10]
@@ -17,8 +18,8 @@ probDist = probDistribution, shadowNodes = shadowNodes, shadowGroups = shadowGro
 newNodesNum = 11, startState = 0, guessReward = 10)
 
 gs.showGraph()
-gs.train_agent(2000)
-
+new_agent = gs.train_agent(2000)
+new_observer = gs.train_observer(2000, new_agent)
 #outer_list = ['one', 'two', 'three']
 
 lph = LPHandler(gs)
