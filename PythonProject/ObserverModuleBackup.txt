@@ -1,0 +1,114 @@
+import numpy as np
+import pylab as plt
+import networkx as nx
+import random
+
+
+class Observer:
+
+  def __init__(self, gameScenario):
+    self.gs = gameScenario
+
+  def generateQTable(self, newGamma):
+    self.gamma = newGamma
+    self.q_table = np.matrix(np.zeros([self.gs.nodesNum,len(self.gs.targets)]))
+	
+  def update(self, current_state, action, game_matrix):
+    max_index = np.where(self.q_table[action,] == np.max(self.q_table[action,]))[1]
+    if self.gs.targets[action] == self.gs.targets[0]:
+      game_matrix[current_state, action] += self.gs.guessReward
+    max_value = self.q_table[action, max_index]
+    score = game_matrix[current_state, action]
+    self.q_table[current_state, action] = score
+    if (np.max(self.q_table) > 0):
+        return(self.gs.guessReward)
+    else:
+        return (0)
+      #print('max_value', game_matrix[current_state, action] + self.gamma * max_value)
+  
+      #if (np.max(self.q_table) > 0):
+        #return(np.sum(self.q_table_dict[target]/np.max(self.q_table_dict[target])*100))
+      #else:
+      #  return (0)
+
+  def refreshGameMatrix(self):
+      self.matrix = np.matrix(np.zeros(shape=(self.gs.nodesNum, len(self.gs.targets))))
+  
+  def get_possible_actions(self, state):
+      current_state_row = self.q_table[state,]
+      possible_actions = np.where(current_state_row >= 0)[1]
+      return possible_actions
+  
+  def preview_next_action(self, available_act):
+      next_action = int(np.random.choice(available_act,1))
+      return next_action
+  
+  def train_observer(self, games, agent):
+      self.generateQTable(.8)
+      self.refreshGameMatrix()
+      possible_action = self.get_possible_actions(self.gs.startState)
+      action = self.preview_next_action(possible_action)
+      self.update(self.gs.startState, action, self.matrix)
+      scores = []
+      for i in range(games):
+        theTarget = random.randint(0,1)
+        game_matrix = self.matrix
+        print(self.gs.targets[theTarget])
+        agent_path = agent.get_best_path(self.gs.targets[theTarget])
+        for p in agent_path:
+          if p != self.gs.targets[theTarget]:
+            current_state = p
+            possible_action = self.get_possible_actions(current_state)
+            action = self.preview_next_action(possible_action)
+            score = self.update(current_state,action,game_matrix)
+            scores.append(score)
+          self.matrix = game_matrix
+      print("Game Matrix")
+      print(self.matrix)
+      print("Final Trained Q Table:")
+      print(self.q_table)
+      #Testing
+      current_state = 0
+      agent_step_index = 0
+      steps = []
+      while current_state != agent_path[len(agent_path)-1]:
+        next_step_index = np.where(self.q_table[current_state,] == np.max(self.q_table[current_state,]))[1]
+        if next_step_index.shape[0] > 1:
+          next_step_index = int(np.random.choice(next_step_index, size = 1))
+        else:
+          next_step_index = int(next_step_index)
+        steps.append(self.gs.targets[next_step_index])
+        agent_step_index = agent_step_index + 1
+        current_state = agent_path[agent_step_index]
+      print("Most efficient path:")
+      print(steps)
+      tracker = 0
+      mySum = 0
+      cScores = []
+      for s in scores:
+        if tracker < 5:
+          mySum += s
+          tracker += 1
+        else:
+          cScores.append(mySum)
+          mySum = 0;
+          tracker = 0
+
+
+      plt.plot(cScores)
+      plt.show()
+      return self
+
+
+
+
+
+      #take a path from the agent and play it
+#Irma as Sociology
+#0420584
+
+#Trinity Student Tmail account,
+#Belinda Henning
+#maple one computer in there
+
+#mars mclean 22

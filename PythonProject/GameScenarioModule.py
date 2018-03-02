@@ -24,7 +24,7 @@ class GameScenario:
       self.guessReward = guessReward
 
     def showGraph(self):
-      self.pos = nx.shell_layout(self.graph)
+      self.pos = nx.spring_layout(self.graph)
       nx.draw_networkx_nodes(self.graph,self.pos, node_color = "Cyan")
       nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.targets,  node_color = "Purple")
       nx.draw_networkx_nodes(self.graph, self.pos, nodelist = [self.startState],  node_color = "Green")

@@ -2,7 +2,7 @@ class LPHandler:
 	def __init__(self, gameScenario):
 		self.gs = gameScenario
 
-	def WriteLP(self, filePath):
+	def WriteLP(self, filePath, withShadow):
 		file = open(filePath, "w")
 		file.write("maximize\n")
 		maximizeLine = ""
@@ -26,7 +26,7 @@ class LPHandler:
 						else:
 							row += "0"
 						shadowGroupIndex = self.getShadowGroupIndex(e[0])
-						if shadowGroupIndex > -1:
+						if shadowGroupIndex > -1 and withShadow:
 							row += "F(" + str("S" + str(shadowGroupIndex)) + "," + str(gt) + ")"
 						else:
 							row += "F(" + str(e[0]) + "," + str(gt) + ")"
@@ -39,7 +39,7 @@ class LPHandler:
 			conRow = ""
 			shadowGroupIndex = self.getShadowGroupIndex(i)
 			for j in range(0, len(self.gs.targets)):
-				if shadowGroupIndex > -1:
+				if shadowGroupIndex > -1 and withShadow:
 					conRow += "F(" + str("S" + str(shadowGroupIndex)) + "," + str(self.gs.targets[j]) + ")"
 				else:
 					conRow += "F(" + str(i) + "," + str(self.gs.targets[j]) + ")"
@@ -51,7 +51,7 @@ class LPHandler:
 		for i in range(0, self.gs.nodesNum):
 			for t in self.gs.targets:
 				shadowGroupIndex = self.getShadowGroupIndex(i)
-				if shadowGroupIndex > -1:
+				if shadowGroupIndex > -1 and withShadow:
 					bfRow = "F(" + str("S" + str(shadowGroupIndex)) + "," + str(t) + ") >= 0" 
 				else:
 					bfRow = "F(" + str(i) + "," + str(t) + ") >= 0" 
