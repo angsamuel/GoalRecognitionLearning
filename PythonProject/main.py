@@ -21,14 +21,24 @@ if case == 0:
 	shadowGroups = [[11,12,16,17,20],[21,22,24,26]]
 	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = shadowNodes, shadowGroups = shadowGroups, newNodesNum = 29,
 	startState = 0, guessReward = 1)
-	gs.showGraph()
-	new_agent = gs.train_agent(2000)
-	new_observer = gs.train_observer(2000, new_agent)
+	#gs.showGraph()
+	#new_agent = gs.train_agent(2000)
+	#new_observer = gs.train_observer(2000, new_agent)
 	lph = LPHandler(gs)
-	lph.WriteLP("withShadow.lp", withShadow = True)
-	lph.WriteLP("noShadow.lp", withShadow = False)
-
-
+	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = True)
+	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
+if case == 1:
+	edges = [(0,1),(1,2),(2,3), (3,4), (4,5), (5,6), (6,7), (7,8),(8,13),(13,14),(14,15),(15,16),(16,17),(17,18),(0,9),(9,10),(10,11),(11,12), (3,10)]
+	targets = [12, 18]
+	pDist = [.5, .5]
+	shadowNodes = [2,3,4,5,10]
+	shadowGroups = [shadowNodes]
+	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = shadowNodes, shadowGroups = shadowGroups, newNodesNum = 29,
+	startState = 0, guessReward = 1)
+	gs.showGraph()
+	lph = LPHandler(gs)
+	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = False)
+	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
 
 
 #partially observable mdp

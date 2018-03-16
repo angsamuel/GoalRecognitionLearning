@@ -44,3 +44,10 @@ class GameScenario:
       new_observer = Observer(self)
       new_observer.train_observer(games, agent)
       return new_observer
+
+#pomdp
+#policy gradient algorithm
+#playing two agents against each other to see if they converge, 
+#useful for defender to play mixed strategy, value of policy is
+#a function given mixed strategy
+#mapping from belief/history into action
