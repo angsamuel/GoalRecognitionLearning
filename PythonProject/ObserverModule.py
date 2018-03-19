@@ -34,6 +34,29 @@ class Observer:
       i += 1
     return maxI
 
+  def wowee(self):
+   print("wowee")
+
+  def guess(self, state, target):
+    guess = self.maxIndex(self.q_table[state])
+    if guess == target:
+      self.q_table[state][guess] += self.gs.guessReward
+    return self.gs.targets[guess]
+
+  def refresh_R_table(self, target, utility):
+    self.R = np.matrix(np.ones(shape=(self.gs.nodesNum, self.gs.nodesNum)))
+    self.R *= -1
+    for edge in self.gs.edges:
+      if edge[1] == target:
+        self.R[edge] = utility
+      else:
+        self.R[edge] = 0
+
+      if edge[0] == target:
+        self.R[edge[::-1]] = utility
+      else:
+        self.R[edge[::-1]] = 0
+
   def train_observer(self, games, agent):
     self.generateQTable(.8)
     scores = []

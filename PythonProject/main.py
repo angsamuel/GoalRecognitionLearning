@@ -6,6 +6,7 @@ from GameScenarioModule import GameScenario
 from AgentModule import Agent
 from LPHandlerModule import LPHandler
 from ObserverModule import Observer
+from CompetitionModule import Competition
 
 
 
@@ -21,9 +22,14 @@ if case == 0:
 	shadowGroups = [[11,12,16,17,20],[21,22,24,26]]
 	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = shadowNodes, shadowGroups = shadowGroups, newNodesNum = 29,
 	startState = 0, guessReward = 1)
-	#gs.showGraph()
-	#new_agent = gs.train_agent(2000)
-	#new_observer = gs.train_observer(2000, new_agent)
+	gs.showGraph()
+
+	new_agent = gs.train_agent(2000)
+	new_observer = gs.train_observer(2000, new_agent)
+	
+	competition = Competition(gameScenario = gs, agent = new_agent, observer = new_observer)
+	competition.compete(1)
+
 	lph = LPHandler(gs)
 	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = True)
 	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)

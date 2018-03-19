@@ -22,6 +22,7 @@ class GameScenario:
       self.startState = startState
       self.probDist = probDist
       self.guessReward = guessReward
+      self.targetUtility = 10
 
     def showGraph(self):
       self.pos = nx.spring_layout(self.graph)
@@ -43,6 +44,7 @@ class GameScenario:
     def train_observer(self, games, agent):
       new_observer = Observer(self)
       new_observer.train_observer(games, agent)
+      new_observer.wowee()
       return new_observer
 
 #pomdp
