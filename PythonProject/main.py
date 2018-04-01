@@ -23,7 +23,7 @@ if case == 0:
 	startState = 0, guessReward = 1)
 	gs.showGraph()
 
-	new_agent = gs.train_agent(1000)
+	new_agent = gs.train_agent(2000)
 	new_observer = gs.train_observer(1000, new_agent)
 	new_agent.train_agent_against_observer(1000, new_observer)
 

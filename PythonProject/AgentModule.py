@@ -56,13 +56,14 @@ class Agent:
         self.q_table_dict[target][current_state, action] = 0
 
       if (np.max(self.q_table_dict[target]) > 0):
-        return(np.sum(self.q_table_dict[target]/(self.gs.targetUtility * 100) ) ) #/(np.max(self.q_table_dict[target])))   )
+        #return(np.sum(self.q_table_dict[target]/(self.gs.targetUtility * 100) ) ) #/(np.max(self.q_table_dict[target])))   )
+        return(np.sum(self.q_table_dict[target]) / (self.gs.targetUtility * len(self.gs.edges)))
       else:
         return (0)
 
     def get_score(self, target):
       if (np.max(self.q_table_dict[target]) > 0):
-        return(np.sum(self.q_table_dict[target]/(self.gs.targetUtility * 100) ) ) #/(np.max(self.q_table_dict[target])))   )
+        return(np.sum(self.q_table_dict[target])/(self.gs.targetUtility * len(self.gs.edges)) )  #/(np.max(self.q_table_dict[target])))   )
       else:
         return (0)
 
@@ -121,12 +122,12 @@ class Agent:
           if move_max_value < q_table[current_state,m]:
             move_max_value = q_table[current_state,m]
       
-      if len(moves) < 1:
-        print current_state      
-        print self.R[current_state]
-      print(current_state)
-      print self.R[current_state]
-      print(moves)
+      #if len(moves) < 1:
+        #print current_state      
+        #print self.R[current_state]
+      #print(current_state)
+      #print self.R[current_state]
+      #print(moves)
 
       chosen_moves = []
       for m in moves:
@@ -264,6 +265,13 @@ class Agent:
         self.path_dict.update({target: steps})
         plt.plot(self.scores_dict[target])
         plt.show()
+
+
+        # Testing
+        
+      
+
+
 
 
         # Testing
