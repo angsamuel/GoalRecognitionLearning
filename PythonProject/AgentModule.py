@@ -16,7 +16,17 @@ class Agent:
       self.path_dict = dict()
       self.gamma = newGamma
       for target in targets:
-        q_table = np.matrix(np.zeros([tableSize,tableSize]))
+        q_table = np.matrix(np.ones(shape=(self.gs.nodesNum, self.gs.nodesNum)))
+        q_table *= 0
+        for edge in self.gs.edges:
+          if edge[1] == target:
+            q_table[edge] = 0
+          else:
+            q_table[edge] = 0
+          if edge[0] == target:
+            q_table[edge[::-1]] = 0
+          else:
+            q_table[edge[::-1]] = 0
         self.q_table_dict.update({target: q_table})
 
 
@@ -29,10 +39,6 @@ class Agent:
         next_step_index = int(next_step_index)
       self.state = next_step_index
 
-    def apply_guess_penalty(self, current_state, action, target):
-      self.q_table_dict[target][current_state, action] -= 1
-      if self.q_table_dict[target][current_state, action] < 0:
-        self.q_table_dict[target][current_state, action] = 0
 
 
     def update(self, current_state, action, target):
@@ -43,10 +49,12 @@ class Agent:
         max_index = int(max_index)
       max_value = self.q_table_dict[target][action, max_index] #max value of next possible move
       
-      self.q_table_dict[target][current_state, action] = self.R[current_state, action] + self.gamma * max_value
+      self.q_table_dict[target][current_state, action] = self.R[current_state, action] + (self.gamma * max_value)
+      self.q_table_dict[target][current_state, action] -= (self.G[target][current_state, action])
       
       if self.q_table_dict[target][current_state, action] < 0:
         self.q_table_dict[target][current_state, action] = 0
+
       if (np.max(self.q_table_dict[target]) > 0):
         return(np.sum(self.q_table_dict[target]/(self.gs.targetUtility * 100) ) ) #/(np.max(self.q_table_dict[target])))   )
       else:
@@ -90,9 +98,48 @@ class Agent:
     def get_best_path(self, target):
       return self.path_dict[target]
 
+    def reset_guess_table(self):
+      self.G =  dict()
+      for t in self.gs.targets:
+        self.G.update({t: np.matrix(np.ones(shape=(self.gs.nodesNum, self.gs.nodesNum)))})
+
+    def apply_guess_penalty(self, current_state, action, target):
+      #self.G[target][current_state, action] = self.gs.guessReward
+      self.q_table_dict[target][current_state, action] -= 1
+      #if self.q_table_dict[target][current_state, action] < 0:
+      #  self.q_table_dict[target][current_state, action] = 0
+
+
+    def gimme_move(self, q_table, prev_state, current_state):
+      moves = []
+      move_max_value = -1000000
+      #get possible move
+      #print(q_table[current_state,].tolist)
+      for m in range(self.gs.nodesNum):
+        if m != prev_state and m!= current_state and self.R[current_state, m] >= 0:
+          moves.append(m)
+          if move_max_value < q_table[current_state,m]:
+            move_max_value = q_table[current_state,m]
+      
+      if len(moves) < 1:
+        print current_state      
+        print self.R[current_state]
+      print(current_state)
+      print self.R[current_state]
+      print(moves)
+
+      chosen_moves = []
+      for m in moves:
+        if q_table[current_state,m] >= move_max_value:
+          chosen_moves.append(m)
+
+      random_index = np.random.randint(0, len(chosen_moves))
+      return chosen_moves[random_index]
+
+
     def train_agent(self, episodes):
       self.generateQTables(self.gs.nodesNum, .8, self.gs.targets)
-
+      self.reset_guess_table()
       for target in self.gs.targets:
         self.refresh_R_table(target,self.gs.targetUtility)
 
@@ -116,17 +163,15 @@ class Agent:
 
         # Testing
         current_state = self.gs.startState
+        prev_state = current_state
         steps = [current_state]
         q_table = self.q_table_dict[target]
         while current_state != target:
             #print(current_state)
             #print(target)
-            next_step_index = np.where(q_table[current_state,] == np.max(q_table[current_state,]))[1]
-            if next_step_index.shape[0] > 1:
-                next_step_index = int(np.random.choice(next_step_index, size = 1))
-            else:
-                next_step_index = int(next_step_index)
+            next_step_index = self.gimme_move(q_table, prev_state, current_state)
             steps.append(next_step_index)
+            prev_state = current_state
             current_state = next_step_index
         print("Most efficient path:")
         print(steps)
@@ -140,7 +185,7 @@ class Agent:
     def train_agent_against_observer(self, episodes, observer):
       #self.generateQTables(self.gs.nodesNum, .8, self.gs.targets)
       self.scores_dict = dict()
-      
+      self.reset_guess_table()
       for t in self.gs.targets:
         self.scores_dict.update({t: []})
 
@@ -152,29 +197,31 @@ class Agent:
         self.refresh_R_table(target, self.gs.targetUtility)
 
         current_state = self.gs.startState
+        prev_state = current_state
         steps = [current_state]
         q_table = self.q_table_dict[target]
         while current_state != target:
           #print(current_state)
           #print(target)
-          next_step_index = np.where(q_table[current_state,] == np.max(q_table[current_state,]))[1]
-          if next_step_index.shape[0] > 1:
-              next_step_index = int(np.random.choice(next_step_index, size = 1))
-          else:
-              next_step_index = int(next_step_index)
+          next_step_index = self.gimme_move(q_table, prev_state, current_state)
+
+          #self.update(current_state,next_step_index,target)
           steps.append(next_step_index)
           
-          score = self.update(current_state,next_step_index, target)
-          self.scores_dict[target].append(score)
+          
           
           #observer work
           observer.update_belief(current_state)
           observer_guess = observer.belief_guess()
 
-          if observer_guess == target:
-            self.apply_guess_penalty(current_state, next_step_index, target)
+          score = self.update(current_state,next_step_index, target)
+          if observer_guess == target and current_state != self.gs.startState:
+              self.apply_guess_penalty(prev_state, current_state, target)
+
+          self.scores_dict[target].append(score)
 
           observer.observe_action(current_state, target)
+          prev_state = current_state
           current_state = next_step_index
 
       #
@@ -187,29 +234,28 @@ class Agent:
         # Testing
         observer.reset_belief()
         agent_points = self.gs.targetUtility
-
         current_state = self.gs.startState
+        prev_state = current_state
+
         steps = [current_state]
         q_table = self.q_table_dict[target]
         while current_state != target:
             #print(current_state)
             #print(target)
-            next_step_index = np.where(q_table[current_state,] == np.max(q_table[current_state,]))[1]
-            if next_step_index.shape[0] > 1:
-                next_step_index = int(np.random.choice(next_step_index, size = 1))
-            else:
-                next_step_index = int(next_step_index)
+            next_step_index = self.gimme_move(q_table, prev_state, current_state)
             steps.append(next_step_index)
 
             #observer work
             observer.update_belief(current_state)
             observer_guess = observer.belief_guess()
-            if observer_guess == target:
-              self.apply_guess_penalty(current_state, next_step_index, target)
+
+            score = self.update(current_state,next_step_index, target)
+            if observer_guess == target and current_state != self.gs.startState:
+              self.apply_guess_penalty(prev_state, current_state, target)
               agent_points -= self.gs.guessReward
 
             observer.observe_action(current_state, target)
-
+            prev_state = current_state
             current_state = next_step_index
         print("Most efficient path:")
         print(steps)
