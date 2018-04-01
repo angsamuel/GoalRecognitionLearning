@@ -7,8 +7,7 @@ from AgentModule import Agent
 from LPHandlerModule import LPHandler
 from ObserverModule import Observer
 from CompetitionModule import Competition
-
-
+from ConvertFromShadowModule import shadowToVisible
 
 
 case = 0
@@ -24,11 +23,9 @@ if case == 0:
 	startState = 0, guessReward = 1)
 	gs.showGraph()
 
-	new_agent = gs.train_agent(2000)
-	new_observer = gs.train_observer(2000, new_agent)
-	
-	competition = Competition(gameScenario = gs, agent = new_agent, observer = new_observer)
-	competition.compete(1)
+	new_agent = gs.train_agent(1000)
+	new_observer = gs.train_observer(1000, new_agent)
+	new_agent.train_agent_against_observer(1000, new_observer)
 
 	lph = LPHandler(gs)
 	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = True)
@@ -45,6 +42,16 @@ if case == 1:
 	lph = LPHandler(gs)
 	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = False)
 	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
+if case == 2:
+	edges = [(0,1),(0,2),(1,3),(2,4),(3,4),(4,5),(5,6),(6,3),(6,7),(5,8)]
+	targets = [7,8]
+	pDist = [.5,.5]
+	shadowNodes = [3,4,5,6]
+	shadowGroups = [[3,4,5,6]]
+	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = shadowNodes, shadowGroups = shadowGroups, newNodesNum = 29,
+	startState = 0, guessReward = 1)
+	gs.showGraph()
+	shadowToVisible(edges, shadowNodes,shadowGroups, 90)
 
 
 #partially observable mdp

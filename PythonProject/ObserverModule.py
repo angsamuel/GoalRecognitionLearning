@@ -8,6 +8,8 @@ class Observer:
 
   def __init__(self, gameScenario):
     self.gs = gameScenario
+    self.belief = gameScenario.probDist
+    #print(self.belief)
 
   def generateQTable(self, newGamma):
     self.gamma = newGamma
@@ -34,13 +36,41 @@ class Observer:
       i += 1
     return maxI
 
-  def wowee(self):
-   print("wowee")
+  def reset_belief(self):
+     self.belief = []
+     for p in self.gs.probDist:
+      self.belief.append(p)
+     #print("prob dist ", self.gs.probDist)
+
+  def update_belief(self, state):
+    #print("initial belief",self.belief)
+
+    possible_actions = self.q_table[state]
+    action_sum = 0.0
+    for g in possible_actions:
+      action_sum += g
+
+    #print("observations", possible_actions)
+    for b in range(0, len(self.belief)):
+      #print("math", self.belief[b], (possible_actions[b] / action_sum), (self.belief[b] * (possible_actions[b] / action_sum)))
+      if action_sum > 0:
+        self.belief[b] = (self.belief[b] * ((float(possible_actions[b])) / action_sum))
+    #print("final belief", self.belief)
+
+  def belief_guess(self):
+    #print(self.belief)
+    max_belief = 0
+    max_belief_index = 0
+    for b in range(0, len(self.belief)):
+      if self.belief[b] > max_belief: 
+        max_belief = self.belief[b]
+        max_belief_index = b
+    return self.gs.targets[max_belief_index]
+
 
   def guess(self, state, target):
     guess = self.maxIndex(self.q_table[state])
-    if guess == target:
-      self.q_table[state][guess] += self.gs.guessReward
+    self.q_table[state][target] += self.gs.guessReward
     return self.gs.targets[guess]
 
   def refresh_R_table(self, target, utility):
@@ -65,15 +95,15 @@ class Observer:
       agent_path = agent.path_dict[self.gs.targets[target_index]]
       gameScore = 0
       for s in agent_path:
-        guess = self.maxIndex(self.q_table[s])
-        if guess == target_index:
-          self.q_table[s][guess] += self.gs.guessReward
-          gameScore += self.gs.guessReward
-        else:
-          self.q_table[s][guess] -= self.gs.guessReward
-      scores.append(gameScore)
-    print("plotting scores")
-    plt.plot(scores)
-    plt.show()
+        self.q_table[s][target_index] += 1
+        #guess = self.maxIndex(self.q_table[s])
+
+  def observe_action(self, location, target):
+    target_index = 0
+    for t in range(0,len(self.gs.targets)):
+      if self.gs.targets[t] == target:
+        target_index = t
+    self.q_table[location][target_index] += 1
+
 
 

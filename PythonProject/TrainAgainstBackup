@@ -1,0 +1,142 @@
+ def train_agent_against_observer(self, episodes, observer):
+
+      #for target in self.gs.targets:
+      #  self.refresh_R_table(target,self.gs.targetUtility)
+
+      #  possible_action = self.get_possible_actions(self.gs.startState)
+      #  action = self.preview_next_action(possible_action)
+
+      #  self.update(self.gs.startState, action, target)
+      #  scores = []
+        #place agent in a random location, make a move, record results
+      self.scores_dict = dict()
+      for t in self.gs.targets:
+        self.scores_dict.update({t: []})
+
+
+      for i in range(episodes):
+        print(i)
+        target = self.gs.targets[np.random.randint(len(self.gs.targets))]
+        self.refresh_R_table(target, self.gs.targetUtility)
+
+        
+        possible_action = self.get_possible_actions(self.gs.startState)
+        action = self.preview_next_action(possible_action)
+        
+        self.update(self.gs.startState, action, target)
+        scores = []
+        #print(i)
+        #print(observer.belief)
+        observer.reset_belief()
+        observer.belief = []
+        for s in self.gs.probDist:
+          observer.belief.append(s)
+
+        current_state = self.gs.startState
+        prev_state = current_state
+
+        steps = [current_state]
+        q_table = self.q_table_dict[target]
+
+        #print(observer.belief)
+
+        while current_state != target:
+          possible_action = self.get_possible_actions(current_state)
+          action = self.preview_next_action(possible_action)
+          best_action_score = q_table[current_state, action]
+          #for p in possible_action:
+          #  if best_action_score < q_table[current_state, p]:
+          #    best_action_score = q_table[current_state, p]
+          #    action = p
+          #if(action != 2 and action != 1 and first_action):
+          #  print("ACTION", action)
+          #first_action = False
+
+
+          #steps.append(action)
+
+
+          next_step_index = np.where(q_table[current_state,] == np.max(q_table[current_state,]))[1]
+          if next_step_index.shape[0] > 1:
+              next_step_index = int(np.random.choice(next_step_index, size = 1))
+          else:
+              next_step_index = int(next_step_index)
+          steps.append(next_step_index)
+
+          #print(observer.belief)
+          observer.update_belief(current_state)
+          observer_guess = observer.belief_guess()
+          observer.observe_action(current_state, target)
+          #update observer observation 
+
+          self.update(current_state, action, target)
+
+          if(observer_guess == target and prev_state != -1):
+            self.apply_guess_penalty(prev_state, current_state,target)
+
+          score = self.get_score(target)
+          self.scores_dict[target].append(score)
+          prev_state = current_state
+          current_state = action
+
+      samples = 10
+
+
+      # Testing
+      for target in self.gs.targets:
+        observer.belief = []
+        for s in self.gs.probDist:
+          observer.belief.append(s)
+
+        current_state = self.gs.startState
+        prev_state = current_state
+        steps = [current_state]
+        q_table = self.q_table_dict[target]
+        #print(q_table)
+        #print(self.R[target])
+
+        while current_state != target:
+          #print(current_state)
+          #print(target)
+          #possible_action = self.get_possible_actions(current_state)
+          #action = self.preview_next_action(possible_action)
+          #best_action_score = q_table[current_state, action]
+          #for p in possible_action:
+          #  if best_action_score < q_table[current_state, p]:
+          #    best_action_score = q_table[current_state, p]
+          #    action = p
+         # if(action != 2 and action != 1 and first_action):
+          #  first_action = False
+          #print("ACTION", action)
+
+          #steps.append(action)
+
+
+          next_step_index = np.where(q_table[current_state,] == np.max(q_table[current_state,]))[1]
+          print(next_step_index)
+          if next_step_index.shape[0] > 1:
+              next_step_index = int(np.random.choice(next_step_index, size = 1))
+          else:
+              next_step_index = int(next_step_index)
+          steps.append(next_step_index)
+
+          prev_state = current_state
+          current_state = action
+        print("\nDisplaying Agent training on target " + str(target))
+        print("Most efficient path:")
+        print(steps)
+        points = self.gs.targetUtility
+        steps = steps[:-1]
+        for s in steps:
+          #observer_guess = observer.guess(s, target)
+          observer_guess = observer.update_belief(s)
+          observer_guess = observer.belief_guess()
+          #print(observer_guess, target)
+          if observer_guess == target:
+            points -= self.gs.guessReward
+        print("agent score", points)
+        print("observer score", self.gs.targetUtility - points)
+        self.path_dict.update({target: steps})
+        plt.plot(self.scores_dict[target])
+        plt.show()
+      return self

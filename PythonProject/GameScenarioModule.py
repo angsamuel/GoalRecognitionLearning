@@ -5,6 +5,10 @@ import networkx as nx
 from AgentModule import Agent
 from ObserverModule import Observer
 
+#Sonia Riales, assign ticket, Eduction-Red
+#ask what she was trying to print
+#Sonia Mireles, Storch, 223, Transcript
+
 class GameScenario:
 
     def __init__(self, newEdges, newTargets, probDist, shadowNodes, shadowGroups, newNodesNum, startState, guessReward):
@@ -44,7 +48,6 @@ class GameScenario:
     def train_observer(self, games, agent):
       new_observer = Observer(self)
       new_observer.train_observer(games, agent)
-      new_observer.wowee()
       return new_observer
 
 #pomdp
