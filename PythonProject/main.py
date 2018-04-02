@@ -11,7 +11,7 @@ from CompetitionModule import Competition
 from ConvertFromShadowModule import shadowToVisible
 
 #os.system("glpsol --cpxlp ")
-case = 0
+case = 3
 if case == 0:
 	edges = [(0,1),(0,2),(1,4),(2,6),(3,7),(4,5),(5,6),(6,13),(13,14),(7,15),(5,11),(10,11),(11,12),(12,13),
 	(11,16),(12,17),(10,8),(8,9),(16,20),(17,20),(20,23),(15,23),(16,19),(19,9),(9,18),(18,21),(19,21),(19,22),
@@ -25,8 +25,8 @@ if case == 0:
 	gs.showGraph()
 
 	new_agent = gs.train_agent(2000)
-	#new_observer = gs.train_observer(50, new_agent)
-	#new_agent.train_agent_against_observer(3000, new_observer)
+	new_observer = gs.train_observer(500, new_agent)
+	new_agent.train_agent_against_observer(3000, new_observer)
 
 	
 	lph = LPHandler(gs)
@@ -57,7 +57,31 @@ if case == 2:
 	startState = 0, guessReward = 1)
 	gs.showGraph()
 	shadowToVisible(edges, shadowNodes,shadowGroups, 90)
+if case == 3:
+	edges = [(0,6),(0,17),(0,16),(6,7),(7,8),(8,2),(2,9),(9,10),(10,11),(11,12),(12,13),(13,4),(17,18),(18,19),
+	(19,20),(19,23),(20,21),(21,1),(21,22),(22,23),(23,29),(17,24),(24,25),(25,29),(29,28),(28,27),(27,26),(27,5),
+	(16,15),(15,14),(14,4),(28,31),(31,4),(22,30),(30,2),(11,3),(22,32),(32,1),(28,33),(33,5),(10,34),(34,3),(13,35),(35,3)]
+	targets = [1,2,3,4,5]
+	pDist = [.2,.2,.2,.2]
+	shadowNodes = []
+	shadowGroups = [shadowNodes]
+	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = shadowNodes, shadowGroups = shadowGroups, newNodesNum = 36,
+	startState = 0, guessReward = 1)
+	gs.showGraph()
+	new_agent = gs.train_agent(2000)
+	
 
+	new_observer = gs.train_observer(50, new_agent)
+	new_agent.train_agent_against_observer(3000, new_observer)
+
+	lph = LPHandler(gs)
+	#lph.WriteLP("withShadow.lp", withShadow = True, withMemory = True)
+	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
+	strat_dict = lph.get_defender_strat_dict("output.out")
+	new_agent.train_agent_LP(2000, strat_dict)
+	
+	#new_observer = gs.train_observer(50, new_agent)
+	#new_agent.train_agent_against_observer(3000, new_observer)
 
 #partially observable mdp
 #fi(s) now uses the same s for all states belonging to non observable portion of the graph

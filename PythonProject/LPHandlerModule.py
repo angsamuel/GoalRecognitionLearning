@@ -109,7 +109,7 @@ class LPHandler:
 					file.write(bfRow + "\n")
 		for i in range(0, self.gs.nodesNum):
 			for t in self.gs.targets:
-				vFree = self.makeTerm("F", i, t) + " free" 
+				vFree = self.makeTerm("V", i, t) + " free" 
 			file.write(vFree + "\n")
 		file.write("end")
 		file.close()
