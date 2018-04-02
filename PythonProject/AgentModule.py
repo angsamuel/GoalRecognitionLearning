@@ -39,8 +39,6 @@ class Agent:
         next_step_index = int(next_step_index)
       self.state = next_step_index
 
-
-
     def update(self, current_state, action, target):
       max_index = np.where(self.q_table_dict[target][action,] == np.max(self.q_table_dict[target][action,]))[1]
       if max_index.shape[0] > 1:
@@ -240,6 +238,7 @@ class Agent:
 
         steps = [current_state]
         q_table = self.q_table_dict[target]
+
         while current_state != target:
             #print(current_state)
             #print(target)
@@ -266,15 +265,117 @@ class Agent:
         plt.plot(self.scores_dict[target])
         plt.show()
 
+      #calculate final observer score
+      samples = 1000
+      final_scores = []
 
-        # Testing
-        
-      
+      for i in range(0, samples):
+        observer.reset_belief()
+
+
+        target = self.gs.targets[np.random.randint(len(self.gs.targets))]
+        self.refresh_R_table(target, self.gs.targetUtility)
+
+        current_state = self.gs.startState
+        prev_state = current_state
+        steps = [current_state]
+        q_table = self.q_table_dict[target]
+        agent_points = self.gs.targetUtility
+        while current_state != target:
+          #print(current_state)
+          #print(target)
+          next_step_index = self.gimme_move(q_table, prev_state, current_state)
+
+          #self.update(current_state,next_step_index,target)
+          steps.append(next_step_index)
+          
+          #observer work
+          observer.update_belief(current_state)
+          observer_guess = observer.belief_guess()
+
+          score = self.update(current_state,next_step_index, target)
+          if observer_guess == target and current_state != self.gs.startState:
+              self.apply_guess_penalty(prev_state, current_state, target)
+              agent_points -= self.gs.guessReward
+
+          self.scores_dict[target].append(score)
+
+          observer.observe_action(current_state, target)
+          prev_state = current_state
+          current_state = next_step_index
+        final_scores.append(agent_points)
+      print("FINAL AVERAGE: ", self.gs.targetUtility - (sum(final_scores) / float(len(final_scores))))   
+
+    def train_agent_LP(self, episodes, lp_dict):
+        #self.generateQTables(self.gs.nodesNum, .8, self.gs.targets)
+        #self.reset_guess_table()
+        for target in self.gs.targets:
+          self.refresh_R_table(target,self.gs.targetUtility)
+
+          possible_action = self.get_possible_actions(self.gs.startState)
+          action = self.preview_next_action(possible_action)
+
+          self.update(self.gs.startState, action, target)
+          scores = []
+          #place agent in a random location, make a move, record results
+          for i in range(episodes):
+            current_state = np.random.randint(0, int(self.q_table_dict[target].shape[0]))
+            possible_action = self.get_possible_actions(current_state)
+            action = self.preview_next_action(possible_action)
+
+            #lp guessing
+            observer_guess = 0
+            best_guess_value = 0
+            for t in self.gs.targets:
+              if lp_dict[(action, t)] > best_guess_value:
+                best_guess_value = lp_dict[(current_state, t)]
+                observer_guess = t
+
+            score = self.update(current_state,action, target)
+            if observer_guess == target and current_state != self.gs.startState:
+                self.apply_guess_penalty(current_state, action, target)
+                #agent_points -= self.gs.guessReward
+
+            scores.append(score)
+            #print ('Score:', str(score))
+          #print("Game Matrix")
+          #print(self.R)
+          #print("Final Trained Q Table:")
+          #print(self.q_table_dict[target]/np.max(self.q_table_dict[target])*100)
+
+          # Testing
+          current_state = self.gs.startState
+          prev_state = current_state
+          prev_state = current_state
+          steps = [current_state]
+          q_table = self.q_table_dict[target]
+          agent_score_lp = self.gs.targetUtility
+          while current_state != target:
+              #print(current_state)
+              #print(target)
+              next_step_index = self.gimme_move(q_table, prev_state, current_state)
+              steps.append(next_step_index)
+
+              observer_guess = 0
+              best_guess_value = 0
+
+              for t in self.gs.targets:
+                if lp_dict[(current_state, t)] > best_guess_value:
+                  best_guess_value = lp_dict[(current_state, t)]
+                  observer_guess = t
+
+              if observer_guess == target:
+                agent_score_lp -= self.gs.guessReward
 
 
 
-
-        # Testing
-        
-      
+              prev_state = current_state
+              current_state = next_step_index
+          print("Most efficient path:")
+          print(steps)
+          print("observer score ", self.gs.targetUtility - agent_score_lp)
+          self.path_dict.update({target: steps})
+          plt.plot(scores)
+          plt.show()
+        return self
 

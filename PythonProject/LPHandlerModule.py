@@ -2,6 +2,19 @@ class LPHandler:
 	def __init__(self, gameScenario):
 		self.gs = gameScenario
 
+	def get_defender_strat_dict(self, fileName):
+		lines = []
+		strat_dict = dict()
+		with open(fileName) as f:
+			for line in f:
+				if "F(" in line:
+					strat = line[25 : 42].translate(None, ' ')
+					f_guts = line.split("F(")[1].split(")")[0] .split(",")
+					location = int(f_guts[0])
+					guess = int(f_guts[1])
+					strat_dict.update({(location,guess): strat})
+		return strat_dict
+
 	def WriteLP(self, filePath, withShadow, withMemory):
 		file = open(filePath, "w")
 		file.write("maximize\n")
@@ -83,6 +96,7 @@ class LPHandler:
 		for i in range(0, self.gs.nodesNum):
 			for t in self.gs.targets:
 				shadowGroupIndex = self.getShadowGroupIndex(i)
+				bfRow = ""
 				if withMemory and shadowGroupIndex > -1:
 					for m in range(0, len(self.gs.shadowGroups[shadowGroupIndex])):
 						bfRow = self.makeTerm("F",str("S" + str(shadowGroupIndex) + "T" + str(m)),t) + " >= 0"
@@ -91,8 +105,8 @@ class LPHandler:
 					bfRow = self.makeTerm("F",str("S" + str(shadowGroupIndex)),t) + " >= 0" #"#"F(" + str("S" + str(shadowGroupIndex)) + "," + str(t) + ") >= 0" 	
 				else:
 					bfRow = self.makeTerm("F", i,t) + " >= 0" 
-			if not withMemory:		
-				file.write(bfRow + "\n")
+				if not withMemory:	
+					file.write(bfRow + "\n")
 		for i in range(0, self.gs.nodesNum):
 			for t in self.gs.targets:
 				vFree = self.makeTerm("F", i, t) + " free" 

@@ -9,7 +9,14 @@ class Observer:
   def __init__(self, gameScenario):
     self.gs = gameScenario
     self.belief = gameScenario.probDist
+    self.scores_dict = dict()
+    for t in self.gs.targets:
+      self.scores_dict.update({t: []})
     #print(self.belief)
+
+  def reset_score_dict(self):
+    for t in self.gs.targets:
+        self.scores_dict.update({t: []})
 
   def generateQTable(self, newGamma):
     self.gamma = newGamma
@@ -61,10 +68,12 @@ class Observer:
     #print(self.belief)
     max_belief = 0
     max_belief_index = 0
+    max_belief_indexes = []
     for b in range(0, len(self.belief)):
       if self.belief[b] > max_belief: 
         max_belief = self.belief[b]
         max_belief_index = b
+
     return self.gs.targets[max_belief_index]
 
 
@@ -91,12 +100,49 @@ class Observer:
     self.generateQTable(.8)
     scores = []
     for i in range(0,games):
+      self.reset_belief()
       target_index = random.randint(0,len(self.gs.targets)-1)
+      target = self.gs.targets[target_index]
       agent_path = agent.path_dict[self.gs.targets[target_index]]
       gameScore = 0
+
+      for si in range(0,len(agent_path) -1):
+        s = agent_path[si]
+        self.update_belief(s)
+        observer_guess = self.belief_guess()
+        if observer_guess == target:
+          gameScore += self.gs.guessReward
+
+      self.scores_dict[target].append(gameScore)
+
       for s in agent_path:
         self.q_table[s][target_index] += 1
         #guess = self.maxIndex(self.q_table[s])
+
+    #testing
+    #scores for each target
+    min_length = games
+    for t in self.gs.targets:
+      if len(self.scores_dict[t]) < min_length:
+        min_length = len(self.scores_dict[t])
+      plt.plot(self.scores_dict[t])
+      plt.show()
+
+    averaged_scores = []
+    for i in range(0, min_length):
+      average_score = 0.0
+      for t in self.gs.targets:
+        average_score += self.scores_dict[t][i]
+      average_score = average_score / len(self.gs.targets)
+      averaged_scores.append(average_score)
+    plt.plot(averaged_scores)
+    plt.show()
+
+
+    
+
+
+
 
   def observe_action(self, location, target):
     target_index = 0
