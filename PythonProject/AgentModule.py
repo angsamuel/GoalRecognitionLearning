@@ -160,6 +160,8 @@ class Agent:
             steps.append(next_step_index)
             prev_state = current_state
             current_state = next_step_index
+        print "\n"
+        print("Agent Summary For Target: " + str(target) )
         print("Most efficient path:")
         print(steps)
         self.path_dict.update({target: steps})
@@ -243,7 +245,8 @@ class Agent:
             observer.observe_action(current_state, target)
             prev_state = current_state
             current_state = next_step_index
-        print("RESULTS FOR TARGET", target)
+        print "\n"
+        print("Agent Summary (vs Belief Update) For Target: " + str(target))
         print("Most efficient path:")
         print(steps)
         print("agent score", agent_points)
@@ -291,11 +294,15 @@ class Agent:
           prev_state = current_state
           current_state = next_step_index
         final_scores.append(agent_points)
-      print("FINAL AVERAGE: ", self.gs.targetUtility - (sum(final_scores) / float(len(final_scores))))   
+      print "\n"
+      print("Belief Update Average Score for Observer: " , self.gs.targetUtility - (sum(final_scores) / float(len(final_scores))))   
+      plt.plot(final_scores)
+      plt.show()
 
     def train_agent_LP(self, episodes, lp_dict):
         #self.generateQTables(self.gs.nodesNum, .8, self.gs.targets)
         #self.reset_guess_table()
+        final_lp_scores = []
         for target in self.gs.targets:
           self.refresh_R_table(target,self.gs.targetUtility)
 
@@ -326,6 +333,7 @@ class Agent:
             scores.append(score)
 
           # Testing
+          
           current_state = self.gs.startState
           prev_state = current_state
           prev_state = current_state
@@ -350,13 +358,16 @@ class Agent:
 
               prev_state = current_state
               current_state = next_step_index
-          print("\n")
-          print(target)
+          print "\n"
+          print("Agent Summary Against Stationary Observer: " + str(target))
           print("Most efficient path:")
           print(steps)
           print("observer score ", self.gs.targetUtility - agent_score_lp)
+          final_lp_scores.append(self.gs.targetUtility - agent_score_lp + 0.0)
           self.path_dict.update({target: steps})
           plt.plot(scores)
           plt.show()
+        print(final_lp_scores)
+        print("Observer Stationary Strategy Outcome: " + str(sum(final_lp_scores)/len(final_lp_scores)))
         return self
 

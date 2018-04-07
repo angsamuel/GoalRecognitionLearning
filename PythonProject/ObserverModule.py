@@ -125,6 +125,8 @@ class Observer:
     for t in self.gs.targets:
       if len(self.scores_dict[t]) < min_length:
         min_length = len(self.scores_dict[t])
+      print "\n"
+      print("Observer score history for target: " + str(t))
       plt.plot(self.scores_dict[t])
       plt.show()
 
@@ -135,14 +137,10 @@ class Observer:
         average_score += self.scores_dict[t][i]
       average_score = average_score / len(self.gs.targets)
       averaged_scores.append(average_score)
+    print "\n"
+    print("Observer average score history for target: " + str(t))
     plt.plot(averaged_scores)
     plt.show()
-
-
-    
-
-
-
 
   def observe_action(self, location, target):
     target_index = 0
