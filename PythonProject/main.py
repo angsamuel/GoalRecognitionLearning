@@ -11,7 +11,7 @@ from CompetitionModule import Competition
 from ConvertFromShadowModule import shadowToVisible
 
 #os.system("glpsol --cpxlp ")
-case = 4
+case = 5
 if case == 0:
 	edges = [(0,1),(0,2),(1,4),(2,6),(3,7),(4,5),(5,6),(6,13),(13,14),(7,15),(5,11),(10,11),(11,12),(12,13),
 	(11,16),(12,17),(10,8),(8,9),(16,20),(17,20),(20,23),(15,23),(16,19),(19,9),(9,18),(18,21),(19,21),(19,22),
@@ -118,15 +118,10 @@ if case == 4:
 	new_agent.train_agent_LP(2000, strat_dict)
 	#new_observer = gs.train_observer(50, new_agent)
 	#new_agent.train_agent_against_observer(3000, new_observer)
+if case == 5:
+	print("start")
+	edges = [(0,1),(1,2),(2,3),(3,5),(5,4),(2,4),(5,6),(4,7),(0,8),(8,10),(10,9),(9,12),(12,13),(10,13),(12,11),(13,14)]
+	shadowNodes = [9,10,12,13,2,3,4,5]
+	shadowGroups = [(9,10,13,12),(2,3,4,5)]
+	print(shadowToVisible(edges,shadowNodes, shadowGroups, 15))
 
-#partially observable mdp
-#fi(s) now uses the same s for all states belonging to non observable portion of the graph
-#keep track of how many steps since we saw attacker
-#multi agent reinforcement learning
-
-#modify linear program
-#finish observer q-learning
-#look into different types of agents
-#discrete non-observable graph
-#multi agent reinforcement learning stochastic games 
-#multi agent reinforcement learning check google scholar8;;pklljkl;wawsedr

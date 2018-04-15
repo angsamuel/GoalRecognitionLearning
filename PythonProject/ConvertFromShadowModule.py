@@ -1,7 +1,8 @@
 def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
+	print('Call')
 	mem_graph = {}
 	shadow_edge_groups = []
-	shadow_enterence_groups = []
+	shadow_enter_groups = []
 	memNode = 100
 	newEdges = []
 	for i in range(0, len(shadowGroups)):
@@ -21,14 +22,14 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 			else:
 				entryNode = e[1]
 				shadowNode = e[0]
-			newEdges.append((entryNode,memNode))
+			#newEdges.append((entryNode,memNode))
 			for m in range(0, len(shadowGroups)):
-				if shadowNode in shadowNodes[m]:
+				if shadowNode in shadowGroups[m]:
 					shadow_edge_groups[m].append(e)
-					shadow_enter_groups.append(entryNode)
+					shadow_enter_groups[m].append(entryNode)
 		elif (e[0] in shadowNodes and e[1] in shadowNodes): #adding edge to shadow edge_groups
 			for m in range(0, len(shadowGroups)):
-				if e[0] in shadowNodes[m]:
+				if e[0] in shadowGroups[m]:
 					shadow_edge_groups[m].append(e)
 
 	for s in range(0, len(shadowGroups)):
@@ -47,9 +48,31 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 			mem_graph.update({n: connections})
 
 		#add all connections for each shadow entrance node
-		for n in shadow_enter_groups[s]
+		#print(shadow_enter_groups)
+
+		for n in shadow_enter_groups[s]:
+			#print("node" + str(n))
 			connections = []
-			for e in shadow_edge_groups:
+			for eg in shadow_edge_groups:
+				for e in eg:
+					#print("edge: " + str(e))
+					connection = -1
+					if e[0] == n:
+						connection = e[1]
+					elif e[1] == n:
+						connection = e[0]
+
+					if connection != -1:
+						print("adding connection")
+						connections.append(connection)
+			mem_graph.update({n: connections})
+
+	for n in shadowNodes:
+		#print("node" + str(n))
+		connections = []
+		for eg in shadow_edge_groups:
+			for e in eg:
+				#print("edge: " + str(e))
 				connection = -1
 				if e[0] == n:
 					connection = e[1]
@@ -57,22 +80,33 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 					connection = e[0]
 
 				if connection != -1:
+					print("adding connection")
 					connections.append(connection)
-				mem_graph.update({n: connections})
+		mem_graph.update({n: connections})
 
 	#for each mem, find shortest path, add that many mem nodes
+	print(mem_graph)
+
+
 	for s in range(0, len(shadow_enter_groups)):
 		ranges = []
 		prim_node = shadow_enter_groups[s][0]
+		newEdges.append( (((100 * (s+1)) + 1), prim_node) )
 		for t in range(1, len(shadow_enter_groups[s])):
-			ran = find_shortest_path(mem_graph, prim_node, shadow_enter_groups[s][t])
+			ran = len(find_shortest_path(mem_graph, prim_node, shadow_enter_groups[s][t]))
 			ranges.append(ran - 2)
 		num_mem_nodes = (max(ranges) - 2)
 		prev_node = prim_node
-		for x in range(0, num_mem_nodes):
+		for x in range(1, num_mem_nodes + 1):
 			newEdges.append((prev_node, (100 * (s + 1)) + x))
 		for r in range(0,len(ranges)):
 			newEdges.append( ((100*(s+1)) + ranges[r], shadow_enter_groups[s][r+1]))
+		#connect mem_nodes
+		for m in range(1,num_mem_nodes + 2):
+			newEdges.append( (((100*(s+1)) + m),((100*(s+1)) + m + 1)) )
+
+
+	return newEdges
 
 
 
