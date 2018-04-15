@@ -1,4 +1,12 @@
 def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
+
+	reversedEdges = []
+
+	for i in range(0, len(edges)):
+		reversedEdges.append( tuple(reversed(edges[i])))
+	edges.extend(reversedEdges)
+	edges = list(set(edges))
+
 	print('Call')
 	mem_graph = {}
 	shadow_edge_groups = []
@@ -27,10 +35,12 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 				if shadowNode in shadowGroups[m]:
 					shadow_edge_groups[m].append(e)
 					shadow_enter_groups[m].append(entryNode)
+					shadow_enter_groups[m] = list(set(shadow_enter_groups[m]))
 		elif (e[0] in shadowNodes and e[1] in shadowNodes): #adding edge to shadow edge_groups
 			for m in range(0, len(shadowGroups)):
 				if e[0] in shadowGroups[m]:
 					shadow_edge_groups[m].append(e)
+
 
 	for s in range(0, len(shadowGroups)):
 		#add all connections for each shadow node
@@ -106,7 +116,7 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 			newEdges.append( (((100*(s+1)) + m),((100*(s+1)) + m + 1)) )
 
 
-	return newEdges
+	return list(set(newEdges))
 
 
 

@@ -16,6 +16,7 @@ class GameScenario:
       for i in range(0, len(newEdges)):
         reversedEdges.append( tuple(reversed(newEdges[i])))
       newEdges.extend(reversedEdges)
+      newEdges = list(set(newEdges))
       self.edges = newEdges
       self.shadowNodes = shadowNodes
       self.shadowGroups = shadowGroups
