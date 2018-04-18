@@ -159,8 +159,24 @@ if case == 7:
 
 	lph = LPHandler(gs)
 	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = False)
-	#lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
+	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
+
+	edges = shadowToVisible(edges,shadowNodes,shadowGroups,9)
+	shadowNodes = []
+	shadowGroups = []
+	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = shadowNodes, shadowGroups = shadowGroups, newNodesNum = 9,
+	startState = 0, guessReward = 1)
+	gs.showGraph()
+	lph.WriteLP("zmem.lp", withShadow = False, withMemory = False)
+
+	
+
+
 	#optimal no shadow - 2.8
+
+	#3.75 no shadow
+	#3.25 fat method
+	#
 
 
 
