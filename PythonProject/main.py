@@ -143,9 +143,9 @@ if case == 6:
 	#new_observer = gs.train_observer(50, new_agent)
 	#new_agent.train_agent_against_observer(3000, new_observer)
 	lph = LPHandler(gs)
-	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = False)
+	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = True)
 	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
-if case == 7:
+if case == 7: #simple example
 	print "case 7"
 	edges = [(0,6),(6,5),(5,4),(4,3),(3,1),(6,7),(7,8),(8,2)]
 	targets = [1,2]
@@ -158,8 +158,8 @@ if case == 7:
 	gs.showGraph()
 
 	lph = LPHandler(gs)
-	lph.WriteLP("withShadow.lp", withShadow = True, withMemory = False)
-	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
+	lph.WriteLP("zwithShadow.lp", withShadow = True, withMemory = True)
+	lph.WriteLP("znoShadow.lp", withShadow = False, withMemory = False)
 
 	edges = shadowToVisible(edges,shadowNodes,shadowGroups,9)
 	shadowNodes = []
@@ -185,7 +185,7 @@ if case == 8:
 	lph = LPHandler(gs)
 	#lph.WriteLP("withShadow.lp", withShadow = True, withMemory = True)
 	lph.WriteLP("znoShadow.lp", withShadow = False, withMemory = False)
-	lph.WriteLP("zwithShadow.lp", withShadow = True, withMemory = False)
+	lph.WriteLP("zwithShadow.lp", withShadow = True, withMemory = True)
 
 
 	edges = shadowToVisible(edges, shadowNodes, shadowGroups, 29)
