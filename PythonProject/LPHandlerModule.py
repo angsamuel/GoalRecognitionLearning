@@ -30,6 +30,7 @@ class LPHandler:
 		for e in self.gs.edges:
 			for t in self.gs.targets:
 				shadowGroupIndex = self.getShadowGroupIndex(e[0])
+				#print str(e[0]) + " " 
 				if withMemory and shadowGroupIndex > -1:
 					for i in range(0, len(self.gs.shadowGroups[shadowGroupIndex])):
 						row = ""
