@@ -49,7 +49,8 @@ class LPHandler:
 									row += str(self.gs.guessReward)
 								else:
 									row += "0"
-								row += self.makeTerm("F","S" + str(shadowGroupIndex) + "T" + str(i), gt) 
+								#row += self.makeTerm("F","S" + str(shadowGroupIndex) + "T" + str(i), gt) 
+								row += self.makeTerm("F","S" + str(shadowGroupIndex), gt)
 							row += " - " + self.makeTerm("V", e[1], t) + " <= 0" 
 						else:
 							row = self.makeTerm("V", t, t) + " = 0"
@@ -82,7 +83,7 @@ class LPHandler:
 					conRow = ""
 					for j in range(0, len(self.gs.targets)):
 						if shadowGroupIndex > -1 and withShadow:
-							conRow += self.makeTerm("F",str("S" + str(shadowGroupIndex)) + "T" + str(m), self.gs.targets[j])
+							conRow += self.makeTerm("F",str("S" + str(shadowGroupIndex)), self.gs.targets[j])
 						else:
 							conRow += self.makeTerm("F",i,self.gs.targets[j]) 
 						if j != len(self.gs.targets) - 1:
