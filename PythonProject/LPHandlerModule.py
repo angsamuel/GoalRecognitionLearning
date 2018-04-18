@@ -1,6 +1,12 @@
 class LPHandler:
 	def __init__(self, gameScenario):
 		self.gs = gameScenario
+		self.terms = []
+		self.nodes = []
+		for e in self.gs.edges:
+			self.nodes.append(e[0])
+			self.nodes.append(e[1])
+		self.nodes = list(set(self.nodes))
 
 	def get_defender_strat_dict(self, fileName):
 		lines = []
@@ -68,55 +74,75 @@ class LPHandler:
 						row = self.makeTerm("V", t, t) + " = 0" 
 	 				file.write(row + "\n")
  		#write f constraints
-		for i in range(0, self.gs.nodesNum):
+		# for i in range(0, self.gs.nodesNum):
+		# 	conRow = ""
+		# 	shadowGroupIndex = self.getShadowGroupIndex(i)
+			# if shadowGroupIndex > -1 and withMemory:
+			# 	for m in range(0, len(self.gs.shadowGroups[shadowGroupIndex])):
+			# 		conRow = ""
+			# 		for j in range(0, len(self.gs.targets)):
+			# 			if shadowGroupIndex > -1 and withShadow:
+			# 				conRow += self.makeTerm("F",str("S" + str(shadowGroupIndex)) + "T" + str(m), self.gs.targets[j])
+			# 			else:
+			# 				conRow += self.makeTerm("F",i,self.gs.targets[j]) 
+			# 			if j != len(self.gs.targets) - 1:
+			# 				conRow += " + "
+			# 		conRow += " = 1"	
+			# 		file.write(conRow + "\n")
+			# else:
+		for n in self.nodes:
 			conRow = ""
-			shadowGroupIndex = self.getShadowGroupIndex(i)
-			if shadowGroupIndex > -1 and withMemory:
-				for m in range(0, len(self.gs.shadowGroups[shadowGroupIndex])):
-					conRow = ""
-					for j in range(0, len(self.gs.targets)):
-						if shadowGroupIndex > -1 and withShadow:
-							conRow += self.makeTerm("F",str("S" + str(shadowGroupIndex)) + "T" + str(m), self.gs.targets[j])
-						else:
-							conRow += self.makeTerm("F",i,self.gs.targets[j]) 
-						if j != len(self.gs.targets) - 1:
-							conRow += " + "
-					conRow += " = 1"	
-					file.write(conRow + "\n")
-			else:
-				for j in range(0, len(self.gs.targets)):
-					if shadowGroupIndex > -1 and withShadow:
-						conRow += self.makeTerm("F",str("S" + str(shadowGroupIndex)), self.gs.targets[j])
-					else:
-						conRow += self.makeTerm("F",i,self.gs.targets[j]) 
-					if j != len(self.gs.targets) - 1:
-						conRow += " + "
-				conRow += " = 1"
-				file.write(conRow + "\n")
-		file.write("bounds\n")
-		for i in range(0, self.gs.nodesNum):
-			for t in self.gs.targets:
-				shadowGroupIndex = self.getShadowGroupIndex(i)
-				bfRow = ""
-				if withMemory and shadowGroupIndex > -1:
-					for m in range(0, len(self.gs.shadowGroups[shadowGroupIndex])):
-						bfRow = self.makeTerm("F",str("S" + str(shadowGroupIndex) + "T" + str(m)),t) + " >= 0"
-						file.write(bfRow + "\n")
-				elif shadowGroupIndex > -1 and withShadow:
-					bfRow = self.makeTerm("F",str("S" + str(shadowGroupIndex)),t) + " >= 0" #"#"F(" + str("S" + str(shadowGroupIndex)) + "," + str(t) + ") >= 0" 	
+			for t in range(0,len(self.gs.targets)):
+				conRow += self.makeTerm("F", n, self.gs.targets[t])
+				if t != len(self.gs.targets) - 1:
+					conRow += " + "
 				else:
-					bfRow = self.makeTerm("F", i,t) + " >= 0" 
-				if not withMemory:	
-					file.write(bfRow + "\n")
-		for i in range(0, self.gs.nodesNum):
-			for t in self.gs.targets:
-				vFree = self.makeTerm("V", i, t) + " free" 
-			file.write(vFree + "\n")
-		file.write("end")
-		file.close()
+					conRow += " = 1 "
+			file.write(conRow + "\n")
+
+
+
+				# 	if shadowGroupIndex > -1 and withShadow:
+				# 		conRow += self.makeTerm("F",str("S" + str(shadowGroupIndex)), self.gs.targets[j])
+				# 	else:
+				# 		conRow += self.makeTerm("F",i,self.gs.targets[j]) 
+				# 	if j != len(self.gs.targets) - 1:
+				# 		conRow += " + "
+				# conRow += " = 1"
+				# file.write(conRow + "\n")
+		file.write("bounds\n")
+		self.terms = list(set(self.terms))
+		for t in self.terms:
+			if "F" in t:
+				file.write(t + " " + " >= 0"  + "\n")
+			elif "V" in t:
+				file.write(t + " " + " free " + "\n")
+
+		# for i in range(0, self.gs.nodesNum):
+		# 	for t in self.gs.targets:
+		# 		shadowGroupIndex = self.getShadowGroupIndex(i)
+		# 		bfRow = ""
+		# 		if withMemory and shadowGroupIndex > -1:
+		# 			for m in range(0, len(self.gs.shadowGroups[shadowGroupIndex])):
+		# 				bfRow = self.makeTerm("F",str("S" + str(shadowGroupIndex) + "T" + str(m)),t) + " >= 0"
+		# 				file.write(bfRow + "\n")
+		# 		elif shadowGroupIndex > -1 and withShadow:
+		# 			bfRow = self.makeTerm("F",str("S" + str(shadowGroupIndex)),t) + " >= 0" #"#"F(" + str("S" + str(shadowGroupIndex)) + "," + str(t) + ") >= 0" 	
+		# 		else:
+		# 			bfRow = self.makeTerm("F", i,t) + " >= 0" 
+		# 		if not withMemory:	
+		# 			file.write(bfRow + "\n")
+		# for i in range(0, self.gs.nodesNum):
+		# 	for t in self.gs.targets:
+		# 		vFree = self.makeTerm("V", i, t) + " free" 
+		# 	file.write(vFree + "\n")
+		# file.write("end")
+		# file.close()
 
 	def makeTerm(self, letter, first, second):
-		return letter + "(" + str(first) + "," + str(second) + ")"
+		new_term = letter + "(" + str(first) + "," + str(second) + ")"
+		self.terms.append(new_term)
+		return new_term
 
 	def getShadowGroupIndex(self, node):
 		shadowGroupIndex = -1

@@ -118,7 +118,6 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 			shadow_enter_groups[s].remove(prim_node)
 			shadow_enter_groups[s].append(prim_node)
 
-
 	return list(set(newEdges))
 
 

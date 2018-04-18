@@ -1,0 +1,164 @@
+Problem:    
+Rows:       68
+Columns:    64
+Non-zeros:  184
+Status:     OPTIMAL
+Objective:  obj = 3.5 (MAXimum)
+
+   No.   Row name   St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 r.4          NS             0             0             =          0.25 
+     2 r.5          NU             0                           0         < eps
+     3 r.6          NU             0                           0         < eps
+     4 r.7          NU             0                           0         < eps
+     5 r.8          B              0                           0 
+     6 r.9          NS             0             0             =          0.75 
+     7 r.10         NU             0                           0         < eps
+     8 r.11         NU             0                           0         < eps
+     9 r.12         B             -2                           0 
+    10 r.13         B             -2                           0 
+    11 r.14         NU             0                           0         < eps
+    12 r.15         NU             0                           0         < eps
+    13 r.16         B              0                           0 
+    14 r.17         B             -1                           0 
+    15 r.18         B             -1                           0 
+    16 r.19         B             -4                           0 
+    17 r.20         B              0                           0 
+    18 r.21         B             -2                           0 
+    19 r.22         NU             0                           0         < eps
+    20 r.23         B             -2                           0 
+    21 r.24         B              0                           0 
+    22 r.25         B             -1                           0 
+    23 r.26         NU             0                           0          0.25 
+    24 r.27         NU             0                           0          0.75 
+    25 r.28         NU             0                           0          0.25 
+    26 r.29         NU             0                           0         < eps
+    27 r.30         NU             0                           0         < eps
+    28 r.31         NU             0                           0          0.75 
+    29 r.32         B              0                           0 
+    30 r.33         B             -2                           0 
+    31 r.34         NU             0                           0         < eps
+    32 r.35         NU             0                           0          0.75 
+    33 r.36         NU             0                           0          0.25 
+    34 r.37         NU             0                           0         < eps
+    35 r.38         NU             0                           0         < eps
+    36 r.39         B             -1                           0 
+    37 r.40         NU             0                           0         < eps
+    38 r.41         NU             0                           0         < eps
+    39 r.42         NU             0                           0          0.25 
+    40 r.43         NU             0                           0          0.75 
+    41 r.44         NU             0                           0          0.25 
+    42 r.45         NU             0                           0         < eps
+    43 r.46         B             -1                           0 
+    44 r.47         B             -1                           0 
+    45 r.48         B              0                           0 
+    46 r.49         B             -1                           0 
+    47 r.50         B             -2                           0 
+    48 r.51         B             -5                           0 
+    49 r.52         NU             0                           0         < eps
+    50 r.53         B              0                           0 
+    51 r.54         NU             0                           0         < eps
+    52 r.55         NU             0                           0         < eps
+    53 r.56         NS             1             1             =          0.75 
+    54 r.57         NS             1             1             =         < eps
+    55 r.58         NS             1             1             =         < eps
+    56 r.59         NS             1             1             =          0.25 
+    57 r.60         NS             1             1             =          0.75 
+    58 r.61         NS             1             1             =          0.75 
+    59 r.62         NS             1             1             =          0.75 
+    60 r.63         NS             1             1             =          0.25 
+    61 r.64         NS             1             1             =         < eps
+    62 r.65         NS             1             1             =         < eps
+    63 r.66         NS             1             1             =         < eps
+    64 r.67         NS             1             1             =         < eps
+    65 r.68         NS             1             1             =         < eps
+    66 r.69         NS             1             1             =         < eps
+    67 r.70         NS             1             1             =         < eps
+    68 r.71         NS             1             1             =         < eps
+
+   No. Column name  St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 V(0,1)       B              2                             
+     2 V(0,2)       B              4                             
+     3 V(1,1)       B              0                             
+     4 V(1,2)       B              1                             
+     5 F(1,1)       B              1             0               
+     6 F(1,2)       B              0             0               
+     7 V(3,2)       B              1                             
+     8 V(1302,1)    B              0                             
+     9 F(1302,1)    B              0             0               
+    10 F(1302,2)    B              1             0               
+    11 V(1303,1)    NF             0                                     < eps
+    12 V(1302,2)    B              1                             
+    13 V(1303,2)    B              0                             
+    14 V(2,1)       B              2                             
+    15 F(2,1)       NL             0             0                       < eps
+    16 F(2,2)       B              1             0               
+    17 V(8,1)       B              2                             
+    18 V(2,2)       B              0                             
+    19 V(3,1)       B              1                             
+    20 F(3,1)       B              1             0               
+    21 F(3,2)       NL             0             0                       -0.25 
+    22 V(1301,1)    B              0                             
+    23 V(1301,2)    B              1                             
+    24 V(1304,1)    NF             0                                     < eps
+    25 F(1304,1)    NL             0             0                       < eps
+    26 F(1304,2)    B              1             0               
+    27 V(1304,2)    NF             0                                     < eps
+    28 V(8,2)       B              1                             
+    29 F(8,1)       NL             0             0                       -0.75 
+    30 F(8,2)       B              1             0               
+    31 V(1202,1)    B              2                             
+    32 V(1202,2)    B              0                             
+    33 V(1201,1)    B              2                             
+    34 F(1201,1)    NL             0             0                       < eps
+    35 F(1201,2)    B              1             0               
+    36 V(1201,2)    NF             0                                     < eps
+    37 F(1202,1)    B              1             0               
+    38 F(1202,2)    B              0             0               
+    39 V(1204,1)    B              1                             
+    40 F(1204,1)    NL             0             0                       < eps
+    41 F(1204,2)    B              1             0               
+    42 V(1204,2)    NF             0                                     < eps
+    43 F(1303,1)    NL             0             0                       < eps
+    44 F(1303,2)    B              1             0               
+    45 F(0,1)       NL             0             0                        -0.5 
+    46 F(0,2)       B              1             0               
+    47 V(1101,1)    B              2                             
+    48 V(1101,2)    B              3                             
+    49 V(1103,1)    B              2                             
+    50 F(1103,1)    B              1             0               
+    51 F(1103,2)    NL             0             0                       -0.25 
+    52 V(1103,2)    B              1                             
+    53 V(1102,1)    B              2                             
+    54 F(1102,1)    NL             0             0                        -0.5 
+    55 F(1102,2)    B              1             0               
+    56 V(1102,2)    B              2                             
+    57 F(1101,1)    NL             0             0                        -0.5 
+    58 F(1101,2)    B              1             0               
+    59 V(1203,1)    B              1                             
+    60 F(1203,1)    B              0             0               
+    61 F(1203,2)    B              1             0               
+    62 V(1203,2)    NF             0                                     < eps
+    63 F(1301,1)    NL             0             0                       < eps
+    64 F(1301,2)    B              1             0               
+
+Karush-Kuhn-Tucker optimality conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.DE: max.abs.err = 0.00e+00 on column 0
+        max.rel.err = 0.00e+00 on column 0
+        High quality
+
+KKT.DB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output
