@@ -73,7 +73,7 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 						connection = e[0]
 
 					if connection != -1:
-						print("adding connection")
+						#print("adding connection")
 						connections.append(connection)
 			mem_graph.update({n: connections})
 
@@ -90,7 +90,7 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 					connection = e[0]
 
 				if connection != -1:
-					print("adding connection")
+					#print("adding connection")
 					connections.append(connection)
 		mem_graph.update({n: connections})
 
@@ -102,22 +102,30 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 		for p in range(0, len(shadow_enter_groups[s])):
 			ranges = []
 			prim_node = shadow_enter_groups[s][0]
+			print("foo")
 			newEdges.append( ((  (1000 * (s+1)) +  (100 * (p+1)) + 1), prim_node) )
+			print((prim_node,(  (1000 * (s+1)) +  (100 * (p+1)) + 1)) )
 			for t in range(1, len(shadow_enter_groups[s])):
 				ran = len(find_shortest_path(mem_graph, prim_node, shadow_enter_groups[s][t]))
 				ranges.append(ran - 2)
 			num_mem_nodes = (max(ranges) - 2)
 			prev_node = prim_node
+			print("break")
 			for x in range(1, num_mem_nodes + 1):
-				newEdges.append((prev_node, (1000 * (s+1)) + (100 * (p + 1)) + x))
+				print((prev_node, (1000 * (s+1)) + (100 * (p + 1)) + x))
+				#newEdges.append((prev_node, (1000 * (s+1)) + (100 * (p + 1)) + x))
 			for r in range(0,len(ranges)):
+				print("change")
 				newEdges.append( (  (1000 * (s+1)) + (100*(p+1)) + ranges[r], shadow_enter_groups[s][r+1]))
+				print( (  (1000 * (s+1)) + (100*(p+1)) + ranges[r], shadow_enter_groups[s][r+1]) )
 			#connect mem_nodes
 			for m in range(1,num_mem_nodes + 2):
+				print("golf")
 				newEdges.append( (  ( (1000*(s+1)) + (100*(p+1)) + m),( (1000 * (s+1)) + (100*(p+1)) + m + 1)) )
+				print((  ( (1000*(s+1)) + (100*(p+1)) + m),( (1000 * (s+1)) + (100*(p+1)) + m + 1)) )
 			shadow_enter_groups[s].remove(prim_node)
 			shadow_enter_groups[s].append(prim_node)
-
+		print(newEdges)
 	return list(set(newEdges))
 
 

@@ -169,6 +169,7 @@ if case == 7: #simple example
 	gs.showGraph()
 	lph = LPHandler(gs)
 	lph.WriteLP("zmem.lp", withShadow = False, withMemory = False)
+	os.system("python solvelp.py")
 if case == 8:
 	edges = [(0,1),(0,2),(1,4),(2,6),(3,7),(4,5),(5,6),(6,13),(13,14),(7,15),(5,11),(10,11),(11,12),(12,13),
 	(11,16),(12,17),(10,8),(8,9),(16,20),(17,20),(20,23),(15,23),(16,19),(19,9),(9,18),(18,21),(19,21),(19,22),
@@ -196,7 +197,7 @@ if case == 8:
 	lph = LPHandler(gs)
 
 	lph.WriteLP("zmem.lp", withShadow = False, withMemory = False)
-	
+	os.system("python solvelp.py")
 
 
 	#optimal no shadow - 2.8

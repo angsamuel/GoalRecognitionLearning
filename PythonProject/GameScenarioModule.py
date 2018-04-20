@@ -14,7 +14,7 @@ class GameScenario:
     def __init__(self, newEdges, newTargets, probDist, shadowNodes, shadowGroups, newNodesNum, startState, guessReward):
       reversedEdges = []
       for i in range(0, len(newEdges)):
-        if newEdges[i][0] < 1000 and newEdges[i][1] < 1000:
+        if newEdges[i][0] < 1000 or newEdges[i][1] < 1000:
           reversedEdges.append( tuple(reversed(newEdges[i])))
       newEdges.extend(reversedEdges)
       newEdges = list(set(newEdges))

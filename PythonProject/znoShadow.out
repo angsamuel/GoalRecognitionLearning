@@ -1,6 +1,6 @@
 Problem:    
 Rows:       41
-Columns:    44
+Columns:    38
 Non-zeros:  110
 Status:     OPTIMAL
 Objective:  obj = 3.75 (MAXimum)
@@ -87,14 +87,8 @@ Objective:  obj = 3.75 (MAXimum)
     34 F(4,2)       B              0             0               
     35 F(2,1)       NL             0             0                       < eps
     36 F(2,2)       B              1             0               
-    37 F(S0T2,1)    NL             0             0                       < eps
-    38 F(S0T0,1)    NL             0             0                       < eps
-    39 F(S0T3,2)    NL             0             0                       < eps
-    40 F(S0T1,1)    NL             0             0                       < eps
-    41 F(S0T2,2)    NL             0             0                       < eps
-    42 F(S0T0,2)    NL             0             0                       < eps
-    43 F(S0T3,1)    NL             0             0                       < eps
-    44 F(S0T1,2)    NL             0             0                       < eps
+    37 F(S0,2)      NL             0             0                       < eps
+    38 F(S0,1)      NL             0             0                       < eps
 
 Karush-Kuhn-Tucker optimality conditions:
 
