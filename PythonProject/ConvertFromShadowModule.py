@@ -103,8 +103,8 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 			ranges = []
 			prim_node = shadow_enter_groups[s][0]
 			print("foo")
-			newEdges.append( ((  (1000 * (s+1)) +  (100 * (p+1)) + 1), prim_node) )
-			print((prim_node,(  (1000 * (s+1)) +  (100 * (p+1)) + 1)) )
+			newEdges.append( ((prim_node,(  (1000 * (s+1)) +  (100 * (p+1)) + 1)) ))
+			print( (prim_node,(  (1000 * (s+1)) +  (100 * (p+1)) + 1)) )
 			for t in range(1, len(shadow_enter_groups[s])):
 				ran = len(find_shortest_path(mem_graph, prim_node, shadow_enter_groups[s][t]))
 				ranges.append(ran - 2)
