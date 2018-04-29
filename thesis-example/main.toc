@@ -1,0 +1,10 @@
+\select@language {english}
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Example chapter}{1}
+\contentsline {section}{\numberline {1.1}Examples of figures and tables}{1}
+\contentsline {section}{\numberline {1.2}Examples of math}{1}
+\contentsline {section}{\numberline {1.3}Examples of references}{3}
+\contentsline {chapter}{\numberline {2}Partially Observable Environments}{4}
+\contentsline {section}{\numberline {2.1}Introduction}{4}
+\contentsline {section}{\numberline {2.2}The Whale Method}{5}
+\contentsline {chapter}{\numberline {A}Example appendix}{7}

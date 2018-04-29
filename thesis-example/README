@@ -1,0 +1,31 @@
+---- Commands to generate PDF ----
+
+Old way:
+
+latex main
+bibtex main
+latex main
+latex main
+dvips -t letter -Pamz -Pcmz -Ppdf -j0 -G0 main -o main.pdf.ps
+ps2pdf main.pdf.ps main.pdf
+
+(You can then delete main.pdf.ps and main.dvi.)
+
+
+New way:
+
+pdflatex main
+bibtex main
+pdflatex main
+pdflatex main
+
+
+---- Other comments and information ----
+
+main.tex is, somewhat obviously, the "main" file.  Look for comments
+"FIX THIS" in all files to find places where you would put your
+own stuff.
+
+The signatures page should be checked against the most recent official
+version, in particular the prose at the bottom.
+
