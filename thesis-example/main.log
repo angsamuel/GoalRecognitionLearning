@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  29 APR 2018 16:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  29 APR 2018 19:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -386,30 +386,39 @@ Missing character: There is no œ in font cmr10!
 <images/shadow1.png, id=49, 740.366pt x 722.7pt>
 File: images/shadow1.png Graphic file (type png)
  <use images/shadow1.png>
-Package pdftex.def Info: images/shadow1.png used on input line 20.
-(pdftex.def)             Requested size: 185.09105pt x 180.67455pt.
+Package pdftex.def Info: images/shadow1.png used on input line 18.
+(pdftex.def)             Requested size: 111.05011pt x 108.40031pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [4
 
-]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
- [5 <./images/shadow1.png>]
+] <images/shadow2.png, id=54, 561.297pt x 758.032pt>
+File: images/shadow2.png Graphic file (type png)
 
-LaTeX Warning: Citation `Dijkstra80' undefined on input line 53.
+<use images/shadow2.png>
+Package pdftex.def Info: images/shadow2.png used on input line 35.
+(pdftex.def)             Requested size: 84.1909pt x 113.69989pt.
+ [5 <./images/shadow1.png> <./images/shadow2.png>]
+<images/shadow3.png, id=60, 740.366pt x 722.7pt>
+File: images/shadow3.png Graphic file (type png)
+ <use images/shadow3.png>
+Package pdftex.def Info: images/shadow3.png used on input line 47.
+(pdftex.def)             Requested size: 111.05011pt x 108.40031pt.
+
+[6 <./images/shadow3.png>]
+
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 85.
 
 
-LaTeX Warning: Citation `plop03-paper' undefined on input line 54.
+LaTeX Warning: Citation `plop03-paper' undefined on input line 86.
 
 )
 No file main.bbl.
-(./appendix1.tex [6]
+(./appendix1.tex [7]
 Appendix A.
-) [7
+) [8
 
 ] (./main.aux)
 
@@ -417,30 +426,29 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3376 strings out of 493014
- 45730 string characters out of 6133351
- 125096 words of memory out of 5000000
- 6834 multiletter control sequences out of 15000+600000
+ 3388 strings out of 493014
+ 45960 string characters out of 6133351
+ 125116 words of memory out of 5000000
+ 6844 multiletter control sequences out of 15000+600000
  10406 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,43p,757b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,43p,733b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (14 pages, 185670 bytes).
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (15 pages, 226598 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

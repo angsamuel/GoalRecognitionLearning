@@ -10,13 +10,12 @@
 %\includegraphics{universe}
 Until now, both the GTGR and GTGRD models have given the observer full knowledge of the adversary's state for the entirety of the game. In real-world environments, observers may not have perfect information regarding the states and actions of an adversary. 
 
-
 To accommodate for scenarios with incomplete information for the adversary, we introduce a partially observable variant of the GTGR scenario. In partially observable scenarios, the rules of the game remain largely unchanged, except for addition of “shadow states." The observer can not discern the current state of the adversary, while the adversary occupies a shadow state. When the adversary enters an observable portion of the graph, the observer will become aware of the adversary's position once more.
 
 \begin{figure}[h!]
 \begin{center}
 
-  \includegraphics[scale=.25]{shadow1}
+  \includegraphics[scale=.15]{shadow1}
   \end{center}
 
   \caption{A partially observable graph.}
@@ -28,20 +27,39 @@ We will examine two solutions to the partially observable model, both of which i
 
 \section{The Whale Method}
 
-The first method solving these partially observable environments will utilize disjoint sets of shadow states. We call these collections "shadow sets." We say that two shadow states belong to the same shadow set, if the adversary can travel between the two without entering an observable state.
+The first method of solving partially observable environments, which we will call the "Whale Method," will utilize disjoint sets of shadow states. We call these sets of shadow states "shadow sets." We say that two shadow states belong to the same shadow set, if the adversary can travel between the two without entering an observable state.
 
-In the example illustrated in Figure~\ref{fig:shadow1}, when the adversary moves to nodes 4, 5, or 7 (the three entrance points to the hidden portion of the graph) the observer will only know that the adversary has entered the state Z1. From the observer’s point of view, the adversary will remain in Z1 until the adversary moves to nodes, 3, 8, or S, (the three exit points from the hidden portion of the graph). When the adversary enters Z1, the observer knows what states the adversary could possibly occupy without directly observing them. With the fat solution, the observer takes the same action for every turn the adversary spends in a hidden portion of the graph. We can easily modify the linear program to accommodate the fat solution.
+\begin{figure}[h!]
+\begin{center}
+
+  \includegraphics[scale=.15]{shadow2}
+  \end{center}
+
+  \caption{A partially observable graph with two shadow sets.}
+  \label{fig:shadow2}
+\end{figure}
+
+The graph in Figure~\ref{fig:shadow2} has two disjoint shadow sets, one composed of states $2$ and $3$, the other composed of states $4$ and $5$. In using the Whale Method, the observer treats each shadow set a single state, which we will call a "whale state." We can identify the single shadow set in Figure~\ref{fig:shadow1}, composed of states $4$, $5$, $6$, and $7$. In using the Whale method, the observer treats each state in the shadow set as the same state. While the adversary may require several turns to travel among states $4$, $5$, $6$, and $7$, the adversary will act as if the has decided to remain stationary in the newly created state $W$ seen in Figure~\ref{fig:shadow3}
+
+\begin{figure}[h!]
+\begin{center}
+
+  \includegraphics[scale=.15]{shadow3}
+  \end{center}
+
+  \caption{A partially observable graph with a single state in place of shadow states.}
+  \label{fig:shadow3}
+\end{figure}
+
+We can add the following to the mixed integer program to accommodate for partially observable environments when using the Whale method.
+
 
 \begin{equation}
-max_{V, \{f_i(s)\}_{i,s}} \sum_{\theta} P(\theta)V(\theta, s_o) \tag{2}
+V(\theta, s) \leq \sum_{i \in B} r(s, i, j, \theta)f_{i}(s) + V(\theta, j) \forall\theta\in B,\forall s \mid s\neq \theta, s\not\in H, \forall j\in\nu(s) \tag{3}
 \end{equation}
 
 \begin{equation}
-V(\theta, s) \leq \sum_{i \in B} r(s, i, j, \theta)f_{i}(s) + V(\theta, j) \forall\theta\in B,\forall s \mid s\neq \theta, \forall j\in\nu(s) \tag{3}
-\end{equation}
-
-\begin{equation}
-V(\theta, s) = 0 \quad \mbox{when} \ s=\theta \tag{4}
+V(\theta, s) \leq \sum_{i \in B} r(s, i, j, \theta)f_{w}(s) + V(\theta, j) \forall\theta\in B,\forall s \mid s\neq \theta, s\in H, \forall j\in\nu(s) \tag{3}
 \end{equation}
 
 \begin{equation}
@@ -49,7 +67,20 @@ V(\theta, s) = 0 \quad \mbox{when} \ s=\theta \tag{4}
 \end{equation}
 
 \begin{equation}
+\sum_{w} f_{w}(s) = 1\quad \forall s \tag{3}
+\end{equation}
+
+\begin{equation}
 f_{i}(s) \geq 0\quad \forall s,i\
 \end{equation}
+
+\begin{equation}
+f_{w}(s) \geq 0\quad \forall s,w\
+\end{equation}
+
+We let $H$ denote the set of all shadow states, and $w$ denote the whale state the observer knows the adversary to be occupying. An observer action for any whale state $w$ is written as $f_{w}(s)$. These changes to the linear program require the observer to take the same action for each turn the adversary spends in a particular shadow set. The performance of the Whale method will be examined in a later section. 
+
+\section{The Transmogrification Method}
+
 \nocite{Dijkstra80}
 \nocite{plop03-paper}
