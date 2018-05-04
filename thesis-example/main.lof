@@ -7,4 +7,6 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces A partially observable graph with two shadow sets.}}{5}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces A partially observable graph with a single state in place of shadow states.}}{6}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces The partially observable environment from Figure~\ref {fig:shadow1} (left) transmogrified into an, fully observable graph.}}{8}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces The adversary's path to target $T1$.}}{9}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces The adversary's path to $T1$ from the observer's perspective.}}{10}
 \addvspace {10\p@ }

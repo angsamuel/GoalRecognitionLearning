@@ -47,6 +47,7 @@ def shadowToVisible(edges, shadowNodes, shadowGroups, nodesNum):
 					steps.append(step)
 
 				moved_to_next_mem = False
+				
 				for s in steps:
 					if s in self.gs.shadowGroups[shadowIndex]:
 						if !moved_to_next_mem:

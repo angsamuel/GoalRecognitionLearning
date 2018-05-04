@@ -82,7 +82,18 @@ We let $H$ denote the set of all shadow states, and $w$ denote the whale state t
 
 \section{The Transmogrification Method}
 
-When using the Whale method, the observer ignores some of the information available to them. The Whale method does not account for where the adversary entered a shadow set, or how long the adversary has remained hidden. The "Transmogrification Method" takes both of these pieces of information into account, by generating a fully observable environment from a partially observable environment.
+When using the Whale method, the observer ignores some of the information available to them. The Whale method does not account for where the adversary entered a shadow set, or how long the adversary has remained hidden. The "Transmogrification Method" takes both of these pieces of information into account, by generating a fully observable environment from a partially observable environment. To do this, the observer must make some basic assumptions about the adversary's strategy. The following lemmas and corollary assume the agent is playing optimally against the observer's stationary strategy. 
+
+\textbf{Lemma 2.} \textit{If the adversary's target does not lie within a shadow set, the adversary will eventually exit the shadow set.}
+
+\textit{Proof (Sketch).} As mentioned previously, the game could theoretically go on forever. But because of the potential per-timestep cost of $d$ and the observer's predictions, any sufficiently long path for
+the adversary would be dominated by the strategy of taking the shortest path to their target $\theta$. If the adversary never leaves the set of shadow states, then the game will go on forever. Thus, the adversary will eventually leave a shadow set. 
+
+\textbf{Corollary 2.} \textit{An optimal agent occupying a state in a shadow set will take a shortest path to the exit state of their choosing.} 
+
+\textit{Proof (Sketch).} We established that an optimal adversary in a shadow set must exit that shadow set. Each unnecessary turn the adversary spends in a shadow state invites the observer to guess their intended target. Thus, it is in the observer's interest to reach their chosen exit as quickly as possible.
+
+With Corollary 2, the observer can generate a new graph to play on.
 
 \begin{figure}[h!]
 \begin{center}
@@ -94,6 +105,37 @@ When using the Whale method, the observer ignores some of the information availa
   
   \label{fig:shadow4}
 \end{figure}
+
+Figure~\ref{fig:shadow4} illustrates a transmogrified version of the graph from Figure ~\ref{fig:shadow1}. The grey nodes in the transmogrified graph are introduced to represent the number of turns the adversary has remained hidden from the observer. For instance, if the adversary has been hidden for two turns, then the observer would see the adversary as occupying state $M2$ in the transmogrified graph. Take note that the transmogrified graph now includes directed edges, because we are (hopefully) not dealing with a time traveling agent. To generate these graphs, we examine each shadow set. For each shadow set, we examine each "entrance state" connected by an edge to the shadow state. We then compute the shortest path between every two entrance states for that shadow state. By Corollary 2, we assume the length of the longest shortest path will be the maximum number of turns an optimal agent will spend within the shadow set. We then create create the same number of memory nodes with directed edges from one to the next (see states $M1, M2, M3$ from state $S$ in Figure ~\ref{fig:shadow4}). Then we create an edge from each entrance state, to the memory state corresponding to the length of the shortest path between the entrance state, and the original entrance state from which we spawned the memory states. For example, because a adversary would have to two shadow states on their journey from state $S$ to state $3$ in Figure ~\ref{fig:shadow1}, we connect state $M2$ to state $3$ in Figure ~\ref{fig:shadow4}. Note, that the post transmogrification graph in Figure ~\ref{fig:shadow4} is actually incomplete, because memory states have only been spawned from the entrance state $S$ and not from entrance states $3$ or $8$. Because an optimal agent has no reason to backtrack in this particular scenario, the memory nodes for $3$ and $8$ were omitted to keep the graph simple.
+
+\begin{figure}[h!]
+\begin{center}
+
+  \includegraphics[scale=.15]{shadow5}
+  \end{center}
+
+  \caption{The adversary's path to target $T1$.}
+  
+  \label{fig:shadow5}
+\end{figure}
+
+Next, let us examine how a game might play out from the adversary's perspective.   Using the environment from Figure ~\ref{fig:shadow1}, let us assume the adversary was assigned target $T1$. Because the graph is rather limiting, the adversary takes the shortest path from starting state $S$ to the target $T1$. Figure ~\ref{fig:shadow5} illustrates the adversary's journey, each turn market with a red circle. Note that on turns $1$ and $2$, the observer would lose sight of the attacker until turn $3$. Now, let us examine what the same scenario would look like from the observer's prospective, when using the transmogrification method. 
+
+\begin{figure}[h!]
+\begin{center}
+
+  \includegraphics[scale=.15]{shadow6}
+  \end{center}
+
+  \caption{The adversary's path to $T1$ from the observer's perspective.}
+  
+  \label{fig:shadow6}
+\end{figure}
+
+Because the adversary takes two turns within the shadow set, the observer sees the adversary as moving from state $M1$ to state $M2$, before exiting the shadow set on turn 3. 
+
+%explain code sample down below
+
 
 \nocite{Dijkstra80}
 \nocite{plop03-paper}
