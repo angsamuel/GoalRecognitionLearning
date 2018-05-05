@@ -136,6 +136,66 @@ Because the adversary takes two turns within the shadow set, the observer sees t
 
 %explain code sample down below
 
+\section{Experiments}
+
+As with previous experiments, all tests were run on  a machine using OSX Yosemite version 10.10.5, with 16 GB of ram and a 2.3 GHz Intel Core i7 processor. First, we will use the simple example from Figure ~\ref{fig:shadow1} to compare the performance of the Whale, and Transmogrification methods. Additionally, we will compare the performance against a best case solution, in which we turn all shadow states into standard states. The best case solutions measures how the observer would perform if their strategy effectively negated the shadow states. Graphs were displayed using the Python NetworkX library. Arrowheads on directed edges were added manually for clarity. The starting state is displayed in green, target states are displayed in red, shadow states are displayed in purple, and default states are displayed in cyan.
+
+\begin{figure}[h!]
+\begin{center}
+
+  \includegraphics[scale=.15]{test1}
+  \end{center}
+
+  \caption{A simple scenario using NetworkX.}
+  
+  \label{fig:test1}
+\end{figure}
+
+After transmogrifying the graph, the scenario becomes more complex, but allows the observer to play a fully observable game. There graph will no longer have any shadow states (purple). All states labeled with values greater than 1000 are nodes that have been added to represent turns hidden within the shadow set. Note that the graph in Figure ~\ref{fig:test2} will have more nodes than the previously seen illustration of the transmogrified graph in Figure ~\ref{fig:shadow4}, because we spawn memory states for every entry state, and not just the starting state. 
+
+\begin{figure}[h!]
+\begin{center}
+
+  \includegraphics[scale=.15]{test2}
+  \end{center}
+
+  \caption{The transmogrified graph.}
+  
+  \label{fig:test2}
+\end{figure}
+
+For this game, the adversary is not penalized for timesteps taken. The reward for reaching the target is 0. The reward the observer receives for each correct guess was set to 1. The point value for each method at the end of the game equates to the number of correct guesses the observer can expect to make. At the start of the game, the adversary has a 75\% chance of being assigned target $1$, and a 25\% of being assigned target $2$.
+
+\begin{table}[hbtp]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline 
+\textbf{No Shadow States} & 3.75 Correct Guesses\\
+\hline
+\textbf{Whale} & 3.25 Correct Guesses\\
+\hline
+\textbf{Transmogrification} & 3.50 Correct Guesses\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Performance results from simple environment.}
+\label{table:simpletable}
+\end{table}
+
+If a strategy were to effectively remove the shadow states from the board, the observer could expect to make 3.75 correct guesses over the course of the game. Thus, we could not expect the whale or transmogrification methods to perform any better. Using the whale methods, in which all shadow states a mushed together into one whale of a state, the observer can expect to make 3.25 correct guesses. While the transmogrification method does not allow the observer to effectively see through shadow states, the method still outperforms the whale method with a score of 3.50. Next, we will test these methods against each other in a more complex scenario.  
+
+\begin{figure}[h!]
+\begin{center}
+
+  \includegraphics[scale=.15]{arena}
+  \end{center}
+
+  \caption{Complex testing environment.}
+  
+  \label{fig:arena}
+\end{figure}
+
+For the next set of tests, we place the adversary starting state, and 4 potential targets on non-shadow states (marked in white) in Figure ~\ref{fig:arena}. We then create a random probability distribution, and solve the game which both methods. Like the last 
 
 \nocite{Dijkstra80}
 \nocite{plop03-paper}

@@ -9,4 +9,6 @@
 \contentsline {figure}{\numberline {2.4}{\ignorespaces The partially observable environment from Figure~\ref {fig:shadow1} (left) transmogrified into an, fully observable graph.}}{8}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces The adversary's path to target $T1$.}}{9}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces The adversary's path to $T1$ from the observer's perspective.}}{10}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces A simple scenario using NetworkX.}}{11}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces The transmogrified graph.}}{11}
 \addvspace {10\p@ }

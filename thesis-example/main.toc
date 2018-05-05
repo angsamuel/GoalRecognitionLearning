@@ -8,4 +8,5 @@
 \contentsline {section}{\numberline {2.1}Introduction}{4}
 \contentsline {section}{\numberline {2.2}The Whale Method}{5}
 \contentsline {section}{\numberline {2.3}The Transmogrification Method}{7}
-\contentsline {chapter}{\numberline {A}Example appendix}{11}
+\contentsline {section}{\numberline {2.4}Experiments}{10}
+\contentsline {chapter}{\numberline {A}Example appendix}{13}

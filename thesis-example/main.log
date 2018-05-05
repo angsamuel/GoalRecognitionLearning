@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 MAY 2018 01:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 MAY 2018 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -464,17 +464,30 @@ File: images/shadow6.png Graphic file (type png)
 Package pdftex.def Info: images/shadow6.png used on input line 127.
 (pdftex.def)             Requested size: 171.87473pt x 105.63008pt.
 
+[10 <./images/shadow6.png>] <images/test1.png, id=86, 462.528pt x 346.896pt>
+File: images/test1.png Graphic file (type png)
 
-LaTeX Warning: Citation `Dijkstra80' undefined on input line 139.
+<use images/test1.png>
+Package pdftex.def Info: images/test1.png used on input line 146.
+(pdftex.def)             Requested size: 69.37619pt x 52.03215pt.
+ <images/test2.png, id=87, 1284.8pt x 963.6pt>
+File: images/test2.png Graphic file (type png)
+
+<use images/test2.png>
+Package pdftex.def Info: images/test2.png used on input line 159.
+(pdftex.def)             Requested size: 192.71169pt x 144.53375pt.
+ [11 <./images/test1.png> <./images/test2.png>]
+
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 188.
 
 
-LaTeX Warning: Citation `plop03-paper' undefined on input line 140.
+LaTeX Warning: Citation `plop03-paper' undefined on input line 189.
 
 )
 No file main.bbl.
-(./appendix1.tex [10 <./images/shadow6.png>]
+(./appendix1.tex [12]
 Appendix A.
-) [11
+) [13
 
 ] (./main.aux)
 
@@ -482,10 +495,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4004 strings out of 493014
- 54898 string characters out of 6133351
- 134998 words of memory out of 5000000
- 7438 multiletter control sequences out of 15000+600000
+ 4017 strings out of 493014
+ 55123 string characters out of 6133351
+ 135031 words of memory out of 5000000
+ 7449 multiletter control sequences out of 15000+600000
  10752 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,43p,1938b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -502,10 +515,10 @@ exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
 ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (18 pages, 428421 bytes).
+Output written on main.pdf (20 pages, 557451 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 141 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -33,9 +33,9 @@ class GameScenario:
     def showGraph(self):
       self.pos = nx.spring_layout(self.graph)
       nx.draw_networkx_nodes(self.graph,self.pos, node_color = "Cyan")
-      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.targets,  node_color = "Purple")
+      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.targets,  node_color = "Red")
       nx.draw_networkx_nodes(self.graph, self.pos, nodelist = [self.startState],  node_color = "Green")
-      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.shadowNodes,  node_color = "Grey")
+      nx.draw_networkx_nodes(self.graph, self.pos, nodelist = self.shadowNodes,  node_color = "Purple")
       nx.draw_networkx_edges(self.graph,self.pos)
 
       nx.draw_networkx_labels(self.graph,self.pos)

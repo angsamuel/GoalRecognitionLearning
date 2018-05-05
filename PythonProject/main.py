@@ -9,6 +9,7 @@ from LPHandlerModule import LPHandler
 from ObserverModule import Observer
 from CompetitionModule import Competition
 from ConvertFromShadowModule import shadowToVisible
+from GridMaker import makeGrid
 
 #os.system("glpsol --cpxlp ")
 case = 7
@@ -147,9 +148,9 @@ if case == 6:
 	lph.WriteLP("noShadow.lp", withShadow = False, withMemory = False)
 if case == 7: #simple example
 	print "case 7"
-	edges = [(0,6),(6,5),(5,4),(4,3),(3,1),(6,7),(7,8),(8,2)]
+	edges = [(0,5),(5,6),(4,5),(3,4),(1,3),(6,7),(7,8),(8,2)]
 	targets = [1,2]
-	pDist = [.25, .75]
+	pDist = [.75, .25]
 	shadowNodes = [4,5,6,7]
 	shadowGroups = [ shadowNodes ]
 
@@ -198,9 +199,36 @@ if case == 8:
 
 	lph.WriteLP("zmem.lp", withShadow = False, withMemory = False)
 	os.system("python solvelp.py")
-
-
+if case == 9:
+	edges = makeGrid(9,9)
+	targets = [0,1,2]
+	pDist = [.25,.25,.5]
+	available_nodes = [0,1,2,3,4,5,6,7,8,9,13,17,18,22,26,27,31,35,36,37,38,39,40,41,42,43,44,45,49,53,54,58,62,63,67,71,72,73,74,75,76,77,78,79,80]
+	#shadowNodes = [10,11,12,  14,15,16,  19,20,21,  23,24,25,  28,29,30, 32,33,34,  46, 47,48,  50,51,52, 55,56,57,  59,60,61,  64, 65,66,  68,69,70]
+	#shadowGroups = [[10,11,12,19,20,21,28,29,30], [14,15,16,23,24,25,32,33,34], [46,47,48,55,56,57,64,65,66], [50,51,52,59,60,61,68,69,70]]
+	shadowNodes = [20,21,22,23,24,29,30,31,32,33,38,39,40,41,42,47,48,49,50,51,56,57,58,59,60]
+	shadowGroups = [[20,21,22,23,24,29,30,31,32,33,38,39,40,41,42,47,48,49,50,51,56,57,58,59,60]]
+	edges = shadowToVisible(edges, shadowNodes, shadowGroups, 81)
+	
+	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = [], shadowGroups = [], newNodesNum = 9,
+	startState = 4, guessReward = 1)
+	print ("showing graph")
+	gs.showGraph()
 	#optimal no shadow - 2.8
+if case == 10:
+	edges = makeGrid(5,5)
+	targets = [0,1]
+	pDist = [.5,.5]
+	shadowNodes = [6,7,8,11,12,13,16,17,18]
+	shadowGroups = [[6,7,8,11,12,13,16,17,18]]
+	edges = shadowToVisible(edges, shadowNodes, shadowGroups, 25)
+
+	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = [], shadowGroups = [], newNodesNum = 25,
+	startState = 4, guessReward = 1)
+	print ("showing graph")
+	print edges
+	gs.showGraph()
+
 
 	#3.75 no shadow
 	#3.25 fat method
