@@ -1,12 +1,21 @@
 \select@language {english}
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Example chapter}{1}
-\contentsline {section}{\numberline {1.1}Examples of figures and tables}{1}
-\contentsline {section}{\numberline {1.2}Examples of math}{1}
-\contentsline {section}{\numberline {1.3}Examples of references}{3}
-\contentsline {chapter}{\numberline {2}Partially Observable Environments}{4}
-\contentsline {section}{\numberline {2.1}Introduction}{4}
-\contentsline {section}{\numberline {2.2}The Whale Method}{5}
-\contentsline {section}{\numberline {2.3}The Transmogrification Method}{7}
-\contentsline {section}{\numberline {2.4}Experiments}{10}
-\contentsline {chapter}{\numberline {A}Example appendix}{13}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {subsection}{\numberline {1.0.1}Game-Theoretic Goal Recognition Problems in Security Domains}{2}
+\contentsline {subsection}{\numberline {1.0.2}Game-Theoretic Goal Recognition Design Problems in Security Domains}{3}
+\contentsline {subsection}{\numberline {1.0.3}Related Work}{4}
+\contentsline {subsection}{\numberline {1.0.4}Our Contributions}{5}
+\contentsline {section}{\numberline {1.1}Preliminary: stochastic games}{6}
+\contentsline {chapter}{\numberline {2}Game Model}{8}
+\contentsline {subsection}{\numberline {2.0.1}Game-theoretic goal recognition model}{8}
+\contentsline {subsection}{\numberline {2.0.2}Game-theoretic goal recognition design model}{10}
+\contentsline {chapter}{\numberline {3}Computation}{12}
+\contentsline {subsection}{\numberline {3.0.1}Game-theoretic goal recognition model}{12}
+\contentsline {subsection}{\numberline {3.0.2}Game-theoretic goal recognition design model}{16}
+\contentsline {subsubsection}{Dual-based greedy heuristic.}{17}
+\contentsline {chapter}{\numberline {4}Partially Observable Environments}{19}
+\contentsline {section}{\numberline {4.1}Introduction}{19}
+\contentsline {section}{\numberline {4.2}The Whale Method}{20}
+\contentsline {section}{\numberline {4.3}The Transmogrification Method}{22}
+\contentsline {section}{\numberline {4.4}Experiments}{25}
+\contentsline {chapter}{\numberline {A}Example appendix}{29}

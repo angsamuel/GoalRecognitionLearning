@@ -2,6 +2,8 @@ import numpy as np
 import pylab as plt
 import networkx as nx
 import os
+import random
+
 
 from GameScenarioModule import GameScenario
 from AgentModule import Agent
@@ -11,8 +13,20 @@ from CompetitionModule import Competition
 from ConvertFromShadowModule import shadowToVisible
 from GridMaker import makeGrid
 
+def normalize(lst):
+    s = sum(lst)
+    return map(lambda x: float(x)/s, lst)
+
+def getObjective(fileName):
+	with open(fileName, "r") as ins:
+		for line in ins:
+			if "Objective:" in line:
+				float_string = line.split("= ")[1].split(" ")[0]
+				return float(float_string)
+
+
 #os.system("glpsol --cpxlp ")
-case = 7
+case = 10
 if case == 0:
 	edges = [(0,1),(0,2),(1,4),(2,6),(3,7),(4,5),(5,6),(6,13),(13,14),(7,15),(5,11),(10,11),(11,12),(12,13),
 	(11,16),(12,17),(10,8),(8,9),(16,20),(17,20),(20,23),(15,23),(16,19),(19,9),(9,18),(18,21),(19,21),(19,22),
@@ -216,18 +230,84 @@ if case == 9:
 	gs.showGraph()
 	#optimal no shadow - 2.8
 if case == 10:
+	originalEdges = makeGrid(5,5)
 	edges = makeGrid(5,5)
 	targets = [0,1]
+	
 	pDist = [.5,.5]
+	
 	shadowNodes = [6,7,8,11,12,13,16,17,18]
+	
 	shadowGroups = [[6,7,8,11,12,13,16,17,18]]
-	edges = shadowToVisible(edges, shadowNodes, shadowGroups, 25)
 
-	gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = [], shadowGroups = [], newNodesNum = 25,
+	mem_edges = shadowToVisible(edges, shadowNodes, shadowGroups, 25)
+	available_nodes = [0,1,2,3,4,5,9,10,14,15,19,20,21,22,23,24]
+
+	mem_gs = GameScenario(newEdges = edges, newTargets = targets, probDist = pDist, shadowNodes = [], shadowGroups = [], newNodesNum = 25,
 	startState = 4, guessReward = 1)
-	print ("showing graph")
-	print edges
-	gs.showGraph()
+	xray_gs = GameScenario(newEdges = originalEdges, newTargets = targets, probDist = pDist, shadowNodes = [], shadowGroups = [], newNodesNum = 25,
+	startState = 4, guessReward = 1)
+	#print ("showing graph")
+	#gs.showGraph()
+
+	#lph = LPHandler(gs)
+
+	#lph.WriteLP("zmem.lp", withShadow = False, withMemory = False)
+	#os.system("python solvelp.py")
+	whale_scores = []
+	trans_scores = []
+	xray_scores = []
+
+	for i in range(0, len(mem_edges)):
+		if mem_edges[i][0] < 1000 and mem_edges[i][1] < 1000:
+			mem_edges.append( tuple(reversed(mem_edges[i])))
+	
+	for i in range(0, len(originalEdges)):
+		if originalEdges[i][0] < 1000 and originalEdges[i][1] < 1000:
+			originalEdges.append( tuple(reversed(originalEdges[i])))
+
+	for i in range(0, 1000):
+		available_nodes = [0,1,2,3,4,5,9,10,14,15,19,20,21,22,23,24]
+		start_state = random.choice(available_nodes)
+		available_nodes.remove(start_state)
+		targets = []
+		pDist = []
+		print("starting game", i)
+		for t in range(0,3):
+			pDist.append(random.uniform(0.0, 1.0))
+			new_target = random.choice(available_nodes)
+			available_nodes.remove(new_target)
+
+			targets.append(new_target)
+
+
+		pDist = normalize(pDist)
+		mem_gs = GameScenario(newEdges = mem_edges, newTargets = targets, probDist = pDist, shadowNodes = [], shadowGroups = [], newNodesNum = 25, 
+		startState = start_state, guessReward = 1)
+		gs = GameScenario(newEdges = originalEdges, newTargets = targets, probDist = pDist, shadowNodes = shadowNodes, shadowGroups = shadowGroups, newNodesNum = 25,
+		startState = start_state, guessReward = 1)
+
+		lph = LPHandler(mem_gs)
+
+		lph.WriteLP("zmem.lp", withShadow = False, withMemory = False)
+		
+
+		lph = LPHandler(gs)
+		lph.WriteLP("znoShadow.lp", withShadow = False, withMemory = False)
+		lph.WriteLP("zwithShadow.lp", withShadow = True, withMemory = True)
+		os.system("python solvelp.py")
+
+		whale_scores.append(getObjective("zwithShadow.out"))
+		trans_scores.append(getObjective("zmem.out"))
+		xray_scores.append(getObjective("znoShadow.out"))
+
+	print ("WHALE AVERAGE", sum(whale_scores)/len(whale_scores))
+	print ("TRANS AVERAGE", sum(trans_scores)/len(trans_scores))
+	print ("XRAY AVERAGE", sum(xray_scores)/len(xray_scores))
+
+
+
+
 
 
 	#3.75 no shadow

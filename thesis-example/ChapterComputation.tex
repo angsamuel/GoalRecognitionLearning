@@ -1,0 +1,199 @@
+%
+% FIX THIS -- remove/change, just some examples of things
+%
+\chapter{Computation}
+
+\subsection{Game-theoretic goal recognition model}
+
+With the game defined, we are interested in computing the solution of the game: 
+What is the outcome of the game when both players behave rationally? 
+Before defining rational behavior, we first need to discuss the set of strategies. In a sequential game, 
+a pure strategy of a player is a deterministic mapping from the
+current state and the player's observations/histories leading to the state, to an available action. For the adversary, such observations/histories include its own sequence 
+of prior actions and its target $\theta$; 
+the observer's observations/histories include 
+the adversary's sequence of actions and the observer's sequence of actions.
+A mixed strategy is a randomized strategy, specified by a probability distribution over the set of pure strategies.
+The strategies are defined more formally in Section \ref{stochastic_games} and Definition \ref{def:bhs}.   
+%For two-player zero-sum games, the standard solution concept is the max-min solution:
+%$\max_x \min_y u(x,y)$, where $x$ and $y$ are the observer's and the adversary's mixed strategies, respectively,
+%and $u(x,y)$ is the expected utility to the observer given mixed strategies $x$ and $y$. One can also define
+%min-max solution $ \min_y\max_x u(x,y)$. 
+%For zero-sum games, the max-min value, min-max value, and Nash equilibrium value all coincide~\cite{fudenberg1991game}. 
+
+As mentioned earlier, we are interested in computing the max-min solution, 
+which is equivalent to the max-min value, min-max value, and Nash equilibrium value  of the game. 
+For simultaneous-move games this can usually be solved by formulating a linear program. 
+However, for our sequential game, each pure strategy need to prescribe an action for each possible sequence of observations leading to that state and, as a result, the sets of pure strategies are exponential for both players. 
+
+To overcome this computational challenge, we focus on \emph{stationary strategies}, 
+which are strategies that depend only on the current 
+state (for the adversary, also on $\theta$) and not on the history of observations (see Definition \ref{def:ss}).
+While for stochastic games with complete information, it is known that there always exist an optimal solution that consists of stationary strategies~\cite{fudenberg1991game},
+ it is an open question whether the same property holds for our setting, which is an incomplete-information game.
+Nevertheless, there are some heuristic reasons
+that stationary strategies are at least good approximately optimal solutions: The state (i.e., adversary's location) already capture a large amount of information about the strategic intention of the adversary.
+
+%\vspace{-\medskipamount}
+%\paragraph{Formulating the Linear Program.}
+%\indent We borrow notation from \cite{....} on finite-step algorithms for single controller stochastic games. 
+Restricting to stationary strategies,  randomized strategies now correspond to a mapping from state to a distribution over actions. We have thus reduced the dimension of the solution space from exponential to polynomial in the size of the graph.
+Furthermore, our game exhibit the single-controller property: The state transitions are controlled by the adversary only. For complete information stochastic games with a single controller, a \emph{linear programming} (LP) formulation is known~\cite{Raghavan2003}. We adapt this LP formulation to our incomplete information setting.
+ 
+We define $V(\theta, s)$ to be a variable that represents 
+the expected payoff to the observer at state $s$ and with adversary's target begin $\theta$. 
+We use $P(\theta)$ to denote the prior probability 
+of $\theta \in B$ being the adversary's target such that $\sum_{\theta \in B} P(\theta) = 1$. 
+The observer's objective is to find a (possibly randomized) strategy 
+that maximizes his expected payoff given the prior distribution over the target set $B$, 
+the moves of the adversary, and the adversary's starting location. 
+The following linear program computes the utility of the observer in an max-min solution
+assuming both players are playing a stationary strategy. 
+\begin{align}
+\!\!\!\!\max_{V, \{f_i(s)\}_{i,s}} \sum_{\theta}&P(\theta)V(\theta, s_{o}) \label{eq:game_obj}\\
+V(\theta, s) &\leq \sum_{i \in B} r(s, i, j, \theta)f_{i}(s) + V(\theta, j) &\forall\theta\in B,\forall s \mid s\neq \theta, \forall j\in\nu(s)\label{eq:game_incentive}\\
+V(\theta, s) &= 0 \quad &\mbox{when} \,\,\, s=\theta\label{eq:game_end}\\
+\sum_{i} f_{i}(s) &= 1\quad &\forall s \label{eq:game_sum}\\
+f_{i}(s) &\geq 0\quad &\forall s,i\label{eq:game_nonneg}
+\end{align}
+In the above linear program, \eqref{eq:game_obj} is the objective of the observer. 
+The $f_{i}(s)$'s represent the probability of the observer taking an action $i \in B$ given the state $s$. 
+To ensure that the probability distribution is well defined at each state of the games,
+\eqref{eq:game_sum} and \eqref{eq:game_nonneg} impose the standard sum-equal-to-one and non-negative conditions on the probability of playing 
+each action $i \in B$. The Bellman-like inequality \eqref{eq:game_incentive}
+bounds the expected value for any state using 
+expected values of next states plus the expected current reward, assuming the adversary will choose
+the state transition that minimizes the observer's expected utility.
+Finally, \eqref{eq:game_end} specifies the base condition when the adversary has reached their destination and the game ends. 
+The size of the linear program is polynomial in the size of the graph. 
+%While, in theory, the game could go on forever if the adversary never reaches his target $\theta$, 
+%because of the per-timestep cost of $d$, any sufficiently long path for the adversary would be 
+%dominated by the strategy of taking the shortest path to $\theta$. 
+%Eliminating these dominated strategies allows us to set a finite bound for the duration of the game, 
+%which grows linearly in the shortest distance to the target that is furthest away.
+
+The solution of this linear program prescribes a randomized stationary strategy $f_i(s)$ 
+for the observer and, from the dual solutions, one can compute a stationary strategy for the adversary.
+In more detail, the dual linear program is
+\begin{align}
+\min &\sum_{s}t_s\label{eq:dual_obj}\\
+t_s&\geq \sum_{\theta, j}\lambda^\theta_{s,j}r(s,i,j,\theta) &\forall s,i \label{eq:dual_incentive}\\
+I_{s=s_0}P(\theta)+\sum_{s' \neq \theta: s\in \nu(s')}\lambda^\theta_{s',s} &=\sum_{j\in\nu(s)}\lambda^\theta_{s,j} &\forall\theta\in B,\forall s\neq \theta\label{eq:dual_flow}\\
+\lambda^\theta_{s,j}&\geq 0    &\forall \theta,s,j
+\end{align}
+where $I_{s=s_0}$ is the indicator that equals 1 when $s=s_0$ and 0 otherwise.
+The dual variables $\lambda^\theta_{s,j}$
+can be interpreted as the probability that
+adversary type $\theta$ takes the edge from $s$ to $j$.
+These probabilities satisfies the flow conservation constraints \eqref{eq:dual_flow}: given $\theta$, the total flow into $s$ (the left hand side) is equal to the probability that type $\theta$ visits $s$, which should equal the total flow out of $s$ (the right hand side).
+The variables $t_s$ can be interpreted as the 
+contribution to defender's utility from state $s$, assuming that the defender is choosing an optimal action at each state (ensured by constraint \eqref{eq:dual_incentive}). 
+
+Given the dual solutions $\lambda^\theta_{s,j}$, 
+we can compute a stationary strategy for the adversary:
+let $\pi(j|\theta,s)$ be the probability that the adversary type $\theta$ chooses $j$ at state $s$.
+Then for all $\theta\in B$ and $s\neq\theta$, $\pi(j|\theta,s)=
+\frac{\lambda^\theta_{s,j}}{\sum_{j'\in\nu(s)}\lambda^\theta_{s,j'}}$.
+It is straightforward to verify that by playing the stationary strategy $\pi$, the adversary
+type $\theta$ will visit each edge $(s,j)$ with probability
+$\lambda^\theta_{s,j}$.
+
+\begin{lemma}
+Given a stationary strategy for the defender, 
+there exists a best response strategy for the adversary that is also a stationary strategy.
+\end{lemma}
+\begin{proof}[Sketch]
+Given a stationary defender strategy $f_i(s)$, each adversary type $\theta$ now faces a Markov Decision Process (MDP)
+problem, which admits a stationary strategy as its optimal solution.
+\end{proof} 
+
+More specifically,
+since the state transitions are deterministic and fully controlled by the adversary,
+each type $\theta$ faces a problem of determining the shortest path from $s_0$ to $\theta$, 
+with the cost of each edge $(s,j)$ as
+$\sum_{i\in B}f_i(s) r(s,i,j,\theta)$.
+Looking into the components of $r(s,i,j,\theta)$, since the adversary reward $u^\theta$ for reaching target $\theta$ occurs exactly once at the target $\theta$,
+it can be canceled out and the problem is equivalent to the shortest path problem from $s_0$ to $\theta$ with
+edge cost $d+f_\theta(s) q$. Since edge costs are nonnegative the shortest paths will not involve cycles.
+
+What this lemma implies is that if the defender plays the stationary strategy prescribed by the LP \eqref{eq:game_obj}, the adversary cannot 
+do better than the value of the LP by deviating to a non-stationary strategy.
+\begin{corollary}
+If the defender plays the stationary strategy $f_i(s)$
+given by the solutions of LP $\eqref{eq:game_obj}$,
+the adversary's stationary strategy $\pi$ as prescribed by
+LP $\eqref{eq:dual_obj}$ is a best response, i.e., no
+non-stationary strategies can achieve a better outcome for the adversary.
+\end{corollary}
+
+While it is still an open question whether the defender has an optimal strategy that is stationary,
+we have shown that if we restrict to  stationary strategies for the defender, it is in the best interest of the adversary to also stick to stationary strategies and our LP \eqref{eq:game_obj} do not overestimate the value of the game. 
+
+\subsection{Game-theoretic goal recognition design model}
+One can solve this GTGRD problem by brute-force, i.e., try every subset of edges to block and then for each case solve the resulting LP. The time complexity of this approach grows exponentially in $K$. 
+Instead, we can encode the choice of edge removal as integer variables added to the LP formulation, resulting in a mixed-integer program (MIP). For example, we could replace
+\eqref{eq:game_incentive} with
+\begin{align}
+V(\theta, s) \leq \sum_{i \in B} r(s, i, j, \theta)f_{i}(s) + V(\theta, j) + M z(s, j) 
+\label{eq:mip_incentive}
+\end{align}
+where $M$ is a positive number, and 
+$z(s, j)$ is a 0-1 integer variable indicating whether
+the action/edge from $s$ to $j$ is blocked.
+M thus represents the penalty that the attacker incurs if he nevertheless chooses to take the edge from $s$ to $j$ while it is blocked. By making $M$ sufficiently large, we can make the actions of crossing a blocked edge dominated and therefore effectively removing the edges that we block.
+We also add the constraint $\sum_{s,j} z(s,j) \leq K $.
+%We implemented the MIP solution utilizing off-the-shelf MIP solvers, and conduct experiments to measure its runtime performance.
+%We will also explore other algorithmic approaches, including adapting ideas from existing GRD literature such as pruning techniques that we have previous proposed for GRD and S-GRD~\cite{son:16,wayllace:16}.
+
+
+\subsubsection{Dual-based greedy heuristic.}
+The MIP approach scales exponentially in the worst case as the size of the graph and K grows.
+ We propose a heuristic method for selecting edges to block.
+ We first solve the LP for goal recognition and its dual.
+In particular, we look at the dual variable 
+$\lambda^\theta_{s,j}$ for the constraint \eqref{eq:game_incentive}.
+ This dual has the standard interpretation as the \emph{shadow price}:
+it is the rate of change to the objective if we infinitesimally relax
+constraint \eqref{eq:game_incentive}.
+
+ Looking at the MIP, in particular constraint \eqref{eq:mip_incentive}, we see that by blocking off an action from $s$ to $j$ we are effectively relaxing the corresponding LP constraints \eqref{eq:game_incentive} 
+indexed by $\theta,s,j$ for all $\theta\in B$.
+These are the adversary's incentive constraints for going from $s$ to $j$, for all adversary types $\theta$.
+
+Utilizing the shadow price interpretation of the duals, the sum of the duals corresponding to the 
+edge from $s$ to $j$: 
+$\sum_{\theta\in B} \lambda^\theta_{s,j}$
+ gives the rate of change to the objective (i.e. defender's expected utility) if the edge $(s,j)$ is blocked by an infinitesimal amount.
+ Choosing the edge that maximizes this,
+ $\arg \max_{s,j}\sum_{\theta\in B} \lambda^\theta_{s,j}$
+ we get the maximum rate of increase of our utility.
+ These rates of changes hold only when the amount of relaxation (i.e., $M$) is infinitesimal. However,
+ in practice we can still use this as a heuristic for choosing edges to block.\footnote{Another perspective: from the previous section we see that $\lambda^\theta_{s,j}$ is the probability that adversary type $\theta$ traverses the edge $s,j$. 
+ Then if the adversary and defender do not change their strategies after the edge $(s,j)$ is blocked, the defender would receive an additional utility of 
+ $M\sum_{\theta\in B} \lambda^\theta_{s,j}$ from the adversary's penalty for crossing that edge.}
+
+When $K > 1$, we could choose the $K$ edges with the highest dual sums.
+ Alternatively, we can use a greedy approach:
+pick one edge  with the maximum dual sum, 
+place a block on the edge and solve the updated LP for goal recognition, and pick the next edge using the updated duals, and repeat.
+In our experiments, the latter greedy approach consistently achieved significantly higher expected utilities than the former.
+Intuitively, by re-solving the LP after adding each edge,
+we get a more accurate picture of the adversary's 
+adaptations to the blocked edges.
+Whereas the rates of changes used by the former approach are only accurate when the adversary do not adapt at all to the blocked edges (see footnote 1).
+Our greedy heuristic is summarized as follows.
+\begin{itemize} 
+
+\item for $i=1 \ldots K$:
+\begin{itemize}
+\item Solve LP \eqref{eq:game_obj}, updated with the current blocked edges. If edge $(s,j)$ blocked, the corresponding constraint \eqref{eq:game_incentive} indexed $s,j,\theta$ for all $\theta$ are modified so that $M$ is added to the right hand side.
+Get the primal and dual solutions.
+\item Take an edge $(s^*,j^*) \in\arg \max_{s,j}\sum_{\theta\in B} \lambda^\theta_{s,j}$,
+and add it to the set of blocked edges.
+
+
+\end{itemize}
+\item return the set of blocked edges, and the primal solution of the final LP as the defender's stationary strategy. 
+\end{itemize}
+\nocite{Dijkstra80}
+\nocite{plop03-paper}

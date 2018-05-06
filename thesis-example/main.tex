@@ -21,6 +21,19 @@
 \makeatletter
 \def\BState{\State\hskip-\ALG@thistlm}
 \makeatother
+\usepackage{amssymb}
+\usepackage{amsthm}
+ 
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{lemma}
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{corollary}
+\newtheorem{corollary}{Corollary}[section]
+
+
 
 \usepackage{graphicx}
 \graphicspath{ {images/} }
@@ -120,7 +133,12 @@
 \pagenumbering{arabic}
 
 % FIX THIS -- one file per chapter is good but not required
-\input{chapter1}
+\input{ChapterIntro}
+
+\input{ChapterModel}
+
+\input{ChapterComputation}
+%\input{chapter1}
 
 \input{chaptera}
 

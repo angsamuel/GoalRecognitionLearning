@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 MAY 2018 19:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 MAY 2018 20:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -119,12 +119,44 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \ALG@tmplength=\skip48
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
+\thm@preskip=\skip49
+\thm@postskip=\skip50
+\thm@headsep=\skip51
+\dth@everypar=\toks27
+)
+\c@definition=\count109
+
+
+Package amsthm Warning: Unknown theoremstyle `lemma' on input line 30.
+
+\c@lemma=\count110
+
+Package amsthm Warning: Unknown theoremstyle `corollary' on input line 33.
+
+\c@corollary=\count111
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks22
+\KV@toks@=\toks28
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
@@ -146,7 +178,7 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count109
+\Gread@gobject=\count112
 ))
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
@@ -156,13 +188,13 @@ Package: moreverb 2008/06/03 v2.3a `more' verbatim facilities
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks23
-\verbatim@line=\toks24
+\every@verbatim=\toks29
+\verbatim@line=\toks30
 \verbatim@in@stream=\read1
 )
-\tab@position=\count110
-\tab@size=\count111
-\listing@line=\count112
+\tab@position=\count113
+\tab@size=\count114
+\listing@line=\count115
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
@@ -179,7 +211,7 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2016/04/23 3.9r Babel common definitions
-\babel@savecnt=\count113
+\babel@savecnt=\count116
 \U@D=\dimen114
 )
 \l@canadian = a dialect from \language\l@american 
@@ -199,9 +231,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count114
-\Gm@cntv=\count115
-\c@Gm@tempcnt=\count116
+\Gm@cnth=\count117
+\Gm@cntv=\count118
+\c@Gm@tempcnt=\count119
 \Gm@bindingoffset=\dimen115
 \Gm@wd@mp=\dimen116
 \Gm@odd@mp=\dimen117
@@ -210,50 +242,53 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutheight=\dimen120
 \Gm@layouthoffset=\dimen121
 \Gm@layoutvoffset=\dimen122
-\Gm@dimlist=\toks25
+\Gm@dimlist=\toks31
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip49
-\f@ncyO@elh=\skip50
-\f@ncyO@erh=\skip51
-\f@ncyO@olh=\skip52
-\f@ncyO@orh=\skip53
-\f@ncyO@elf=\skip54
-\f@ncyO@erf=\skip55
-\f@ncyO@olf=\skip56
-\f@ncyO@orf=\skip57
+\fancy@headwidth=\skip52
+\f@ncyO@elh=\skip53
+\f@ncyO@erh=\skip54
+\f@ncyO@olh=\skip55
+\f@ncyO@orh=\skip56
+\f@ncyO@elf=\skip57
+\f@ncyO@erf=\skip58
+\f@ncyO@olf=\skip59
+\f@ncyO@orf=\skip60
 )
-\WidthOfX=\skip58
+\WidthOfX=\skip61
 
-(./main.aux)
+(./main.aux
+
+LaTeX Warning: Label `table:simpletable' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-
-(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+ (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count117
+\scratchcounter=\count120
 \scratchdimen=\dimen123
 \scratchbox=\box30
-\nofMPsegments=\count118
-\nofMParguments=\count119
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count120
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count123
 \MPscratchDim=\dimen124
-\MPnumerator=\count121
-\makeMPintoPDFobject=\count122
-\everyMPtoPDFconversion=\toks27
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks33
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -345,6 +380,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 (./ack.tex) [2
 
 ] (./signatures.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 24.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 24.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Underfull \hbox (badness 10000) detected at line 51
  
  []
@@ -373,54 +418,214 @@ Underfull \hbox (badness 10000) detected at line 84
 
 ] (./titlepage.tex) [4
 
-] (./main.toc)
+] (./main.toc [5
+
+])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [5
-
-] (./main.lot)
+ [6] (./main.lot)
 \tf@lot=\write4
 \openout4 = `main.lot'.
 
- [6
+ [7
 
 ] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
 
-[7
+[8
 
-] (./chapter1.tex
+] (./ChapterIntro.tex
 Chapter 1.
-<xor.pdf, id=32, 614.295pt x 794.97pt>
-File: xor.pdf Graphic file (type pdf)
- <use xor.pdf>
-Package pdftex.def Info: xor.pdf used on input line 28.
-(pdftex.def)             Requested size: 216.81pt x 280.57268pt.
- [1
+
+LaTeX Warning: Citation `schmidt:78' on page 1 undefined on input line 4.
 
 
-] [2 <./xor.pdf>]
-
-LaTeX Warning: Citation `gof-book' on page 3 undefined on input line 103.
+LaTeX Warning: Citation `kautz:87' on page 1 undefined on input line 4.
 
 
-LaTeX Warning: Citation `MPI2' on page 3 undefined on input line 103.
+LaTeX Warning: Citation `Sukthankar:14' on page 1 undefined on input line 5.
 
 
-LaTeX Warning: Citation `Dijkstra80' undefined on input line 106.
+LaTeX Warning: Citation `oh:10' on page 1 undefined on input line 6.
 
 
-LaTeX Warning: Citation `plop03-paper' undefined on input line 107.
+LaTeX Warning: Citation `oh:11' on page 1 undefined on input line 6.
 
-) (./chaptera.tex [3]
+
+LaTeX Warning: Citation `oh:11b' on page 1 undefined on input line 6.
+
+
+LaTeX Warning: Citation `tavakkoli:07' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Citation `kelley:12' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Citation `mcquiggan:08' on page 1 undefined on input line 9.
+
+
+LaTeX Warning: Citation `johnson:10' on page 1 undefined on input line 9.
+
+
+LaTeX Warning: Citation `lee:12' on page 1 undefined on input line 9.
+
+
+LaTeX Warning: Citation `min:14' on page 1 undefined on input line 9.
+
+
+LaTeX Warning: Citation `jarvis:05' on page 1 undefined on input line 9.
+
+<images/blocked.pdf, id=35, 289.08pt x 289.08pt>
+File: images/blocked.pdf Graphic file (type pdf)
+ <use images/blocked.pdf>
+Package pdftex.def Info: images/blocked.pdf used on input line 15.
+(pdftex.def)             Requested size: 43.36012pt x 43.36012pt.
+
+
+LaTeX Warning: Reference `example' on page 1 undefined on input line 24.
+
+[1
+
+
+ <./images/blocked.pdf>]
+
+LaTeX Warning: Reference `example' on page 2 undefined on input line 50.
+
+
+LaTeX Warning: Reference `example' on page 2 undefined on input line 51.
+
+[2]
+
+LaTeX Warning: Reference `example' on page 3 undefined on input line 66.
+
+
+LaTeX Warning: Citation `keren:14' on page 3 undefined on input line 74.
+
+
+LaTeX Warning: Citation `keren:15' on page 3 undefined on input line 74.
+
+
+LaTeX Warning: Reference `example' on page 3 undefined on input line 81.
+
+[3]
+
+LaTeX Warning: Citation `Sukthankar:14' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `schmidt:78' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `vilain:90' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `geib:07' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `ramirez:09' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `ramirez:10' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `ramirez:11' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `min:14' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `lisy:12' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Citation `braynov:06' on page 4 undefined on input line 93.
+
+
+LaTeX Warning: Citation `guillarme:15' on page 4 undefined on input line 94.
+
+
+LaTeX Warning: Citation `keren:14' on page 4 undefined on input line 97.
+
+
+LaTeX Warning: Citation `keren:15' on page 4 undefined on input line 97.
+
+
+LaTeX Warning: Citation `wayllace:16' on page 4 undefined on input line 97.
+
+
+LaTeX Warning: Citation `keren:16' on page 4 undefined on input line 97.
+
+
+LaTeX Warning: Citation `son:16' on page 4 undefined on input line 97.
+
+[4] [5]
+Overfull \hbox (5.97205pt too wide) in paragraph at lines 161--177
+\OT1/cmr/m/n/10.95 timestep at most $\OML/cmm/m/it/10.95 T$\OT1/cmr/m/n/10.95 .
+ Let $\OML/cmm/m/it/10.95 h[] \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 s[]; j[
+]; s[]; j[]; :::; j[]; s[]\OT1/cmr/m/n/10.95 )$ and $\OML/cmm/m/it/10.95 h[] \O
+T1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 s[]; j[]; i[]; s[]; ::::; j[]; i[]; s[]
+\OT1/cmr/m/n/10.95 )$
+ []
+
+[6]
+
+LaTeX Warning: Citation `fudenberg1991game' on page 7 undefined on input line 2
+21.
+
+
+Overfull \hbox (25.7142pt too wide) in paragraph at lines 215--224
+[][] [][] \OML/cmm/m/it/10.95 ^^M[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P; s
+[]; ^^[[]; ^^[[]\OT1/cmr/m/n/10.95 )$. One can also de-fine min-max so-lu-tion 
+$[][] [][] \OML/cmm/m/it/10.95 ^^M[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P; 
+s[]; ^^[[]; ^^[[]\OT1/cmr/m/n/10.95 )$.
+ []
+
+) (./ChapterModel.tex [7]
 Chapter 2.
+[8
+
+] [9]
+
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 100.
+
+
+LaTeX Warning: Citation `plop03-paper' undefined on input line 101.
+
+) [10] (./ChapterComputation.tex [11]
+Chapter 3.
+[12
+
+]
+
+LaTeX Warning: Citation `fudenberg1991game' on page 13 undefined on input line 
+32.
+
+
+LaTeX Warning: Citation `Raghavan2003' on page 13 undefined on input line 41.
+
+[13] [14] [15] [16] [17]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 187.
+
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 187.
+
+
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 198.
+
+
+LaTeX Warning: Citation `plop03-paper' undefined on input line 199.
+
+) (./chaptera.tex [18]
+Chapter 4.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
-<images/shadow1.png, id=49, 740.366pt x 722.7pt>
+<images/shadow1.png, id=110, 740.366pt x 722.7pt>
 File: images/shadow1.png Graphic file (type png)
  <use images/shadow1.png>
 Package pdftex.def Info: images/shadow1.png used on input line 18.
@@ -429,96 +634,117 @@ Package pdftex.def Info: images/shadow1.png used on input line 18.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4
+[19
 
-] <images/shadow2.png, id=54, 561.297pt x 758.032pt>
+] <images/shadow2.png, id=115, 561.297pt x 758.032pt>
 File: images/shadow2.png Graphic file (type png)
 
 <use images/shadow2.png>
 Package pdftex.def Info: images/shadow2.png used on input line 35.
 (pdftex.def)             Requested size: 84.1909pt x 113.69989pt.
- [5 <./images/shadow1.png> <./images/shadow2.png>]
-<images/shadow3.png, id=60, 740.366pt x 722.7pt>
+ [20 <./images/shadow1.png> <./images/shadow2.png>]
+<images/shadow3.png, id=121, 740.366pt x 722.7pt>
 File: images/shadow3.png Graphic file (type png)
  <use images/shadow3.png>
 Package pdftex.def Info: images/shadow3.png used on input line 47.
 (pdftex.def)             Requested size: 111.05011pt x 108.40031pt.
 
-[6 <./images/shadow3.png>] [7]
-<images/shadow4.png, id=71, 2526.238pt x 722.7pt>
+[21 <./images/shadow3.png>] [22]
+<images/shadow4.png, id=129, 2526.238pt x 722.7pt>
 File: images/shadow4.png Graphic file (type png)
  <use images/shadow4.png>
 Package pdftex.def Info: images/shadow4.png used on input line 101.
 (pdftex.def)             Requested size: 378.91936pt x 108.40031pt.
 
-[8 <./images/shadow4.png>] <images/shadow5.png, id=76, 740.366pt x 722.7pt>
+[23 <./images/shadow4.png>] <images/shadow5.png, id=135, 740.366pt x 722.7pt>
 File: images/shadow5.png Graphic file (type png)
 
 <use images/shadow5.png>
 Package pdftex.def Info: images/shadow5.png used on input line 114.
 (pdftex.def)             Requested size: 111.05011pt x 108.40031pt.
- [9 <./images/shadow5.png>]
-<images/shadow6.png, id=81, 1145.881pt x 704.231pt>
+ [24 <./images/shadow5.png>]
+<images/shadow6.png, id=140, 1145.881pt x 704.231pt>
 File: images/shadow6.png Graphic file (type png)
  <use images/shadow6.png>
 Package pdftex.def Info: images/shadow6.png used on input line 127.
 (pdftex.def)             Requested size: 171.87473pt x 105.63008pt.
 
-[10 <./images/shadow6.png>] <images/test1.png, id=86, 462.528pt x 346.896pt>
+[25 <./images/shadow6.png>] <images/test1.png, id=145, 462.528pt x 346.896pt>
 File: images/test1.png Graphic file (type png)
 
 <use images/test1.png>
 Package pdftex.def Info: images/test1.png used on input line 146.
 (pdftex.def)             Requested size: 69.37619pt x 52.03215pt.
- <images/test2.png, id=87, 1284.8pt x 963.6pt>
+ <images/test2.png, id=146, 1284.8pt x 963.6pt>
 File: images/test2.png Graphic file (type png)
 
 <use images/test2.png>
 Package pdftex.def Info: images/test2.png used on input line 159.
 (pdftex.def)             Requested size: 192.71169pt x 144.53375pt.
- [11 <./images/test1.png> <./images/test2.png>]
+ [26 <./images/test1.png> <./images/test2.png>]
+<images/arena.png, id=151, 1048.718pt x 1065.581pt>
+File: images/arena.png Graphic file (type png)
+ <use images/arena.png>
+Package pdftex.def Info: images/arena.png used on input line 190.
+(pdftex.def)             Requested size: 157.3009pt x 159.83025pt.
 
-LaTeX Warning: Citation `Dijkstra80' undefined on input line 188.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Citation `plop03-paper' undefined on input line 189.
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 218.
+
+
+LaTeX Warning: Citation `plop03-paper' undefined on input line 219.
 
 )
 No file main.bbl.
-(./appendix1.tex [12]
+(./appendix1.tex [27] [28 <./images/arena.png>]
 Appendix A.
-) [13
+) [29
 
 ] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 4017 strings out of 493014
- 55123 string characters out of 6133351
- 135031 words of memory out of 5000000
- 7449 multiletter control sequences out of 15000+600000
- 10752 words of font info for 39 fonts, out of 8000000 for 9000
+ 4485 strings out of 493014
+ 60679 string characters out of 6133351
+ 138111 words of memory out of 5000000
+ 7874 multiletter control sequences out of 15000+600000
+ 17463 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,43p,1938b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,43p,1938b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (20 pages, 557451 bytes).
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9
+.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (37 pages, 739375 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
+ 235 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

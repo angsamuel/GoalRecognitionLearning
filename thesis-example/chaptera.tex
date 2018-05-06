@@ -195,7 +195,25 @@ If a strategy were to effectively remove the shadow states from the board, the o
   \label{fig:arena}
 \end{figure}
 
-For the next set of tests, we place the adversary starting state, and 4 potential targets on non-shadow states (marked in white) in Figure ~\ref{fig:arena}. We then create a random probability distribution, and solve the game which both methods. Like the last 
+With the simple example out of the way, we move to a more complex environment which offers the adversary more freedom in approaching their target. For the next set of tests, we place the adversary starting state, and 3 potential targets on non-shadow states (marked in white) in Figure ~\ref{fig:arena}. We then create a random probability distribution, and solve the game with both methods. After ten-thousand iterations, the scores are averaged and compared. 
+
+\begin{table}[hbtp]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline 
+\textbf{No Shadow States} & 2.65 Correct Guesses\\
+\hline
+\textbf{Whale} & 2.41 Correct Guesses\\
+\hline
+\textbf{Transmogrification} & 2.59 Correct Guesses\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Average method performance in complex environment.}
+\label{table:simpletable}
+\end{table}
+
+Though the transmogrification method does not yield what the observer could score without shadow states, it still outperforms the whale method.
 
 \nocite{Dijkstra80}
 \nocite{plop03-paper}
