@@ -3,15 +3,14 @@
 %
 \chapter{Computation}
 
-\subsection{Game-theoretic goal recognition model}
+\section{Game-theoretic goal recognition model}
 
-With the game defined, we are interested in computing the solution of the game: 
-What is the outcome of the game when both players behave rationally? 
+With the game defined, the next step is computing a solution to the game. 
 Before defining rational behavior, we first need to discuss the set of strategies. In a sequential game, 
 a pure strategy of a player is a deterministic mapping from the
 current state and the player's observations/histories leading to the state, to an available action. For the adversary, such observations/histories include its own sequence 
-of prior actions and its target $\theta$; 
-the observer's observations/histories include 
+of prior actions and its target $\theta$. 
+The observer's observations/histories include 
 the adversary's sequence of actions and the observer's sequence of actions.
 A mixed strategy is a randomized strategy, specified by a probability distribution over the set of pure strategies.
 The strategies are defined more formally in Section \ref{stochastic_games} and Definition \ref{def:bhs}.   
@@ -21,7 +20,7 @@ The strategies are defined more formally in Section \ref{stochastic_games} and D
 %min-max solution $ \min_y\max_x u(x,y)$. 
 %For zero-sum games, the max-min value, min-max value, and Nash equilibrium value all coincide~\cite{fudenberg1991game}. 
 
-As mentioned earlier, we are interested in computing the max-min solution, 
+We are interested in computing the max-min solution, 
 which is equivalent to the max-min value, min-max value, and Nash equilibrium value  of the game. 
 For simultaneous-move games this can usually be solved by formulating a linear program. 
 However, for our sequential game, each pure strategy need to prescribe an action for each possible sequence of observations leading to that state and, as a result, the sets of pure strategies are exponential for both players. 
@@ -38,7 +37,7 @@ that stationary strategies are at least good approximately optimal solutions: Th
 %\paragraph{Formulating the Linear Program.}
 %\indent We borrow notation from \cite{....} on finite-step algorithms for single controller stochastic games. 
 Restricting to stationary strategies,  randomized strategies now correspond to a mapping from state to a distribution over actions. We have thus reduced the dimension of the solution space from exponential to polynomial in the size of the graph.
-Furthermore, our game exhibit the single-controller property: The state transitions are controlled by the adversary only. For complete information stochastic games with a single controller, a \emph{linear programming} (LP) formulation is known~\cite{Raghavan2003}. We adapt this LP formulation to our incomplete information setting.
+Furthermore, our game exhibits the single-controller property: The state transitions are controlled by the adversary only. For complete information stochastic games with a single controller, a \emph{linear programming} (LP) formulation is known~\cite{Raghavan2003}. We adapt this LP formulation to our incomplete information setting.
  
 We define $V(\theta, s)$ to be a variable that represents 
 the expected payoff to the observer at state $s$ and with adversary's target begin $\theta$. 
@@ -195,5 +194,192 @@ and add it to the set of blocked edges.
 \end{itemize}
 \item return the set of blocked edges, and the primal solution of the final LP as the defender's stationary strategy. 
 \end{itemize}
+
+
+\section{Experiments}
+Experiments were run on a machine using OSX Yosemite version 10.10.5, with 16 GB of ram and a 2.3 GHz Intel Core i7 processor,
+and were conducted on grid environments such as the one seen in Figure \ref{fig:setup}. 
+In these environments, the adversary is allowed to move to adjacent nodes connected by an edge. 
+$S$ denotes the starting location of the adversary while $T1$ and $T2$ denote the locations of two potential targets.
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.4\linewidth]{graph1}
+\caption{An Instance of GTGR/GTGRD Games Used in Experiments.}
+\label{fig:setup}
+\end{center}
+\end{figure}
+
+In Figure \ref{fig:setup}, targets $T1$ and $T2$ each have a equal likelihood of being the adversary's intended target. 
+The adversary's timestep penalty $d$ and completion reward $u^{\theta}$ are both set to 0. 
+The defender's reward for correctly guessing the adversary's intended target $q$ is set to $10$. 
+The attacker penalty value for crossing an edge penalized by the observer is set to $10$. 
+The observer is permitted to penalize 3 edges.
+
+\subsection{A Comparison of MIP and Greedy Solutions}
+As seen in Figure \ref{MIPS} and Figure \ref{GreedyS}, the mixed integer program and greedy heuristic can yield different results. 
+The mixed integer program yields an expected outcome of 43.3 for the observer, 
+while utilizing the greedy heuristic yields an outcome of 40.0 for the observer. 
+The default expected outcome for the observer (in which no edges are penalized) is 30.0. 
+The following experiments averaged the results of similar grid problems.
+
+\begin{figure}[!ht]
+\begin{center}
+\begin{minipage}{0.4\linewidth}
+\includegraphics[width=\linewidth]{graph2}
+\caption{MIP Solution}
+\label{MIPS}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.4\linewidth} 
+\includegraphics[width=\linewidth]{graph3}
+\caption{Greedy Solution}
+\label{GreedyS}
+\end{minipage}
+\end{center}
+\end{figure}
+
+\subsection{Running Time and Solution Quality}
+Results from the following experiments were averaged over 1000 grid environments. 
+For each experiment, the adversary's timestep penalty $d$ and completion reward $u^{\theta}$ were set to 0. 
+For each environment, the starting location of the adversary and all targets are placed 
+randomly on separate nodes. 
+Additionally, each target $\theta$ is assigned a random probability $P(\theta)$ such 
+that $\sum_{\theta \in B} P(\theta) = 1$. 
+In all of our figures below, the greedy heuristic for the GTGRD is graphed in orange, 
+the MIP is graphed in blue, 
+and the default method (LP) for GTGR is graphed in grey, 
+in which the game is solved with no penalized edges.
+The defenders reward for correctly guessing the adversary's intended target $q$ was set to 10. 
+The attacker penalty value for crossing an edge penalized by the observer was set to 10. 
+Each game, the observer was permitted to penalize 2 edges.
+
+\begin{figure}[!ht]
+\begin{center}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{1}
+\caption{Average time given targets.}
+\label{fig:rt_target}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.49\linewidth}
+\includegraphics[width=\linewidth]{2}
+\caption{Average outcome given targets.}
+\label{fig:sol_target}
+\end{minipage}
+\end{center}
+\end{figure}
+
+\subsubsection{Various Potential Target Sizes}
+In this set of experiments, we want to investigate 
+the effect of different potential target sizes (i.e., $|B|$) 
+to the running time (Figure \ref{fig:rt_target}) 
+and solution quality (Figure \ref{fig:sol_target}) of our algorithms. 
+The results are averaged over 1000 simulations of 6 by 6 grids. 
+%The defender's reward for correctly guessing the adversary's intended target $q$ was set to 10. 
+%The attacker penalty value for crossing an edge penalized by the observer was set to 10. 
+Each game, the observer was permitted to penalize 2 edges. 
+
+\begin{figure}[!ht]
+\begin{center}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{3}
+\caption{Average time given size.}
+\label{fig:rt_grids}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.49\linewidth}
+\includegraphics[width=\linewidth]{4}
+\caption{Average outcome given size.}
+\label{fig:sol_grids}
+\end{minipage}
+\end{center}
+\end{figure}
+
+As indicated in Figure \ref{fig:rt_target}, the MIP running time 
+increases exponentially while the greedy heuristic running time 
+remains sublinear as we increase the number of potential targets. 
+Moreover, the solution quality (measured by defender's utility) 
+as seen in Figure \ref{fig:sol_target} suggests that 
+MIP's solution is closely aligned with our greedy heuristics. 
+This gives evidence that our greedy heuristic provides good solution quality 
+while achieving high efficiency. 
+Note that It is no surprise that the 
+defender's utility is higher in the GTGRD setting 
+compared to those of GTGR. 
+
+\subsubsection{Various Instance Sizes}
+In this set of experiments, we investigate 
+the effect of different instance sizes (i.e., grids) 
+to the running time (Figure \ref{fig:rt_grids}) 
+and solution quality (Figure \ref{fig:sol_grids}) of our algorithms. 
+
+%Results in Figure \ref{fig:rt_grids} and Figure \ref{fig:sol_grids} are averaged over 1000 grids. 
+%The defenders reward for correctly guessing the adversary's intended target $q$ was set to 10. 
+%The attacker penalty value for crossing an edge penalized by the observer was set to 10. 
+%Each game, the observer was permitted to penalize 2 edges.
+Unlike our earlier observations on various target sizes, 
+the average running times for both the MIP and our greedy heuristic 
+increase significantly as we increase the instance sizes (see Figure \ref{fig:rt_grids}). 
+This is not surprising as now we have more variables 
+and constraints in the integer programs. 
+Despite this, the defender's utilities generated by greedy heuristic are relatively 
+similar to to those generated using MIP (see Figure \ref{fig:sol_grids}). 
+
+\begin{figure}[!ht]
+\begin{center}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{5}
+\caption{Average time given penalized edges.}
+\label{fig:rt_bar}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.49\linewidth}
+\includegraphics[width=\linewidth]{6}
+\caption{Average outcome given penalized edges.}
+\label{fig:sol_bar}
+\end{minipage}
+\end{center}
+\end{figure}
+
+\begin{figure}[!ht]
+\begin{center}	
+\includegraphics[scale=0.45]{7}
+\caption{Average outcome given penalty value.}
+\label{fig:sol_ep}
+\end{center}
+\end{figure}
+
+\subsubsection{Various Number of Barriers/Blocks}
+In this set of experiments, we want to investigate 
+the effect of different number of barriers (i.e., $K$) 
+to the running time (Figure \ref{fig:rt_target}) 
+and solution quality (Figure \ref{fig:sol_target}) of our algorithms 
+in the GTGRD models.  
+The results are averaged over 1000 simulations of 6 by 6 grids. 
+
+
+%Results in \textbf{Fig. 8} and \textbf{Fig. 9} were averaged over 1000 grids, each with a width and height of 6 nodes. 
+%The defenders reward for correctly guessing the adversary's intended target $q$ was set to 10. 
+%The attacker penalty value for crossing an edge penalized by the observer was set to 10. 
+It turns out that as we increase the number of barriers, 
+the running times of our greedy heuristic are longer than 
+the MIP as shown in Figure \ref{fig:rt_bar}. 
+Nonetheless, as in the earlier experiments, 
+both algorithms have similar solution quality. 
+
+
+\subsubsection{Various Edge Penalties}
+Finally, consider the effect of different edge penalties 
+to the solution quality of our greedy heuristic. 
+The results are averaged over 1000 simulations of 6 by 6 grids. 
+As indicated in Figure \ref{fig:sol_ep}, 
+the solution gap between the MIP and greedy heuristic 
+as we increase the edge penalty. 
+
+%Results in \textbf{Fig. 10} were averaged over 1000 grids, each with a width and height of 6 nodes. 
+%The defenders reward for correctly guessing the adversary's intended target $q$ was set to 10. 
+%Each game, the observer was permitted to penalize 2 edges.
+
+
 \nocite{Dijkstra80}
 \nocite{plop03-paper}

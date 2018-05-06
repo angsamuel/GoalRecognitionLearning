@@ -1,21 +1,28 @@
 \select@language {english}
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {subsection}{\numberline {1.0.1}Game-Theoretic Goal Recognition Problems in Security Domains}{2}
+\contentsline {subsection}{\numberline {1.0.1}Game-Theoretic Goal Recognition Problems in Security Domains}{3}
 \contentsline {subsection}{\numberline {1.0.2}Game-Theoretic Goal Recognition Design Problems in Security Domains}{3}
-\contentsline {subsection}{\numberline {1.0.3}Related Work}{4}
-\contentsline {subsection}{\numberline {1.0.4}Our Contributions}{5}
-\contentsline {section}{\numberline {1.1}Preliminary: stochastic games}{6}
-\contentsline {chapter}{\numberline {2}Game Model}{8}
-\contentsline {subsection}{\numberline {2.0.1}Game-theoretic goal recognition model}{8}
-\contentsline {subsection}{\numberline {2.0.2}Game-theoretic goal recognition design model}{10}
+\contentsline {subsection}{\numberline {1.0.3}Related Work}{5}
+\contentsline {subsection}{\numberline {1.0.4}Contributions}{6}
+\contentsline {section}{\numberline {1.1}Preliminary: stochastic games}{7}
+\contentsline {chapter}{\numberline {2}Game Model}{9}
+\contentsline {subsection}{\numberline {2.0.1}Game-theoretic goal recognition model}{9}
+\contentsline {subsection}{\numberline {2.0.2}Game-theoretic goal recognition design model}{11}
 \contentsline {chapter}{\numberline {3}Computation}{12}
-\contentsline {subsection}{\numberline {3.0.1}Game-theoretic goal recognition model}{12}
-\contentsline {subsection}{\numberline {3.0.2}Game-theoretic goal recognition design model}{16}
+\contentsline {section}{\numberline {3.1}Game-theoretic goal recognition model}{12}
+\contentsline {subsection}{\numberline {3.1.1}Game-theoretic goal recognition design model}{16}
 \contentsline {subsubsection}{Dual-based greedy heuristic.}{17}
-\contentsline {chapter}{\numberline {4}Partially Observable Environments}{19}
-\contentsline {section}{\numberline {4.1}Introduction}{19}
-\contentsline {section}{\numberline {4.2}The Whale Method}{20}
-\contentsline {section}{\numberline {4.3}The Transmogrification Method}{22}
-\contentsline {section}{\numberline {4.4}Experiments}{25}
-\contentsline {chapter}{\numberline {A}Example appendix}{29}
+\contentsline {section}{\numberline {3.2}Experiments}{19}
+\contentsline {subsection}{\numberline {3.2.1}A Comparison of MIP and Greedy Solutions}{20}
+\contentsline {subsection}{\numberline {3.2.2}Running Time and Solution Quality}{20}
+\contentsline {subsubsection}{Various Potential Target Sizes}{21}
+\contentsline {subsubsection}{Various Instance Sizes}{22}
+\contentsline {subsubsection}{Various Number of Barriers/Blocks}{22}
+\contentsline {subsubsection}{Various Edge Penalties}{23}
+\contentsline {chapter}{\numberline {4}Partially Observable Environments}{24}
+\contentsline {section}{\numberline {4.1}Introduction}{24}
+\contentsline {section}{\numberline {4.2}The Whale Method}{25}
+\contentsline {section}{\numberline {4.3}The Transmogrification Method}{27}
+\contentsline {section}{\numberline {4.4}Experiments}{30}
+\contentsline {chapter}{\numberline {A}Example appendix}{38}

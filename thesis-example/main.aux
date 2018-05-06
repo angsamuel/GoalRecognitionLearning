@@ -23,12 +23,15 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Example Problem (left) and with Blocked Actions in Red (right).}}{1}}
-\newlabel{fig:blocked}{{1.1}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.0.1}Game-Theoretic Goal Recognition Problems in Security Domains}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces An Example Goal Recognition Problem.}}{2}}
+\newlabel{fig:example1}{{1.1}{2}}
+\citation{keren:14}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.0.1}Game-Theoretic Goal Recognition Problems in Security Domains}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.0.2}Game-Theoretic Goal Recognition Design Problems in Security Domains}{3}}
 \citation{keren:14}
 \citation{keren:15}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.0.2}Game-Theoretic Goal Recognition Design Problems in Security Domains}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces An Example Goal Recognition Design Problem with Blocked Edges.}}{4}}
+\newlabel{fig:example2}{{1.2}{4}}
 \citation{Sukthankar:14}
 \citation{schmidt:78}
 \citation{vilain:90}
@@ -45,25 +48,25 @@
 \citation{wayllace:16}
 \citation{keren:16}
 \citation{son:16}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.0.3}Related Work}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.0.4}Our Contributions}{5}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Preliminary: stochastic games}{6}}
-\newlabel{stochastic_games}{{1.1}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.0.3}Related Work}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.0.4}Contributions}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Preliminary: stochastic games}{7}}
+\newlabel{stochastic_games}{{1.1}{7}}
 \citation{fudenberg1991game}
-\newlabel{def:bhs}{{1.1.1}{7}}
-\newlabel{def:ss}{{1.1.2}{7}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Game Model}{8}}
+\newlabel{def:bhs}{{1.1.1}{8}}
+\newlabel{def:ss}{{1.1.2}{8}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Game Model}{9}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.1}Game-theoretic goal recognition model}{8}}
-\newlabel{sec:game_basic}{{2.0.1}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.1}Game-theoretic goal recognition model}{9}}
+\newlabel{sec:game_basic}{{2.0.1}{9}}
 \citation{Dijkstra80}
 \citation{plop03-paper}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.2}Game-theoretic goal recognition design model}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.2}Game-theoretic goal recognition design model}{11}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Computation}{12}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.0.1}Game-theoretic goal recognition model}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Game-theoretic goal recognition model}{12}}
 \citation{fudenberg1991game}
 \citation{Raghavan2003}
 \newlabel{eq:game_obj}{{3.1}{14}}
@@ -74,44 +77,99 @@
 \newlabel{eq:dual_obj}{{3.6}{15}}
 \newlabel{eq:dual_incentive}{{3.7}{15}}
 \newlabel{eq:dual_flow}{{3.8}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.0.2}Game-theoretic goal recognition design model}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Game-theoretic goal recognition design model}{16}}
 \newlabel{eq:mip_incentive}{{3.10}{17}}
 \@writefile{toc}{\contentsline {subsubsection}{Dual-based greedy heuristic.}{17}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Experiments}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces An Instance of GTGR/GTGRD Games Used in Experiments.}}{19}}
+\newlabel{fig:setup}{{3.1}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}A Comparison of MIP and Greedy Solutions}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces MIP Solution}}{20}}
+\newlabel{MIPS}{{3.2}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Greedy Solution}}{20}}
+\newlabel{GreedyS}{{3.3}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Running Time and Solution Quality}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Average time given targets.}}{21}}
+\newlabel{fig:rt_target}{{3.4}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Average outcome given targets.}}{21}}
+\newlabel{fig:sol_target}{{3.5}{21}}
+\@writefile{toc}{\contentsline {subsubsection}{Various Potential Target Sizes}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Average time given size.}}{22}}
+\newlabel{fig:rt_grids}{{3.6}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Average outcome given size.}}{22}}
+\newlabel{fig:sol_grids}{{3.7}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{Various Instance Sizes}{22}}
+\@writefile{toc}{\contentsline {subsubsection}{Various Number of Barriers/Blocks}{22}}
 \citation{Dijkstra80}
 \citation{plop03-paper}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Partially Observable Environments}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Average time given penalized edges.}}{23}}
+\newlabel{fig:rt_bar}{{3.8}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Average outcome given penalized edges.}}{23}}
+\newlabel{fig:sol_bar}{{3.9}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Average outcome given penalty value.}}{23}}
+\newlabel{fig:sol_ep}{{3.10}{23}}
+\@writefile{toc}{\contentsline {subsubsection}{Various Edge Penalties}{23}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Partially Observable Environments}{24}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Introduction}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces A partially observable graph.}}{20}}
-\newlabel{fig:shadow1}{{4.1}{20}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}The Whale Method}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A partially observable graph with two shadow sets.}}{20}}
-\newlabel{fig:shadow2}{{4.2}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces A partially observable graph with a single state in place of shadow states.}}{21}}
-\newlabel{fig:shadow3}{{4.3}{21}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}The Transmogrification Method}{22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces The partially observable environment from Figure~\ref  {fig:shadow1} (left) transmogrified into an, fully observable graph.}}{23}}
-\newlabel{fig:shadow4}{{4.4}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The adversary's path to target $T1$.}}{24}}
-\newlabel{fig:shadow5}{{4.5}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces The adversary's path to $T1$ from the observer's perspective.}}{25}}
-\newlabel{fig:shadow6}{{4.6}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Experiments}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces A simple scenario using NetworkX.}}{26}}
-\newlabel{fig:test1}{{4.7}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The transmogrified graph.}}{26}}
-\newlabel{fig:test2}{{4.8}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Introduction}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces A partially observable graph.}}{25}}
+\newlabel{fig:shadow1}{{4.1}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}The Whale Method}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A partially observable graph with two shadow sets.}}{25}}
+\newlabel{fig:shadow2}{{4.2}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces A partially observable graph with a single state in place of shadow states.}}{26}}
+\newlabel{fig:shadow3}{{4.3}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}The Transmogrification Method}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces The partially observable environment from Figure~\ref  {fig:shadow1} (left) transmogrified into an, fully observable graph.}}{28}}
+\newlabel{fig:shadow4}{{4.4}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces The adversary's path to target $T1$.}}{29}}
+\newlabel{fig:shadow5}{{4.5}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces The adversary's path to $T1$ from the observer's perspective.}}{30}}
+\newlabel{fig:shadow6}{{4.6}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Experiments}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces A simple scenario using NetworkX.}}{31}}
+\newlabel{fig:test1}{{4.7}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces The transmogrified graph.}}{31}}
+\newlabel{fig:test2}{{4.8}{31}}
 \citation{Dijkstra80}
 \citation{plop03-paper}
 \bibdata{refs}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Performance results from simple environment.}}{32}}
+\newlabel{table:simpletable}{{4.1}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Complex testing environment.}}{33}}
+\newlabel{fig:arena}{{4.9}{33}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Average method performance in complex environment.}}{33}}
+\newlabel{table:simpletable}{{4.2}{33}}
+\bibcite{braynov:06}{1}
+\bibcite{fudenberg1991game}{2}
+\bibcite{geib:07}{3}
+\bibcite{guillarme:15}{4}
+\bibcite{jarvis:05}{5}
+\bibcite{johnson:10}{6}
+\bibcite{kautz:87}{7}
+\bibcite{kelley:12}{8}
+\bibcite{keren:14}{9}
+\bibcite{keren:15}{10}
+\bibcite{keren:16}{11}
+\bibcite{lee:12}{12}
+\bibcite{lisy:12}{13}
+\bibcite{mcquiggan:08}{14}
+\bibcite{min:14}{15}
+\bibcite{oh:10}{16}
+\bibcite{oh:11}{17}
+\bibcite{oh:11b}{18}
+\bibcite{Raghavan2003}{19}
+\bibcite{ramirez:09}{20}
+\bibcite{ramirez:10}{21}
+\bibcite{ramirez:11}{22}
+\bibcite{schmidt:78}{23}
+\bibcite{son:16}{24}
+\bibcite{Sukthankar:14}{25}
+\bibcite{tavakkoli:07}{26}
+\bibcite{vilain:90}{27}
+\bibcite{wayllace:16}{28}
 \bibstyle{plain}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Performance results from simple environment.}}{27}}
-\newlabel{table:simpletable}{{4.1}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Complex testing environment.}}{28}}
-\newlabel{fig:arena}{{4.9}{28}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Average method performance in complex environment.}}{28}}
-\newlabel{table:simpletable}{{4.2}{28}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Example appendix}{29}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Example appendix}{38}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}

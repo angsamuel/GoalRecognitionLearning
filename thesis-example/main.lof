@@ -1,17 +1,28 @@
 \select@language {english}
 \select@language {english}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Example Problem (left) and with Blocked Actions in Red (right).}}{1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces An Example Goal Recognition Problem.}}{2}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces An Example Goal Recognition Design Problem with Blocked Edges.}}{4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces An Instance of GTGR/GTGRD Games Used in Experiments.}}{19}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces MIP Solution}}{20}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Greedy Solution}}{20}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Average time given targets.}}{21}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Average outcome given targets.}}{21}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Average time given size.}}{22}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Average outcome given size.}}{22}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Average time given penalized edges.}}{23}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Average outcome given penalized edges.}}{23}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Average outcome given penalty value.}}{23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces A partially observable graph.}}{20}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces A partially observable graph with two shadow sets.}}{20}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces A partially observable graph with a single state in place of shadow states.}}{21}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The partially observable environment from Figure~\ref {fig:shadow1} (left) transmogrified into an, fully observable graph.}}{23}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces The adversary's path to target $T1$.}}{24}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces The adversary's path to $T1$ from the observer's perspective.}}{25}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces A simple scenario using NetworkX.}}{26}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces The transmogrified graph.}}{26}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Complex testing environment.}}{28}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces A partially observable graph.}}{25}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces A partially observable graph with two shadow sets.}}{25}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces A partially observable graph with a single state in place of shadow states.}}{26}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The partially observable environment from Figure~\ref {fig:shadow1} (left) transmogrified into an, fully observable graph.}}{28}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The adversary's path to target $T1$.}}{29}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces The adversary's path to $T1$ from the observer's perspective.}}{30}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces A simple scenario using NetworkX.}}{31}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces The transmogrified graph.}}{31}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Complex testing environment.}}{33}
 \addvspace {10\p@ }

@@ -1,0 +1,181 @@
+\begin{thebibliography}{10}
+
+\bibitem{braynov:06}
+S.~Braynov.
+\newblock Adversarial planning and plan recognition: Two sides of the same
+  coin.
+\newblock In {\em Proceedings of the Secure Knowledge Management Workshop},
+  2006.
+
+\bibitem{fudenberg1991game}
+Drew Fudenberg and Jean Tirole.
+\newblock Game theory, 1991.
+
+\bibitem{geib:07}
+Christopher Geib and Mark Steedman.
+\newblock On natural language processing and plan recognition.
+\newblock In {\em Proceedings of the International Joint Conference on
+  Artificial Intelligence (IJCAI)}, pages 1612--1617, 2007.
+
+\bibitem{guillarme:15}
+N.~Le Guillarme, A.-I. Mouaddib, X.~Lerouvreur, and S.~Gatepaille.
+\newblock A generative game-theoretic framework for adversarial plan
+  recognition.
+\newblock In {\em Proceedings of the Workshop on Distributed and Multi-Agent
+  Planning}, 2015.
+
+\bibitem{jarvis:05}
+Peter Jarvis, Teresa Lunt, and Karen Myers.
+\newblock Identifying terrorist activity with {AI} plan recognition technology.
+\newblock {\em {AI} Magazine}, 26(3):73--81, 2005.
+
+\bibitem{johnson:10}
+W.~Lewis Johnson.
+\newblock Serious use of a serious game for language learning.
+\newblock {\em International Journal of Artificial Intelligence in Education},
+  20(2):175--195, 2010.
+
+\bibitem{kautz:87}
+Henry~A Kautz.
+\newblock {\em A Formal Theory of Plan Recognition}.
+\newblock PhD thesis, Bell Laboratories, 1987.
+
+\bibitem{kelley:12}
+Richard Kelley, Liesl Wigand, Brian Hamilton, Katie Browne, Monica Nicolescu,
+  and Mircea Nicolescu.
+\newblock Deep networks for predicting human intent with respect to objects.
+\newblock In {\em Proceedings of the International Conference on Human-Robot
+  Interaction (HRI)}, pages 171--172, 2012.
+
+\bibitem{keren:14}
+Sarah Keren, Avigdor Gal, and Erez Karpas.
+\newblock Goal recognition design.
+\newblock In {\em Proceedings of the International Conference on Automated
+  Planning and Scheduling (ICAPS)}, pages 154--162, 2014.
+
+\bibitem{keren:15}
+Sarah Keren, Avigdor Gal, and Erez Karpas.
+\newblock Goal recognition design for non-optimal agents.
+\newblock In {\em Proceedings of the AAAI Conference on Artificial Intelligence
+  (AAAI)}, pages 3298--3304, 2015.
+
+\bibitem{keren:16}
+Sarah Keren, Avigdor Gal, and Erez Karpas.
+\newblock Goal recognition design with non-observable actions.
+\newblock In {\em Proceedings of the AAAI Conference on Artificial Intelligence
+  (AAAI)}, pages 3152--3158, 2016.
+
+\bibitem{lee:12}
+Seung Lee, Bradford Mott, and James Lester.
+\newblock Real-time narrative-centered tutorial planning for story-based
+  learning.
+\newblock In {\em Proceedings of the International Conference on Intelligent
+  Tutoring Systems (ITS)}, pages 476--481, 2012.
+
+\bibitem{lisy:12}
+Viliam Lis{\'{y}}, Radek P{\'{\i}}bil, Jan Stiborek, Branislav Bosansk{\'{y}},
+  and Michal Pechoucek.
+\newblock Game-theoretic approach to adversarial plan recognition.
+\newblock In {\em Proceedings of the European Conference on Artificial
+  Intelligence (ECAI)}, pages 546--551, 2012.
+
+\bibitem{mcquiggan:08}
+Scott McQuiggan, Jonathan Rowe, Sunyoung Lee, and James Lester.
+\newblock Story-based learning: The impact of narrative on learning experiences
+  and outcomes.
+\newblock In {\em Proceedings of the International Conference on Intelligent
+  Tutoring Systems (ITS)}, pages 530--539, 2008.
+
+\bibitem{min:14}
+Wookhee Min, Eunyoung Ha, Jonathan Rowe, Bradford Mott, and James Lester.
+\newblock Deep learning-based goal recognition in open-ended digital games.
+\newblock In {\em Proceedings of the AAAI Conference on Artificial Intelligence
+  and Interactive Digital Entertainment (AIIDE)}, 2014.
+
+\bibitem{oh:10}
+Jean Oh, Felipe Meneguzzi, Katia Sycara, and Timothy Norman.
+\newblock {ANTIPA}: An agent architecture for intelligent information
+  assistance.
+\newblock In {\em Proceedings of the European Conference on Artificial
+  Intelligence (ECAI)}, pages 1055--1056, 2010.
+
+\bibitem{oh:11}
+Jean Oh, Felipe Meneguzzi, Katia Sycara, and Timothy Norman.
+\newblock An agent architecture for prognostic reasoning assistance.
+\newblock In {\em Proceedings of the International Joint Conference on
+  Artificial Intelligence (IJCAI)}, pages 2513--2518, 2011.
+
+\bibitem{oh:11b}
+Jean Oh, Felipe Meneguzzi, Katia Sycara, and Timothy Norman.
+\newblock Probabilistic plan recognition for intelligent information agents:
+  Towards proactive software assistant agents.
+\newblock In {\em Proceedings of the International Conference on Agents and
+  Artificial Intelligence (ICAART)}, pages 281--287, 2011.
+
+\bibitem{Raghavan2003}
+T.~E.~S. Raghavan.
+\newblock Finite-step algorithms for single-controller and perfect information
+  stochastic games.
+\newblock In Abraham Neyman and Sylvain Sorin, editors, {\em Stochastic Games
+  and Applications}, pages 227--251. Springer Netherlands, 2003.
+
+\bibitem{ramirez:09}
+Miquel Ram{\'{\i}}rez and Hector Geffner.
+\newblock Plan recognition as planning.
+\newblock In {\em Proceedings of the International Joint Conference on
+  Artificial Intelligence (IJCAI)}, pages 1778--1783, 2009.
+
+\bibitem{ramirez:10}
+Miquel Ram{\'{\i}}rez and Hector Geffner.
+\newblock Probabilistic plan recognition using off-the-shelf classical
+  planners.
+\newblock In {\em Proceedings of the AAAI Conference on Artificial Intelligence
+  (AAAI)}, pages 1121--1126, 2010.
+
+\bibitem{ramirez:11}
+Miquel Ram{\'{\i}}rez and Hector Geffner.
+\newblock Goal recognition over {POMDPs}: Inferring the intention of a {POMDP}
+  agent.
+\newblock In {\em Proceedings of the International Joint Conference on
+  Artificial Intelligence (IJCAI)}, pages 2009--2014, 2011.
+
+\bibitem{schmidt:78}
+Charles Schmidt, N.~Sridharan, and John Goodson.
+\newblock The plan recognition problem: An intersection of psychology and
+  artificial intelligence.
+\newblock {\em Artificial Intelligence}, 11(1--2):45--83, 1978.
+
+\bibitem{son:16}
+Tran~Cao Son, Orkunt Sabuncu, Christian Schulz-Hanke, Torsten Schaub, and
+  William Yeoh.
+\newblock Solving goal recognition design using asp.
+\newblock In {\em Proceedings of the AAAI Conference on Artificial Intelligence
+  (AAAI)}, 2016.
+
+\bibitem{Sukthankar:14}
+Gita Sukthankar, Christopher Geib, Hung~Hai Bui, David Pynadath, and Robert~P
+  Goldman.
+\newblock {\em Plan, activity, and intent recognition: Theory and practice}.
+\newblock Newnes, 2014.
+
+\bibitem{tavakkoli:07}
+Alireza Tavakkoli, Richard Kelley, Christopher King, Mircea Nicolescu, Monica
+  Nicolescu, and George Bebis.
+\newblock A vision-based architecture for intent recognition.
+\newblock In {\em Proceedings of the International Symposium on Advances in
+  Visual Computing}, pages 173--182, 2007.
+
+\bibitem{vilain:90}
+Marc Vilain.
+\newblock Getting serious about parsing plans: A grammatical analysis of plan
+  recognition.
+\newblock In {\em Proceedings of the National Conference on Artificial
+  Intelligence (AAAI)}, pages 190--197, 1990.
+
+\bibitem{wayllace:16}
+Christabel Wayllace, Ping Hou, William Yeoh, and Tran~Cao Son.
+\newblock Goal recognition design with stochastic agent action outcomes.
+\newblock In {\em Proceedings of the International Joint Conference on
+  Artificial Intelligence (IJCAI)}, 2016.
+
+\end{thebibliography}

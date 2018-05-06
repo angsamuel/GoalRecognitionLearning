@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 MAY 2018 20:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 MAY 2018 03:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -367,7 +367,15 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(./abstract.tex)
+(./abstract.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 56.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 56.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -376,20 +384,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./ack.tex) [2
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+[2] (./ack.tex) [3
 
 ] (./signatures.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 24.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 Underfull \hbox (badness 10000) detected at line 51
  
  []
@@ -414,153 +412,53 @@ Underfull \hbox (badness 10000) detected at line 84
  
  []
 
-) [3
+) [4
 
-] (./titlepage.tex) [4
+] (./titlepage.tex) [5
 
-] (./main.toc [5
+] (./main.toc [6
 
 ])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [6] (./main.lot)
+ [7] (./main.lot)
 \tf@lot=\write4
 \openout4 = `main.lot'.
 
- [7
+ [8
 
-] (./main.lof)
+] (./main.lof
+[9
+
+])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
-
-[8
-
-] (./ChapterIntro.tex
+ [10] (./ChapterIntro.tex
 Chapter 1.
+<images/example1.png, id=41, 1216.545pt x 1218.954pt>
+File: images/example1.png Graphic file (type png)
 
-LaTeX Warning: Citation `schmidt:78' on page 1 undefined on input line 4.
-
-
-LaTeX Warning: Citation `kautz:87' on page 1 undefined on input line 4.
-
-
-LaTeX Warning: Citation `Sukthankar:14' on page 1 undefined on input line 5.
+<use images/example1.png>
+Package pdftex.def Info: images/example1.png used on input line 13.
+(pdftex.def)             Requested size: 182.47388pt x 182.8352pt.
 
 
-LaTeX Warning: Citation `oh:10' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `oh:11' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `oh:11b' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Citation `tavakkoli:07' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `kelley:12' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation `mcquiggan:08' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `johnson:10' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `lee:12' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `min:14' on page 1 undefined on input line 9.
-
-
-LaTeX Warning: Citation `jarvis:05' on page 1 undefined on input line 9.
-
-<images/blocked.pdf, id=35, 289.08pt x 289.08pt>
-File: images/blocked.pdf Graphic file (type pdf)
- <use images/blocked.pdf>
-Package pdftex.def Info: images/blocked.pdf used on input line 15.
-(pdftex.def)             Requested size: 43.36012pt x 43.36012pt.
-
-
-LaTeX Warning: Reference `example' on page 1 undefined on input line 24.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [1
 
 
- <./images/blocked.pdf>]
+] [2 <./images/example1.png>] [3]
+<images/example2.png, id=55, 1216.545pt x 1218.954pt>
+File: images/example2.png Graphic file (type png)
 
-LaTeX Warning: Reference `example' on page 2 undefined on input line 50.
-
-
-LaTeX Warning: Reference `example' on page 2 undefined on input line 51.
-
-[2]
-
-LaTeX Warning: Reference `example' on page 3 undefined on input line 66.
-
-
-LaTeX Warning: Citation `keren:14' on page 3 undefined on input line 74.
-
-
-LaTeX Warning: Citation `keren:15' on page 3 undefined on input line 74.
-
-
-LaTeX Warning: Reference `example' on page 3 undefined on input line 81.
-
-[3]
-
-LaTeX Warning: Citation `Sukthankar:14' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `schmidt:78' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `vilain:90' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `geib:07' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `ramirez:09' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `ramirez:10' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `ramirez:11' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `min:14' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `lisy:12' on page 4 undefined on input line 92.
-
-
-LaTeX Warning: Citation `braynov:06' on page 4 undefined on input line 93.
-
-
-LaTeX Warning: Citation `guillarme:15' on page 4 undefined on input line 94.
-
-
-LaTeX Warning: Citation `keren:14' on page 4 undefined on input line 97.
-
-
-LaTeX Warning: Citation `keren:15' on page 4 undefined on input line 97.
-
-
-LaTeX Warning: Citation `wayllace:16' on page 4 undefined on input line 97.
-
-
-LaTeX Warning: Citation `keren:16' on page 4 undefined on input line 97.
-
-
-LaTeX Warning: Citation `son:16' on page 4 undefined on input line 97.
-
-[4] [5]
-Overfull \hbox (5.97205pt too wide) in paragraph at lines 161--177
+<use images/example2.png>
+Package pdftex.def Info: images/example2.png used on input line 66.
+(pdftex.def)             Requested size: 182.47388pt x 182.8352pt.
+ [4 <./images/example2.png>] [5] [6]
+Overfull \hbox (5.97205pt too wide) in paragraph at lines 157--173
 \OT1/cmr/m/n/10.95 timestep at most $\OML/cmm/m/it/10.95 T$\OT1/cmr/m/n/10.95 .
  Let $\OML/cmm/m/it/10.95 h[] \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 s[]; j[
 ]; s[]; j[]; :::; j[]; s[]\OT1/cmr/m/n/10.95 )$ and $\OML/cmm/m/it/10.95 h[] \O
@@ -568,64 +466,114 @@ T1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 s[]; j[]; i[]; s[]; ::::; j[]; i[]; s[]
 \OT1/cmr/m/n/10.95 )$
  []
 
-[6]
-
-LaTeX Warning: Citation `fudenberg1991game' on page 7 undefined on input line 2
-21.
-
-
-Overfull \hbox (25.7142pt too wide) in paragraph at lines 215--224
+[7]
+Overfull \hbox (25.7142pt too wide) in paragraph at lines 211--220
 [][] [][] \OML/cmm/m/it/10.95 ^^M[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P; s
 []; ^^[[]; ^^[[]\OT1/cmr/m/n/10.95 )$. One can also de-fine min-max so-lu-tion 
 $[][] [][] \OML/cmm/m/it/10.95 ^^M[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P; 
 s[]; ^^[[]; ^^[[]\OT1/cmr/m/n/10.95 )$.
  []
 
-) (./ChapterModel.tex [7]
+) (./ChapterModel.tex [8]
 Chapter 2.
-[8
+[9
 
-] [9]
+] [10]
 
-LaTeX Warning: Citation `Dijkstra80' undefined on input line 100.
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 96.
 
 
-LaTeX Warning: Citation `plop03-paper' undefined on input line 101.
+LaTeX Warning: Citation `plop03-paper' undefined on input line 97.
 
-) [10] (./ChapterComputation.tex [11]
+) (./ChapterComputation.tex [11]
 Chapter 3.
 [12
 
-]
-
-LaTeX Warning: Citation `fudenberg1991game' on page 13 undefined on input line 
-32.
-
-
-LaTeX Warning: Citation `Raghavan2003' on page 13 undefined on input line 41.
-
-[13] [14] [15] [16] [17]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 187.
+] [13] [14] [15] [16] [17]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 186.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 187.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
+
+<images/graph1.png, id=112, 822.272pt x 822.272pt>
+File: images/graph1.png Graphic file (type png)
+ <use images/graph1.png>
+Package pdftex.def Info: images/graph1.png used on input line 206.
+(pdftex.def)             Requested size: 173.44534pt x 173.43503pt.
+
+[18] [19 <./images/graph1.png>]
+<images/graph2.png, id=123, 822.272pt x 822.272pt>
+File: images/graph2.png Graphic file (type png)
+ <use images/graph2.png>
+Package pdftex.def Info: images/graph2.png used on input line 228.
+(pdftex.def)             Requested size: 173.44534pt x 173.43503pt.
+
+<images/graph3.png, id=124, 822.272pt x 822.272pt>
+File: images/graph3.png Graphic file (type png)
+ <use images/graph3.png>
+Package pdftex.def Info: images/graph3.png used on input line 234.
+(pdftex.def)             Requested size: 173.44534pt x 173.43503pt.
+
+[20 <./images/graph2.png> <./images/graph3.png>]
+<images/1.png, id=130, 344.487pt x 190.7928pt>
+File: images/1.png Graphic file (type png)
+ <use images/1.png>
+Package pdftex.def Info: images/1.png used on input line 259.
+(pdftex.def)             Requested size: 208.13574pt x 115.27423pt.
+
+<images/2.png, id=131, 321.3606pt x 181.6386pt>
+File: images/2.png Graphic file (type png)
+ <use images/2.png>
+Package pdftex.def Info: images/2.png used on input line 265.
+(pdftex.def)             Requested size: 212.47618pt x 120.09525pt.
+
+<images/3.png, id=132, 362.3136pt x 217.7736pt>
+File: images/3.png Graphic file (type png)
+ <use images/3.png>
+Package pdftex.def Info: images/3.png used on input line 285.
+(pdftex.def)             Requested size: 208.13574pt x 125.10254pt.
+
+<images/4.png, id=133, 362.3136pt x 217.7736pt>
+File: images/4.png Graphic file (type png)
+ <use images/4.png>
+Package pdftex.def Info: images/4.png used on input line 291.
+(pdftex.def)             Requested size: 212.47618pt x 127.71104pt.
+ [21 <./images/1.png> <./images/2.png>] <images/5.png, id=140, 398.4486pt x 217
+.7736pt>
+File: images/5.png Graphic file (type png)
+
+<use images/5.png>
+Package pdftex.def Info: images/5.png used on input line 331.
+(pdftex.def)             Requested size: 208.13574pt x 113.75797pt.
+ <images/6.png, id=141, 362.3136pt x 217.7736pt>
+File: images/6.png Graphic file (type png)
+
+<use images/6.png>
+Package pdftex.def Info: images/6.png used on input line 337.
+(pdftex.def)             Requested size: 212.47618pt x 127.71104pt.
+ <images/7.png, id=142, 411.4572pt x 209.1012pt>
+File: images/7.png Graphic file (type png)
+
+<use images/7.png>
+Package pdftex.def Info: images/7.png used on input line 346.
+(pdftex.def)             Requested size: 185.15402pt x 94.09467pt.
+ [22 <./images/3.png> <./images/4.png>]
+
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 384.
 
 
-LaTeX Warning: Citation `Dijkstra80' undefined on input line 198.
+LaTeX Warning: Citation `plop03-paper' undefined on input line 385.
 
-
-LaTeX Warning: Citation `plop03-paper' undefined on input line 199.
-
-) (./chaptera.tex [18]
+) (./chaptera.tex [23 <./images/5.png> <./images/6.png> <./images/7.png>]
 Chapter 4.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
-<images/shadow1.png, id=110, 740.366pt x 722.7pt>
+<images/shadow1.png, id=154, 740.366pt x 722.7pt>
 File: images/shadow1.png Graphic file (type png)
  <use images/shadow1.png>
 Package pdftex.def Info: images/shadow1.png used on input line 18.
@@ -634,55 +582,55 @@ Package pdftex.def Info: images/shadow1.png used on input line 18.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19
+[24
 
-] <images/shadow2.png, id=115, 561.297pt x 758.032pt>
+] <images/shadow2.png, id=158, 561.297pt x 758.032pt>
 File: images/shadow2.png Graphic file (type png)
 
 <use images/shadow2.png>
 Package pdftex.def Info: images/shadow2.png used on input line 35.
 (pdftex.def)             Requested size: 84.1909pt x 113.69989pt.
- [20 <./images/shadow1.png> <./images/shadow2.png>]
-<images/shadow3.png, id=121, 740.366pt x 722.7pt>
+ [25 <./images/shadow1.png> <./images/shadow2.png>]
+<images/shadow3.png, id=164, 740.366pt x 722.7pt>
 File: images/shadow3.png Graphic file (type png)
  <use images/shadow3.png>
 Package pdftex.def Info: images/shadow3.png used on input line 47.
 (pdftex.def)             Requested size: 111.05011pt x 108.40031pt.
 
-[21 <./images/shadow3.png>] [22]
-<images/shadow4.png, id=129, 2526.238pt x 722.7pt>
+[26 <./images/shadow3.png>] [27]
+<images/shadow4.png, id=173, 2526.238pt x 722.7pt>
 File: images/shadow4.png Graphic file (type png)
  <use images/shadow4.png>
 Package pdftex.def Info: images/shadow4.png used on input line 101.
 (pdftex.def)             Requested size: 378.91936pt x 108.40031pt.
 
-[23 <./images/shadow4.png>] <images/shadow5.png, id=135, 740.366pt x 722.7pt>
+[28 <./images/shadow4.png>] <images/shadow5.png, id=178, 740.366pt x 722.7pt>
 File: images/shadow5.png Graphic file (type png)
 
 <use images/shadow5.png>
 Package pdftex.def Info: images/shadow5.png used on input line 114.
 (pdftex.def)             Requested size: 111.05011pt x 108.40031pt.
- [24 <./images/shadow5.png>]
-<images/shadow6.png, id=140, 1145.881pt x 704.231pt>
+ [29 <./images/shadow5.png>]
+<images/shadow6.png, id=183, 1145.881pt x 704.231pt>
 File: images/shadow6.png Graphic file (type png)
  <use images/shadow6.png>
 Package pdftex.def Info: images/shadow6.png used on input line 127.
 (pdftex.def)             Requested size: 171.87473pt x 105.63008pt.
 
-[25 <./images/shadow6.png>] <images/test1.png, id=145, 462.528pt x 346.896pt>
+[30 <./images/shadow6.png>] <images/test1.png, id=188, 462.528pt x 346.896pt>
 File: images/test1.png Graphic file (type png)
 
 <use images/test1.png>
 Package pdftex.def Info: images/test1.png used on input line 146.
 (pdftex.def)             Requested size: 69.37619pt x 52.03215pt.
- <images/test2.png, id=146, 1284.8pt x 963.6pt>
+ <images/test2.png, id=189, 1284.8pt x 963.6pt>
 File: images/test2.png Graphic file (type png)
 
 <use images/test2.png>
 Package pdftex.def Info: images/test2.png used on input line 159.
 (pdftex.def)             Requested size: 192.71169pt x 144.53375pt.
- [26 <./images/test1.png> <./images/test2.png>]
-<images/arena.png, id=151, 1048.718pt x 1065.581pt>
+ [31 <./images/test1.png> <./images/test2.png>]
+<images/arena.png, id=194, 1048.718pt x 1065.581pt>
 File: images/arena.png Graphic file (type png)
  <use images/arena.png>
 Package pdftex.def Info: images/arena.png used on input line 190.
@@ -697,11 +645,12 @@ LaTeX Warning: Citation `Dijkstra80' undefined on input line 218.
 
 LaTeX Warning: Citation `plop03-paper' undefined on input line 219.
 
-)
-No file main.bbl.
-(./appendix1.tex [27] [28 <./images/arena.png>]
+) (./main.bbl [32] [33 <./images/arena.png>] [34
+
+] [35] [36]) (./appendix1.tex
+[37]
 Appendix A.
-) [29
+) [38
 
 ] (./main.aux)
 
@@ -712,10 +661,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4485 strings out of 493014
- 60679 string characters out of 6133351
- 138111 words of memory out of 5000000
- 7874 multiletter control sequences out of 15000+600000
+ 4554 strings out of 493014
+ 61750 string characters out of 6133351
+ 138363 words of memory out of 5000000
+ 7930 multiletter control sequences out of 15000+600000
  17463 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,16n,43p,1938b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -741,10 +690,10 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (37 pages, 739375 bytes).
+Output written on main.pdf (48 pages, 1133569 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 290 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

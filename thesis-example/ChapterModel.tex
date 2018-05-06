@@ -2,7 +2,7 @@
 % FIX THIS -- remove/change, just some examples of things
 %
 \chapter{Game Model}
-We begin by describing our settings and introducing the  
+This chapter will introduce both the 
 GTGR and GRGRD models. 
 
 \subsection{Game-theoretic goal recognition model}\label{sec:game_basic}
@@ -31,23 +31,21 @@ The observer does not know the target $\theta$, and only the adversary knows its
 However, the observer knows the set of possible targets $B$ and the adversary's starting position $s_0$. 
 For any $s \in L$, we let $\nu(s)$ is the set of neighbors of $s$ in the graph $G$. 
 
-The game is sequential and is played over several timesteps 
+The game is sequential and is played over several time-steps 
 where both of the players move simultaneously. 
-At each timestep, the observer selects a potential target in $B$ to protect, 
+At each time-step, the observer selects a potential target in $B$ to protect, 
 and the agent moves from its current position to a neighboring node.
-We consider the zero-sum scenario: With each timestep, 
-the adversary and the observer will lose and gain a value $d$, respectively.
+With each time-step, the adversary and the observer will lose and gain a value $d$, respectively.
 In addition, if the observer protects the correct target location $\theta$,
 an additional value of $q$ will be added to the observer 
-and subtracted from the adversary. 
+and subtracted from the adversary. The value $d$ allows us to incentivize quick play for the adversary, but can be set to $0$ such a penalty is not needed. Note that the value of $d$ should never be negative, since that would allow the adversary to wander the board endlessly, increasing their score to infinity.
 The game ends when the attacker reaches its target $\theta$, 
 a value of $u^{\theta}$ will be added to the adversary's overall score, and $u^{\theta}$ will be subtracted 
 from the observer's overall score. 
 Notice that during the play of the game, the adversary does not observe 
 the observer's action(s), and the players do not know of their current scores. 
 
-Because of the potentially stochastic nature of adversary's moves 
-at each timestep and the uncertainty of adversary's target in the system, 
+Because the adversary's moves may be stochastic in nature, and because the observer does not know the adversary's intended target, 
 our setting is most naturally modeled as a 
 \emph{stochastic game with incomplete information} 
 as defined in Section \ref{stochastic_games}.
@@ -80,22 +78,20 @@ r(s, i, j, \theta) = \left\{
     \right.
 \end{align}
 While, in theory, the game could go on forever if the adversary never reaches his target $\theta$, 
-because of the per-timestep cost of $d$, any sufficiently long path for the adversary would be 
-dominated by the strategy of taking the shortest path to $\theta$. 
-Eliminating these dominated strategies allows us to set a finite bound for the duration of the game, 
-which grows linearly in the shortest distance to the target that is furthest away. Even in games where the value of $d$ is set to 0, the defender could potentially play a uniformly random strategy that imposes a cost of $\frac{q}{| B |}$ per timestep. Therefore, an adversary strategy taking forever would achieve a value of $-\infty$ against the uniformly random defender strategy. In any Nash equilibrium the attacker will always reach their target in finite time.
+because of the per-timestep cost of $d$, any path of sufficient length for the adversary would be 
+dominated by the strategy of taking the shortest path to $\theta$.
+Eliminating these dominated strategies allows us to set a finite bound for the duration of the game. Even in games where the value of $d$ is set to 0, the defender could potentially play a uniformly random strategy that imposes a cost of $\frac{q}{| B |}$ per timestep. Therefore, an adversary strategy taking forever would achieve a value of $-\infty$ against the uniformly random defender strategy. In any Nash equilibrium the attacker will always reach their target in finite time.
 
 We call this the game-theoretic goal recognition (GTGR) model. 
-All of the definitions in Section \ref{stochastic_games} follow immediately for our games. 
+All of the definitions in Section \ref{stochastic_games} follow immediately from this game. 
 
 \subsection{Game-theoretic goal recognition design model}
 As mentioned in the introduction, we also consider the 
 game-theoretic goal recognition design (GTGRD) model.
-Formally, before the game starts, we allow the observer to blocking a subset 
+Formally, before the game starts, we allow the observer to block a subset 
 of at most $K$ actions from the game. In our model, that corresponds to blocking at most $K$ edges from the graph.
-In one variant of the model, blocking an edge effectively removes that edge, i.e. the adversary can no longer take that action. 
-In another variant, blocking an edge does not prevent the adversary from taking the action,
-but the adversary would incur a cost by taking that action.
+In our game, blocking an edge does not prevent the adversary from taking the action,
+but the adversary would incur a cost by taking that action. 
 After placing the blocks, the game proceeds as described in Section \ref{sec:game_basic}.
 \nocite{Dijkstra80}
 \nocite{plop03-paper}

@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: refs.bib
+Warning--I didn't find a database entry for "Dijkstra80"
+Warning--I didn't find a database entry for "plop03-paper"
+You've used 28 entries,
+            2118 wiz_defined-function locations,
+            657 strings with 8872 characters,
+and the built_in function-call counts, 12098 in all, are:
+= -- 1188
+> -- 532
+< -- 17
++ -- 213
+- -- 180
+* -- 756
+:= -- 1798
+add.period$ -- 84
+call.type$ -- 28
+change.case$ -- 171
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 539
+empty$ -- 998
+format.name$ -- 180
+if$ -- 2689
+int.to.chr$ -- 0
+int.to.str$ -- 28
+missing$ -- 27
+newline$ -- 142
+num.names$ -- 58
+pop$ -- 246
+preamble$ -- 1
+purify$ -- 145
+quote$ -- 0
+skip$ -- 443
+stack$ -- 0
+substring$ -- 816
+swap$ -- 218
+text.length$ -- 17
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 110
+warning$ -- 0
+while$ -- 114
+width$ -- 30
+write$ -- 302
+(There were 2 warnings)

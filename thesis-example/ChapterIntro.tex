@@ -1,75 +1,75 @@
 \chapter{Introduction}
 
-Discovering the objective of an agent based on observations of its behavior is a problem that 
-has interested both artificial intelligence (AI) and psychology researchers for many years \cite{schmidt:78,kautz:87}. 
-In AI, this problem is known as \emph{goal recognition} (GR) or, more generally, \emph{plan recognition}~\cite{Sukthankar:14}. 
-Plan and goal recognition problems have been used to model a number of applications ranging from software personal assistants~\cite{oh:10,oh:11,oh:11b}; 
-robots that interact with humans in social settings such as homes, offices, and hospitals~\cite{tavakkoli:07,kelley:12}; 
-intelligent tutoring systems that recognize sources of confusion or misunderstanding in students through 
-their interactions with the system~\cite{mcquiggan:08,johnson:10,lee:12,min:14}; and security applications that recognize the plan or goal of terrorists~\cite{jarvis:05}. 
 
+Researchers in both artificial intelligence (AI) and psychology share an interest in developing techniques for discerning the intentions of agents through observation \cite{schmidt:78,kautz:87}. AI researchers have referred to these types problems as \emph{goal recognition problems} (GR) or, more generally, \emph{plan recognition problems}~\cite{Sukthankar:14}. 
+Plan and goal recognition models have many applications, both for cooporative and adversarial relationships between the agent in question and the party attempting to recognize their goal. Goal recognition has been used in designing software for personal assistants~\cite{oh:10,oh:11,oh:11b}; for
+robots that interact with humans in cooporative work settings such as homes, offices, and hospitals~\cite{tavakkoli:07,kelley:12}; 
+for intelligent tutoring systems that can recognize sources of confusion for a student based on
+their interactions with the system~\cite{mcquiggan:08,johnson:10,lee:12,min:14}; and for security applications such as recognizing the goal of terrorists~\cite{jarvis:05}. 
 
 \begin{figure}[h!]
 \begin{center}
 
-  \includegraphics[scale=.15]{blocked}
+  \includegraphics[scale=.15]{example1}
   \end{center}
 
-  \caption{Example Problem (left) and with Blocked Actions in Red (right).}
-  \label{fig:blocked}
+  \caption{An Example Goal Recognition Problem.}
+  \label{fig:example1}
 \end{figure}
 
-One can broadly summarize the existing research in GR as one that primarily focuses on developing better and more 
-efficient techniques to recognize the plan or the goal of the user given a sequence of observations of the user's actions. For example, imagine a %simplistic security 
-scenario shown in Figure~\ref{example} (left), where an agent %(e.g.,~a potential terrorist) 
-is at cell $E3$, it can move in any of the four cardinal directions, and its goal is one of three possible goals G1 (in cell $B1$), G2 (in cell $A5$), and G3 (in cell $C5$). Additionally, assume that it will move along a shortest path to its goal. Then, if it moves left to cell $E2$, then we can deduce that its goal is G1. Similarly, if it moves right to cell $E4$, then its goal is either G2 or G3. 
 
-Existing research has focused on agent GR models that are non-strategic or
-partially strategic: The agent's objective is to reach its goal with minimum cost, 
-and the agent does not explicitly reason about its interaction with the observer.
-However, when the observer's recognition of the agent's goal affects the agent in some way, 
-then it is in the agent's best interest to be \emph{fully strategic} -- to \emph{explicitly} 
-reason about how the agent's choice affects the observer's recognition. 
-As a result, the observer will need to take into account the agent's strategic reasoning when making decisions.
+Goal recognition research focuses primarily on developing more effective, and more
+efficient techniques for recognizing the goal of an agent through observing the agent's prior actions. Figure 1.1 illustrates a scenario in which a potentially malicious agent attempts to reach one of three goals. The agent in cell $E3$ can move to any adjacent cell on the graph. Cells $A5, B1,$ and $C5$, hold potential goal states for the agent. While the agent has a particular goal they want to reach, the observer is only aware of what goals the agent could potentially be working towards. In this scenario, a GR model could help an onlooker discern which goal the agent intends to reach.
+
+Existing research into GR models has focused on partially strategic, or non strategic agents. While agents attempt to reach their secret goal at minimum cost, they do not explicitly reason about their interaction with observers.
+When an observer's recognition of the agent's goal affects the agent in some way, 
+then it is in the agent's best interest to be \emph{fully strategic}, and to
+consider how their actions might affects the observer's recognition. 
+As a result, the observer will need to take the agent's strategic reasoning into account when making decisions.
 
 \subsection{Game-Theoretic Goal Recognition Problems in Security Domains}
-Naturally, GT settings with strategic agents are common in 
+Goal Recognition settings with strategic agents can model 
 many real-world (physical and cyber) security scenarios between 
-an adversary and a defender. 
-The adversary has a set of targets of interests 
-and would be equally happy in attacking one of them. 
+an adversary and a defender.  
 In physical security domains, the adversary 
 must make a sequence of 
-physical movements to reach a target; 
-in cyber security domains, this could be a sequence of 
-actions achieving necessary subgoals to carry out the attack. 
-In any case, the defender is trying to recognize
-the adversary's goal/target. 
-We coined this the game-theoretic goal recognition (GTGR) problem. 
+physical movements to reach their target. 
+In cyber security domains, this could be achieving a sequence of 
+actions for necessary subgoals when carrying out an attack. 
+In any case, the defender can benefit from recognizing the adversary's intended target in advance. 
+Moving forward, we will take a game-theoretic approach to modeling such problems.
 
-Let us describe the security games of interests using Figure \ref{example}. 
-Consider the security scenario in Figure \ref{example} (left),
-where an agent (i.e., terrorist) wants to reach its intended target and carry out an attack, 
-while we, the observer (the defender) try to recognize the agent's goal as early as possible. 
-Suppose once we recognize the agent's goal, we will strengthen the agent's target to defend against the attack. 
+Consider the security scenario in Figure 1.1,
+where an agent (i.e., a notorious art thief) wants to reach its intended target and carry out an some devilish action. Meanwhile we the observer must try to recognize the agent's goal as early as possible. 
+Suppose that once we recognize the agent's goal, we can strengthen the agent's target to defend against the attack. 
 The more time we have between recognition and the actual attack, the less successful the attack will be. 
-In this scenario, it is no longer optimal for the agent to simply choose a shortest path to its goal, 
-as that could allow the observer to quickly identify its goal. 
-On the other hand, the agent still wants to reach its goal in a reasonably short time, 
+In this scenario, the agent can not simply take the shortest path to its goal, since their intentions could quickly become clear to the observer.
+At the same time, the agent should try to reach its goal in a reasonably short amount of time, 
 as a very long path could allow the observer time to strengthen all the targets.
-So, an optimal agent would need to explicitly reason about the tradeoffs 
-between the cost of its path (e.g., path length) and the cost of being discovered early.
+An optimal agent would need to explicitly reason about the tradeoffs 
+between the cost of its path (e.g., path length) and the cost of an early discovery.
 
 \subsection{Game-Theoretic Goal Recognition Design Problems in Security Domains}
-So far we have been discussing the defender's task on recognizing goals. 
-However, the task could become very difficult in general. 
-For instance, going back to our security example in Figure \ref{example}, 
+So far we have discussed the defender's task in recognizing goals. 
+However, the task could become extremely difficult in general. 
+For instance, going back to our security example in Figure 1.1, 
 if the agent moves up to $D3$, the observer cannot make any informed deductions. 
-In fact, if the agent moves along any one of its shortest paths to goal G3, 
-throughout its entire path, which is of length 4, we cannot deduce whether its goal is either G2 or G3! 
-This illustrates one of the challenges with this approach, that is, there are often a large number of 
-ambiguous observations that can be a result of a large number of goals. 
-As such, it is difficult to uniquely determine the goal of the agent until a long sequence of observations is observed.
+Unfortunately, if the agent moves along any one of the shortest paths to goal $G3$, then
+throughout its entire path, we cannot deduce whether its goal is either $G2$ or $G3$!  Keren \emph{et al.} introduced the concept
+of \emph{worst-case distinctiveness} ~\cite{keren:14}, the number of moves an agent can make before giving away their intentions.
+This illustrates one of the challenges observers can face when tackling GR scenarios. There can exist large sequences of 
+ambiguous observations which prevent the observer from picking out the correct target . 
+
+\begin{figure}[h!]
+\begin{center}
+
+  \includegraphics[scale=.15]{example2}
+  \end{center}
+
+  \caption{An Example Goal Recognition Design Problem with Blocked Edges.}
+  \label{fig:example2}
+\end{figure}
+
 
 The work of \cite{keren:14,keren:15} proposed an orthogonal 
 approach to \emph{modify the underlying environment of the agent}, in such a way that 
@@ -78,31 +78,27 @@ They call this problem the goal recognition design (GRD) problem.
 For example, if we block the actions $(E3, up), (C4, right)$, $(C5, up)$ in our example problem, 
 where we use tuples $(s,a)$ to denote that action $a$ is blocked from cell $s$, then the agent can 
 make at most 2 actions (i.e.,~right to E4 then up to D4) before its goal is conclusively revealed. 
-Figure~\ref{example} (right) shows the blocked actions. 
-This problem finds itself relevant in many of the same 
-applications of GR because, typically, the underlying environment can be easily modified. 
+Figure 1.2 shows the blocked actions for the previous example. 
 
 %(perhaps with the help of roadblocks as in Figure \ref{example} (right)).
-As such, in addition to studying the GTGR problem, we consider the GTGRD problem 
-where the observer can modify the underlying environment (i.e., adding $K$ roadblocks)
-as to restrict the actions of the agent. 
+In addition to studying the Game Theoretic Goal Recognition problem (GTGR), we will also explore methods of solving the Game-Theoretic Goal Recognition Design  (GTGRD) problem, where the observer can modify the underlying environment (i.e., adding $K$ roadblocks)
+in order to improve their odds of determining the agent's target.
 
 \subsection{Related Work}
 
 GR and its more general forms, plan recognition and intent recognition, have been extensively studied~\cite{Sukthankar:14} since their inception almost 40 years ago~\cite{schmidt:78}. Researchers have made significant progress within the last decade through synergistic integrations of techniques ranging from natural language processing~\cite{vilain:90,geib:07} to classical planning~\cite{ramirez:09,ramirez:10,ramirez:11} and deep learning~\cite{min:14}. The closest body of work to ours is the one that uses game-theoretic formulations, including an adversarial plan recognition model that is defined as an imperfect information two-player zero-sum game in extensive form~\cite{lisy:12}, 
 a model where the game is over attack graphs~\cite{braynov:06}, 
 and an extension that allows for stochastic action outcomes~\cite{guillarme:15}. 
-The main difference between these works and ours is that ours focuses on goal recognition instead of plan recognition. 
 
-While GR has a long history and extensive literature, the field of GRD is relatively new. Keren \emph{et al.} introduced the problem in their seminal paper~\cite{keren:14}, where they proposed a decision-theoretic STRIPS-based formulation of the problem. In the original GRD problem, the authors make several simplifying assumptions: (1) the observed agent is assumed to execute an optimal (i.e.,~cost-minimal) plan to its goal; (2) the actions of the agent are deterministic; and (3) the actions of the agent are fully observable. Since then, these assumptions have been independently relaxed, where agents can now execute boundedly-suboptimal plans~\cite{keren:15}, actions of the agents can be stochastic~\cite{wayllace:16}, and actions of the agents can be only partially observable~\cite{keren:16}. Further, aside from all the decision-theoretic approaches above, researchers have also modeled and solved the original GRD problem using answer set programming~\cite{son:16}. The key difference between these works and ours is that ours introduced a game-theoretic formulation that can more accurately capture interactions between the observed agent and the observer in security applications.  
+GR has a long history and extensive literature, but the field of GRD is relatively new. Keren \emph{et al.} introduced the problem in their seminal paper~\cite{keren:14}, where they proposed a decision-theoretic STRIPS-based formulation of the problem. In the original GRD problem, the authors make several simplifying assumptions: (1) the observed agent is assumed to execute an optimal (i.e.,~cost-minimal) plan to its goal; (2) the actions of the agent are deterministic; and (3) the actions of the agent are fully observable. Since then, these assumptions have been independently relaxed, where agents can now execute boundedly-suboptimal plans~\cite{keren:15}, actions of the agents can be stochastic~\cite{wayllace:16}, and actions of the agents can be only partially observable~\cite{keren:16}. Further, aside from all the decision-theoretic approaches above, researchers have also modeled and solved the original GRD problem using answer set programming~\cite{son:16}. The key difference between these works and ours is that ours introduced a game-theoretic formulation that can more accurately capture interactions between the agent and the observer in security applications.  
 
-\subsection{Our Contributions}
-As a result of the strategic interaction in the GTGR and GTGRD scenarios, the concept of cost-minimal plan (the solution concept in GR problem) 
+\subsection{Contributions}
+As a result of the strategic interaction in the GTGR and GTGRD scenarios, the cost-minimal plan (the solution concept in GR problem) 
 and worst-case distinctiveness (the solution concept in GRD problem)
-are no longer a suitable solution concept since it does not reflect the behavior of strategic agents.
+are no longer suitable solution concepts since they do not reflect the behavior of strategic agents.
 Instead, our objective here is to formulate game-theoretic models of the agent's and observer's interactions 
 under GR and GRD settings. 
-More specifically, we propose to model GTGR and GRGRD settings as zero-sum stochastic games
+More specifically, we will attempt to model GTGR and GRGRD settings as zero-sum stochastic games
 with incomplete information where the adversary's target is unknown to the observer. 
 %We propose to model GTGR and GRGRD settings as zero-sum stochastic games
 %with incomplete information about the adversary's intended target. %(i.e., private information).
@@ -110,7 +106,7 @@ with incomplete information where the adversary's target is unknown to the obser
 For the GTGR setting,
 we show that if the defender is restricted to playing only stationary strategies, 
 the problem of computing optimal strategies (for both defender and adversary)
-can be formulated and represented compactly as a linear program.
+can be formulated and represented compactly as a linear program. We will also explore approaches to solving a partially observable variant of the GTGR setting in which the observer can only know the position of the adversary for certain states. We will perform experiments to determine if the observer can improve their performance with a non-stationary strategy.
 For the GTGRD setting,
 where the defender can choose $K$ edges to block at the start of the game, 
 we formulate the problem of computing optimal strategies as a mixed integer program,
@@ -127,7 +123,7 @@ and an initial state $s_0 \in S$,
 (b) given a state $s \in S$, a finite action set $J_{s}$ and $I=I_s$ 
 for the first player and for the second player, respectively, 
 (c) given a state $s \in S$ and $j \in J_s$, a single-controller transition function
-$\chi(s, j)$ that deterministically maps state and action to a state, 
+$\chi(s, j)$ that deterministically maps the current state and action to a new state, 
 %\footnote{Typically, the transition function depends on 
 %both actions of the players and is mapped to some distribution over the states.}, 
 and (d) given a state $s \in S$, $j \in J_s$, and $i \in I$, 
