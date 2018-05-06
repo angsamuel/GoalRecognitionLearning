@@ -20,48 +20,10 @@
 \bigskip
 
 \textbf{Abstract}
-Motivated by the goal recognition (GR) 
-and goal recognition design (GRD) problems 
-in the artificial intelligence (AI) planning domain, 
-we introduce and study two natural variants of the 
-GR and GRD problems with strategic agents, respectively.  
-More specifically, we consider game-theoretic (GT)
-scenarios where a malicious adversary 
-is aiming to cause damage to some target in an
-(physical or virtual) environment monitored by a defender.
-The adversary is interested in attacking 
-a single target and must take a sequence of actions in order to attack the target. 
-In the GTGR and GTGRD settings, the defender's goal is to identify the adversary's 
-intended target from observing the adversary's actions 
-so that he/she can strengthens the target's defense against the attack. 
-In addition, in the GTGRD setting, the defender can alter the environment (e.g., adding roadblocks) 
-in order to better distinguish the goal/target of the adversary. 
+Goal recognition have been used to model both cooperative and adversarial relationships between agents within an environment and observers looking over them.
+We consider game-theoretic goal recognition (GTGR) scenarios where an adversary must reach one of many targets in a monitored environment. A defender (unaware of the adversary’s intended target) must identify the adversary’s target though observing the adversary’s actions. Additionally, in the game-theoretic goal recognition design (GTGRD) setting,  we allow the defender to alter the environment (e.g., adding roadblocks) beforehand in order to better predict the target of the adversary. We  model GTGR and GRGRD settings as zero-sum stochastic games with incomplete information regarding the adversary’s intended target. The games are played on graphs where vertices represent states and edges represent the adversary’s available actions. For the GTGR setting, we demonstrate that if the defender is restricted to playing only stationary strategies, the problem of computing optimal strategies (for both defender and adversary) can be formulated and represented compactly as a linear program. For the GTGRD setting, where the defender can choose K edges to block at the start of the game, we formulate the problem of computing optimal strategies as a mixed integer program, and present an additional heuristic algorithm based on LP duality and greedy methods. Experiments show that our heuristic algorithm achieves good performance (i.e., close to defender’s optimal value) with better scalability compared to the mixed-integer programming approach. We also introduce a partially observable variant of the GTGR setting with incomplete information regarding the adversary's location in the environment. In contrast with our research, existing work, especially on GRD problems, has focused almost exclusively on decision-theoretic paradigms, where the adversary chooses its actions without taking into account the fact that they may be observed by the defender. As such an assumption is unrealistic in GT scenarios, our proposed models and algorithms fill a significant gap in the literature. 
 
-%The intended target is adversary's private information 
-%while the set of potential targets is known to both parties. 
 
-%For instances, in physical security domains, this could be a sequence of 
-%physical movements reaching the target; 
-%in cyber security domains, this could be a sequence of 
-%actions achieving necessary subgoals to carry out the attack. 
-
-We propose to model GTGR and GRGRD settings as zero-sum stochastic games
-with incomplete information about the adversary's intended target. %(i.e., private information).
-The games are played on graphs where vertices are states and edges are adversary's actions.
-For the GTGR setting,
-we show that if the defender is restricted to playing only stationary strategies, 
-the problem of computing optimal strategies (for both defender and adversary)
-can be formulated and represented compactly as a linear program.
-For the GTGRD setting,
-where the defender can choose $K$ edges to block at the start of the game, 
-we formulate the problem of computing optimal strategies as a mixed integer program,
-and present a heuristic algorithm
-based on LP duality and greedy methods.
-Experiments show that our heuristic algorithm
-achieves good performance (i.e., close to defender's optimal value) with better scalability
-compared to the mixed-integer programming approach.
-
-In contrast with our research, existing work, especially on GRD problems, have focused almost exclusively on decision-theoretic paradigms, where the adversary chooses its actions without taking into account the fact that they may be observed by the defender. As such an assumption is unrealistic in GT scenarios, our proposed models and algorithms fill a significant gap in the literature.
 \end{center}
 
 \noindent

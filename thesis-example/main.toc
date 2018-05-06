@@ -11,18 +11,20 @@
 \contentsline {subsection}{\numberline {2.0.2}Game-theoretic goal recognition design model}{11}
 \contentsline {chapter}{\numberline {3}Computation}{12}
 \contentsline {section}{\numberline {3.1}Game-theoretic goal recognition model}{12}
-\contentsline {subsection}{\numberline {3.1.1}Game-theoretic goal recognition design model}{16}
-\contentsline {subsubsection}{Dual-based greedy heuristic.}{17}
+\contentsline {subsection}{\numberline {3.1.1}Belief Update}{16}
+\contentsline {subsection}{\numberline {3.1.2}Game-theoretic goal recognition design model}{17}
+\contentsline {subsubsection}{Dual-based greedy heuristic.}{18}
 \contentsline {section}{\numberline {3.2}Experiments}{19}
 \contentsline {subsection}{\numberline {3.2.1}A Comparison of MIP and Greedy Solutions}{20}
 \contentsline {subsection}{\numberline {3.2.2}Running Time and Solution Quality}{20}
 \contentsline {subsubsection}{Various Potential Target Sizes}{21}
-\contentsline {subsubsection}{Various Instance Sizes}{22}
-\contentsline {subsubsection}{Various Number of Barriers/Blocks}{22}
-\contentsline {subsubsection}{Various Edge Penalties}{23}
-\contentsline {chapter}{\numberline {4}Partially Observable Environments}{24}
-\contentsline {section}{\numberline {4.1}Introduction}{24}
-\contentsline {section}{\numberline {4.2}The Whale Method}{25}
-\contentsline {section}{\numberline {4.3}The Transmogrification Method}{27}
-\contentsline {section}{\numberline {4.4}Experiments}{30}
-\contentsline {chapter}{\numberline {A}Example appendix}{38}
+\contentsline {subsubsection}{Various Instance Sizes}{23}
+\contentsline {subsubsection}{Various Number of Barriers/Blocks}{23}
+\contentsline {subsubsection}{Various Edge Penalties}{24}
+\contentsline {subsubsection}{Belief Update Comparison}{24}
+\contentsline {chapter}{\numberline {4}Partially Observable Environments}{26}
+\contentsline {section}{\numberline {4.1}Introduction}{26}
+\contentsline {section}{\numberline {4.2}The Whale Method}{27}
+\contentsline {section}{\numberline {4.3}The Transmogrification Method}{29}
+\contentsline {section}{\numberline {4.4}Experiments}{32}
+\contentsline {chapter}{\numberline {5}Conclusion}{37}

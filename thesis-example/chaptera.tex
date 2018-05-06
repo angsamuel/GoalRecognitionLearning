@@ -53,36 +53,22 @@ The graph in Figure~\ref{fig:shadow2} has two disjoint shadow sets, one composed
 
 We can add the following to the mixed integer program to accommodate for partially observable environments when using the Whale method.
 
+\begin{align}
+\!\!\!\!\max_{V, \{f_i(s)\}_{i,s}} \sum_{\theta}&P(\theta)V(\theta, s_{o}) \label{eq:game_obj}\\
+V(\theta, s) &\leq \sum_{i \in B} r(s, i, j, \theta)f_{i}(s) + V(\theta, j) &\forall\theta\in B,\forall s \mid s\neq \theta,s\not\in \Omega, \forall j\in\nu(s)\label{eq:game_incentive}\\
+V(\theta, s) &\leq \sum_{i \in B} r(s, i, j, \theta)f_{i}(w) + V(\theta, j) &\forall\theta\in B,\forall s \mid s\neq \theta,s\in \Omega, \forall j\in\nu(s)\label{eq:game_incentive}\\
+V(\theta, s) &= 0 \quad &\mbox{when} \,\,\, s=\theta\label{eq:game_end}\\
+\sum_{i} f_{i}(s) &= 1\quad &\forall s \label{eq:game_sum}\\
+\sum_{i} f_{i}(w) &= 1\quad &\forall w \label{eq:game_sum}\\
+f_{i}(s) &\geq 0\quad &\forall s,i\label{eq:game_nonneg}\\
+f_{i}(w) &\geq 0\quad &\forall w,i\label{eq:game_nonneg}
+\end{align}
 
-\begin{equation}
-V(\theta, s) \leq \sum_{i \in B} r(s, i, j, \theta)f_{i}(s) + V(\theta, j) \forall\theta\in B,\forall s \mid s\neq \theta, s\not\in H, \forall j\in\nu(s) \tag{3}
-\end{equation}
-
-\begin{equation}
-V(\theta, s) \leq \sum_{i \in B} r(s, i, j, \theta)f_{w}(s) + V(\theta, j) \forall\theta\in B,\forall s \mid s\neq \theta, s\in H, \forall j\in\nu(s) \tag{3}
-\end{equation}
-
-\begin{equation}
-\sum_{i} f_{i}(s) = 1\quad \forall s \tag{3}
-\end{equation}
-
-\begin{equation}
-\sum_{w} f_{w}(s) = 1\quad \forall s \tag{3}
-\end{equation}
-
-\begin{equation}
-f_{i}(s) \geq 0\quad \forall s,i\
-\end{equation}
-
-\begin{equation}
-f_{w}(s) \geq 0\quad \forall s,w\
-\end{equation}
-
-We let $H$ denote the set of all shadow states, and $w$ denote the whale state the observer knows the adversary to be occupying. An observer action for any whale state $w$ is written as $f_{w}(s)$. These changes to the linear program require the observer to take the same action for each turn the adversary spends in a particular shadow set. The performance of the Whale method will be examined in a later section. 
+We let $\Omega$ denote the set of all shadow states, and $w$ denote the whale state the observer knows the adversary to be occupying. An observer action for any whale state $w$ is written as $f_{w}(s)$. These changes to the linear program require the observer to take the same action for each turn the adversary spends in a particular shadow set. The performance of the Whale method will be examined in a later section. 
 
 \section{The Transmogrification Method}
 
-When using the Whale method, the observer ignores some of the information available to them. The Whale method does not account for where the adversary entered a shadow set, or how long the adversary has remained hidden. The "Transmogrification Method" takes both of these pieces of information into account, by generating a fully observable environment from a partially observable environment. To do this, the observer must make some basic assumptions about the adversary's strategy. The following lemmas and corollary assume the agent is playing optimally against the observer's stationary strategy. 
+When using the Whale method, the observer ignores some of the information available to them. The Whale method does not account for where the adversary entered a shadow set, or how long the adversary has remained hidden. The "Transmogrification Method" takes this information into account, by generating a fully observable environment from a partially observable environment. To do this, the observer must make some basic assumptions about the adversary's strategy. The following lemmas and corollary assume the agent is playing optimally against the observer's stationary strategy. 
 
 \textbf{Lemma 2.} \textit{If the adversary's target does not lie within a shadow set, the adversary will eventually exit the shadow set.}
 
@@ -143,7 +129,7 @@ As with previous experiments, all tests were run on  a machine using OSX Yosemit
 \begin{figure}[h!]
 \begin{center}
 
-  \includegraphics[scale=.15]{test1}
+  \includegraphics[scale=1]{test1}
   \end{center}
 
   \caption{A simple scenario using NetworkX.}
@@ -156,7 +142,7 @@ After transmogrifying the graph, the scenario becomes more complex, but allows t
 \begin{figure}[h!]
 \begin{center}
 
-  \includegraphics[scale=.15]{test2}
+  \includegraphics[scale=.30]{test2}
   \end{center}
 
   \caption{The transmogrified graph.}

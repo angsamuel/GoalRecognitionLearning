@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 MAY 2018 03:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 MAY 2018 07:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -259,6 +259,30 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 
 (./main.aux
 
+LaTeX Warning: Label `eq:game_obj' multiply defined.
+
+
+LaTeX Warning: Label `eq:game_incentive' multiply defined.
+
+
+LaTeX Warning: Label `eq:game_incentive' multiply defined.
+
+
+LaTeX Warning: Label `eq:game_end' multiply defined.
+
+
+LaTeX Warning: Label `eq:game_sum' multiply defined.
+
+
+LaTeX Warning: Label `eq:game_sum' multiply defined.
+
+
+LaTeX Warning: Label `eq:game_nonneg' multiply defined.
+
+
+LaTeX Warning: Label `eq:game_nonneg' multiply defined.
+
+
 LaTeX Warning: Label `table:simpletable' multiply defined.
 
 )
@@ -489,91 +513,92 @@ LaTeX Warning: Citation `plop03-paper' undefined on input line 97.
 Chapter 3.
 [12
 
-] [13] [14] [15] [16] [17]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 186.
+] [13] [14] [15] [16] [17] [18]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 189.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 189.
 
-<images/graph1.png, id=112, 822.272pt x 822.272pt>
+<images/graph1.png, id=118, 822.272pt x 822.272pt>
 File: images/graph1.png Graphic file (type png)
  <use images/graph1.png>
-Package pdftex.def Info: images/graph1.png used on input line 206.
+Package pdftex.def Info: images/graph1.png used on input line 209.
 (pdftex.def)             Requested size: 173.44534pt x 173.43503pt.
 
-[18] [19 <./images/graph1.png>]
-<images/graph2.png, id=123, 822.272pt x 822.272pt>
+[19] <images/graph2.png, id=122, 822.272pt x 822.272pt>
 File: images/graph2.png Graphic file (type png)
- <use images/graph2.png>
-Package pdftex.def Info: images/graph2.png used on input line 228.
-(pdftex.def)             Requested size: 173.44534pt x 173.43503pt.
 
-<images/graph3.png, id=124, 822.272pt x 822.272pt>
+<use images/graph2.png>
+Package pdftex.def Info: images/graph2.png used on input line 231.
+(pdftex.def)             Requested size: 173.44534pt x 173.43503pt.
+ <images/graph3.png, id=123, 822.272pt x 822.272pt>
 File: images/graph3.png Graphic file (type png)
- <use images/graph3.png>
-Package pdftex.def Info: images/graph3.png used on input line 234.
+
+<use images/graph3.png>
+Package pdftex.def Info: images/graph3.png used on input line 237.
 (pdftex.def)             Requested size: 173.44534pt x 173.43503pt.
+ [20 <./images/graph1.png>]
+<images/time1.png, id=128, 462.528pt x 346.896pt>
+File: images/time1.png Graphic file (type png)
+ <use images/time1.png>
+Package pdftex.def Info: images/time1.png used on input line 262.
+(pdftex.def)             Requested size: 208.13574pt x 156.10175pt.
 
-[20 <./images/graph2.png> <./images/graph3.png>]
-<images/1.png, id=130, 344.487pt x 190.7928pt>
-File: images/1.png Graphic file (type png)
- <use images/1.png>
-Package pdftex.def Info: images/1.png used on input line 259.
-(pdftex.def)             Requested size: 208.13574pt x 115.27423pt.
+<images/outcome1.png, id=129, 462.528pt x 346.896pt>
+File: images/outcome1.png Graphic file (type png)
+ <use images/outcome1.png>
+Package pdftex.def Info: images/outcome1.png used on input line 268.
+(pdftex.def)             Requested size: 212.47618pt x 159.35707pt.
 
-<images/2.png, id=131, 321.3606pt x 181.6386pt>
-File: images/2.png Graphic file (type png)
- <use images/2.png>
-Package pdftex.def Info: images/2.png used on input line 265.
-(pdftex.def)             Requested size: 212.47618pt x 120.09525pt.
+<images/time2.png, id=130, 462.528pt x 346.896pt>
+File: images/time2.png Graphic file (type png)
+ <use images/time2.png>
+Package pdftex.def Info: images/time2.png used on input line 288.
+(pdftex.def)             Requested size: 208.13574pt x 156.10175pt.
 
-<images/3.png, id=132, 362.3136pt x 217.7736pt>
-File: images/3.png Graphic file (type png)
- <use images/3.png>
-Package pdftex.def Info: images/3.png used on input line 285.
-(pdftex.def)             Requested size: 208.13574pt x 125.10254pt.
+<images/outcome2.png, id=131, 462.528pt x 346.896pt>
+File: images/outcome2.png Graphic file (type png)
+ <use images/outcome2.png>
+Package pdftex.def Info: images/outcome2.png used on input line 294.
+(pdftex.def)             Requested size: 212.47618pt x 159.35707pt.
 
-<images/4.png, id=133, 362.3136pt x 217.7736pt>
-File: images/4.png Graphic file (type png)
- <use images/4.png>
-Package pdftex.def Info: images/4.png used on input line 291.
-(pdftex.def)             Requested size: 212.47618pt x 127.71104pt.
- [21 <./images/1.png> <./images/2.png>] <images/5.png, id=140, 398.4486pt x 217
-.7736pt>
-File: images/5.png Graphic file (type png)
+[21 <./images/graph2.png> <./images/graph3.png>] [22 <./images/time1.png> <./im
+ages/outcome1.png> <./images/time2.png> <./images/outcome2.png>]
+<images/time3.png, id=145, 462.528pt x 346.896pt>
+File: images/time3.png Graphic file (type png)
+ <use images/time3.png>
+Package pdftex.def Info: images/time3.png used on input line 334.
+(pdftex.def)             Requested size: 208.13574pt x 156.10175pt.
 
-<use images/5.png>
-Package pdftex.def Info: images/5.png used on input line 331.
-(pdftex.def)             Requested size: 208.13574pt x 113.75797pt.
- <images/6.png, id=141, 362.3136pt x 217.7736pt>
-File: images/6.png Graphic file (type png)
+<images/outcome3.png, id=146, 462.528pt x 346.896pt>
+File: images/outcome3.png Graphic file (type png)
+ <use images/outcome3.png>
+Package pdftex.def Info: images/outcome3.png used on input line 340.
+(pdftex.def)             Requested size: 212.47618pt x 159.35707pt.
 
-<use images/6.png>
-Package pdftex.def Info: images/6.png used on input line 337.
-(pdftex.def)             Requested size: 212.47618pt x 127.71104pt.
- <images/7.png, id=142, 411.4572pt x 209.1012pt>
-File: images/7.png Graphic file (type png)
+<images/outcome4.png, id=147, 462.528pt x 346.896pt>
+File: images/outcome4.png Graphic file (type png)
+ <use images/outcome4.png>
+Package pdftex.def Info: images/outcome4.png used on input line 349.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
 
-<use images/7.png>
-Package pdftex.def Info: images/7.png used on input line 346.
-(pdftex.def)             Requested size: 185.15402pt x 94.09467pt.
- [22 <./images/3.png> <./images/4.png>]
+[23 <./images/time3.png> <./images/outcome3.png>] [24 <./images/outcome4.png>]
 
-LaTeX Warning: Citation `Dijkstra80' undefined on input line 384.
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 393.
 
 
-LaTeX Warning: Citation `plop03-paper' undefined on input line 385.
+LaTeX Warning: Citation `plop03-paper' undefined on input line 394.
 
-) (./chaptera.tex [23 <./images/5.png> <./images/6.png> <./images/7.png>]
+) (./chaptera.tex [25]
 Chapter 4.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
-<images/shadow1.png, id=154, 740.366pt x 722.7pt>
+<images/shadow1.png, id=160, 740.366pt x 722.7pt>
 File: images/shadow1.png Graphic file (type png)
  <use images/shadow1.png>
 Package pdftex.def Info: images/shadow1.png used on input line 18.
@@ -582,77 +607,96 @@ Package pdftex.def Info: images/shadow1.png used on input line 18.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24
+[26
 
-] <images/shadow2.png, id=158, 561.297pt x 758.032pt>
+] <images/shadow2.png, id=164, 561.297pt x 758.032pt>
 File: images/shadow2.png Graphic file (type png)
 
 <use images/shadow2.png>
 Package pdftex.def Info: images/shadow2.png used on input line 35.
 (pdftex.def)             Requested size: 84.1909pt x 113.69989pt.
- [25 <./images/shadow1.png> <./images/shadow2.png>]
-<images/shadow3.png, id=164, 740.366pt x 722.7pt>
+ [27 <./images/shadow1.png> <./images/shadow2.png>]
+<images/shadow3.png, id=171, 740.366pt x 722.7pt>
 File: images/shadow3.png Graphic file (type png)
  <use images/shadow3.png>
 Package pdftex.def Info: images/shadow3.png used on input line 47.
 (pdftex.def)             Requested size: 111.05011pt x 108.40031pt.
 
-[26 <./images/shadow3.png>] [27]
-<images/shadow4.png, id=173, 2526.238pt x 722.7pt>
+[28 <./images/shadow3.png>] [29]
+<images/shadow4.png, id=179, 2526.238pt x 722.7pt>
 File: images/shadow4.png Graphic file (type png)
  <use images/shadow4.png>
-Package pdftex.def Info: images/shadow4.png used on input line 101.
+Package pdftex.def Info: images/shadow4.png used on input line 87.
 (pdftex.def)             Requested size: 378.91936pt x 108.40031pt.
 
-[28 <./images/shadow4.png>] <images/shadow5.png, id=178, 740.366pt x 722.7pt>
+[30 <./images/shadow4.png>] <images/shadow5.png, id=184, 740.366pt x 722.7pt>
 File: images/shadow5.png Graphic file (type png)
 
 <use images/shadow5.png>
-Package pdftex.def Info: images/shadow5.png used on input line 114.
+Package pdftex.def Info: images/shadow5.png used on input line 100.
 (pdftex.def)             Requested size: 111.05011pt x 108.40031pt.
- [29 <./images/shadow5.png>]
-<images/shadow6.png, id=183, 1145.881pt x 704.231pt>
-File: images/shadow6.png Graphic file (type png)
- <use images/shadow6.png>
-Package pdftex.def Info: images/shadow6.png used on input line 127.
-(pdftex.def)             Requested size: 171.87473pt x 105.63008pt.
-
-[30 <./images/shadow6.png>] <images/test1.png, id=188, 462.528pt x 346.896pt>
-File: images/test1.png Graphic file (type png)
-
-<use images/test1.png>
-Package pdftex.def Info: images/test1.png used on input line 146.
-(pdftex.def)             Requested size: 69.37619pt x 52.03215pt.
- <images/test2.png, id=189, 1284.8pt x 963.6pt>
-File: images/test2.png Graphic file (type png)
-
-<use images/test2.png>
-Package pdftex.def Info: images/test2.png used on input line 159.
-(pdftex.def)             Requested size: 192.71169pt x 144.53375pt.
- [31 <./images/test1.png> <./images/test2.png>]
-<images/arena.png, id=194, 1048.718pt x 1065.581pt>
-File: images/arena.png Graphic file (type png)
- <use images/arena.png>
-Package pdftex.def Info: images/arena.png used on input line 190.
-(pdftex.def)             Requested size: 157.3009pt x 159.83025pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[31] <images/shadow6.png, id=188, 1145.881pt x 704.231pt>
+File: images/shadow6.png Graphic file (type png)
 
-LaTeX Warning: Citation `Dijkstra80' undefined on input line 218.
+<use images/shadow6.png>
+Package pdftex.def Info: images/shadow6.png used on input line 113.
+(pdftex.def)             Requested size: 171.87473pt x 105.63008pt.
+ [32 <./images/shadow5.png> <./images/shadow6.png>]
+<images/test1.png, id=194, 462.528pt x 346.896pt>
+File: images/test1.png Graphic file (type png)
+ <use images/test1.png>
+Package pdftex.def Info: images/test1.png used on input line 132.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+Overfull \hbox (28.90685pt too wide) in paragraph at lines 132--133
+ [] 
+ []
 
 
-LaTeX Warning: Citation `plop03-paper' undefined on input line 219.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./main.bbl [32] [33 <./images/arena.png>] [34
+<images/test2.png, id=195, 1284.8pt x 963.6pt>
+File: images/test2.png Graphic file (type png)
+ <use images/test2.png>
+Package pdftex.def Info: images/test2.png used on input line 145.
+(pdftex.def)             Requested size: 385.44298pt x 289.08223pt.
 
-] [35] [36]) (./appendix1.tex
-[37]
-Appendix A.
-) [38
 
-] (./main.aux)
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[33] <images/arena.png, id=200, 1048.718pt x 1065.581pt>
+File: images/arena.png Graphic file (type png)
+
+<use images/arena.png>
+Package pdftex.def Info: images/arena.png used on input line 176.
+(pdftex.def)             Requested size: 157.3009pt x 159.83025pt.
+ [34 <./images/test1.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 204.
+
+
+LaTeX Warning: Citation `plop03-paper' undefined on input line 205.
+
+) (./ChapterConclusion.tex [35 <./images/test2.png>] [36 <./images/arena.png>]
+Chapter 5.
+
+LaTeX Warning: Citation `Dijkstra80' undefined on input line 6.
+
+
+LaTeX Warning: Citation `plop03-paper' undefined on input line 7.
+
+) (./main.bbl [37
+
+] [38
+
+] [39] [40]) [41] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -661,10 +705,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4554 strings out of 493014
- 61750 string characters out of 6133351
+ 4551 strings out of 493014
+ 61951 string characters out of 6133351
  138363 words of memory out of 5000000
- 7930 multiletter control sequences out of 15000+600000
+ 7929 multiletter control sequences out of 15000+600000
  17463 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,16n,43p,1938b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -690,10 +734,10 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (48 pages, 1133569 bytes).
+Output written on main.pdf (51 pages, 1392592 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
+ 300 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

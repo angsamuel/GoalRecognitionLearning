@@ -128,6 +128,9 @@ non-stationary strategies can achieve a better outcome for the adversary.
 While it is still an open question whether the defender has an optimal strategy that is stationary,
 we have shown that if we restrict to  stationary strategies for the defender, it is in the best interest of the adversary to also stick to stationary strategies and our LP \eqref{eq:game_obj} do not overestimate the value of the game. 
 
+\subsection{Belief Update}
+Using the dual LP, it is possible for the observer to abandon their strategy, and instead update their belief every time-step. Such a strategy would no longer be stationary, but if the observer could improve their performance then it would call the equilibrium of the stationary strategies into question. To do this, the observer begins with a probability distribution $\Upsilon$ describing their belief as to which target the adversary intends to reach. Each potential target has a matching $\upsilon \in \Upsilon$ which represents the target's likelihood of being the adversary's true target. This probability distribution begins equal to $P$, the distribution provided by nature at the start of the game. Each time the adversary makes a move, the observer refers to the dual solution, and multiplies the each value in their distribution by the corresponding $\lambda^\theta_{s,j}$ from the dual LP. Then, the observer makes a guess based on the largest value in $\Upsilon$. We will conduct an experiment later on to test the performance of this non-stationary strategy.
+
 \subsection{Game-theoretic goal recognition design model}
 One can solve this GTGRD problem by brute-force, i.e., try every subset of edges to block and then for each case solve the resulting LP. The time complexity of this approach grows exponentially in $K$. 
 Instead, we can encode the choice of edge removal as integer variables added to the LP formulation, resulting in a mixed-integer program (MIP). For example, we could replace
@@ -245,9 +248,9 @@ For each environment, the starting location of the adversary and all targets are
 randomly on separate nodes. 
 Additionally, each target $\theta$ is assigned a random probability $P(\theta)$ such 
 that $\sum_{\theta \in B} P(\theta) = 1$. 
-In all of our figures below, the greedy heuristic for the GTGRD is graphed in orange, 
+In all of our figures below, the greedy heuristic for the GTGRD is graphed in green, 
 the MIP is graphed in blue, 
-and the default method (LP) for GTGR is graphed in grey, 
+and the default method (LP) for GTGR is graphed in red, 
 in which the game is solved with no penalized edges.
 The defenders reward for correctly guessing the adversary's intended target $q$ was set to 10. 
 The attacker penalty value for crossing an edge penalized by the observer was set to 10. 
@@ -256,13 +259,13 @@ Each game, the observer was permitted to penalize 2 edges.
 \begin{figure}[!ht]
 \begin{center}
 \begin{minipage}{0.48\linewidth}
-\includegraphics[width=\linewidth]{1}
+\includegraphics[width=\linewidth]{time1}
 \caption{Average time given targets.}
 \label{fig:rt_target}
 \end{minipage}%
 \hfill
 \begin{minipage}{0.49\linewidth}
-\includegraphics[width=\linewidth]{2}
+\includegraphics[width=\linewidth]{outcome1}
 \caption{Average outcome given targets.}
 \label{fig:sol_target}
 \end{minipage}
@@ -282,13 +285,13 @@ Each game, the observer was permitted to penalize 2 edges.
 \begin{figure}[!ht]
 \begin{center}
 \begin{minipage}{0.48\linewidth}
-\includegraphics[width=\linewidth]{3}
+\includegraphics[width=\linewidth]{time2}
 \caption{Average time given size.}
 \label{fig:rt_grids}
 \end{minipage}%
 \hfill
 \begin{minipage}{0.49\linewidth}
-\includegraphics[width=\linewidth]{4}
+\includegraphics[width=\linewidth]{outcome2}
 \caption{Average outcome given size.}
 \label{fig:sol_grids}
 \end{minipage}
@@ -328,13 +331,13 @@ similar to to those generated using MIP (see Figure \ref{fig:sol_grids}).
 \begin{figure}[!ht]
 \begin{center}
 \begin{minipage}{0.48\linewidth}
-\includegraphics[width=\linewidth]{5}
+\includegraphics[width=\linewidth]{time3}
 \caption{Average time given penalized edges.}
 \label{fig:rt_bar}
 \end{minipage}%
 \hfill
 \begin{minipage}{0.49\linewidth}
-\includegraphics[width=\linewidth]{6}
+\includegraphics[width=\linewidth]{outcome3}
 \caption{Average outcome given penalized edges.}
 \label{fig:sol_bar}
 \end{minipage}
@@ -343,7 +346,7 @@ similar to to those generated using MIP (see Figure \ref{fig:sol_grids}).
 
 \begin{figure}[!ht]
 \begin{center}	
-\includegraphics[scale=0.45]{7}
+\includegraphics[scale=0.45]{outcome4}
 \caption{Average outcome given penalty value.}
 \label{fig:sol_ep}
 \end{center}
@@ -369,12 +372,18 @@ both algorithms have similar solution quality.
 
 
 \subsubsection{Various Edge Penalties}
-Finally, consider the effect of different edge penalties 
+Next, consider the effect of different edge penalties 
 to the solution quality of our greedy heuristic. 
 The results are averaged over 1000 simulations of 6 by 6 grids. 
 As indicated in Figure \ref{fig:sol_ep}, 
 the solution gap between the MIP and greedy heuristic 
 as we increase the edge penalty. 
+
+\subsubsection{Belief Update Comparison}
+Finally, we will measure the performance of a non-stationary strategy using belief update, against the original LP. For this experiment, results were averaged over 1000 grids, each with a width and height of 9 nodes. The adversary's starting location, and 2 targets were placed on random distinct nodes for each grid. The defender's guess reward was set to 10, with all other rewards and penalties set to 0. No barriers were placed for these tests. 
+
+Both the stationary strategy and the non-stationary strategy from belief update produced an average observer score of precisely 47.543. Surprisingly, using belief update did not increase or decrease the observer's average score at all. This does not prove that the stationary strategy is optimal for the observer, only that a non-stationary strategy from belief update seems incapable of doing any better in this scenario. 
+
 
 %Results in \textbf{Fig. 10} were averaged over 1000 grids, each with a width and height of 6 nodes. 
 %The defenders reward for correctly guessing the adversary's intended target $q$ was set to 10. 

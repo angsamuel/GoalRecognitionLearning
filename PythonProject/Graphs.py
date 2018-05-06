@@ -201,10 +201,98 @@ import matplotlib.pyplot as plt
 
 
 
-n_groups = 3
-mi_time = (34.9, 42, 47.5)
-greedy_time = (34.5, 41.5, 46.5)
-default_time = (32.1, 32.2, 32.5)
+# n_groups = 3
+# mi_time = (34.9, 42, 47.5)
+# greedy_time = (34.5, 41.5, 46.5)
+# default_time = (32.1, 32.2, 32.5)
+
+# # mi_time .02 .18, .35, .69, 1.35
+# # greedy_time .02, .175, .19, .21, .25
+
+# # mi mult 20, 180 350, 690, 1350 
+# # greed mult 20, 175, 190, 210, 250
+ 
+# #create plot
+# fig, ax = plt.subplots()
+# index = np.arange(n_groups)
+# bar_width = 0.25
+# opacity = 0.8
+ 
+# rects1 = plt.bar(index, mi_time, bar_width,
+#                  alpha=opacity,
+#                  color='b',
+#                  label='Mixed Integer')
+ 
+# rects2 = plt.bar(index + bar_width, greedy_time, bar_width,
+#                  alpha=opacity,
+#                  color='g',
+#                  label='Greedy')
+
+ 
+# rects3 = plt.bar(index + bar_width + bar_width, default_time, bar_width,
+#                  alpha=opacity,
+#                  color='r',
+#                  label='Default')
+ 
+# plt.xlabel('Barriers')
+# plt.ylabel('Defender Score')
+# plt.title('Average Outcome Given Barriers')
+# plt.xticks(index + bar_width, ('1', '2', '3'))
+# plt.legend()
+ 
+# plt.tight_layout()
+# plt.show()
+
+
+# n_groups = 3
+# mi_time = (34.9, 43, 73)
+# greedy_time = (34.5, 42.7, 61)
+# default_time = (32.1, 32.2, 32.2)
+
+# # mi_time .02 .18, .35, .69, 1.35
+# # greedy_time .02, .175, .19, .21, .25
+
+# # mi mult 20, 180 350, 690, 1350 
+# # greed mult 20, 175, 190, 210, 250
+ 
+# #create plot
+# fig, ax = plt.subplots()
+# index = np.arange(n_groups)
+# bar_width = 0.25
+# opacity = 0.8
+ 
+# rects1 = plt.bar(index, mi_time, bar_width,
+#                  alpha=opacity,
+#                  color='b',
+#                  label='Mixed Integer')
+ 
+# rects2 = plt.bar(index + bar_width, greedy_time, bar_width,
+#                  alpha=opacity,
+#                  color='g',
+#                  label='Greedy')
+
+ 
+# rects3 = plt.bar(index + bar_width + bar_width, default_time, bar_width,
+#                  alpha=opacity,
+#                  color='r',
+#                  label='Default')
+ 
+# plt.xlabel('Barrier Penalty')
+# plt.ylabel('Defender Score')
+# plt.title('Average Outcome Given Barrier Penalty')
+# plt.xticks(index + bar_width, ('2', '10', '50'))
+# plt.legend()
+ 
+# plt.tight_layout()
+# plt.show()
+
+
+
+
+n_groups = 1
+mi_time = (34.9)
+greedy_time = (34.5)
+default_time = (32.1)
 
 # mi_time .02 .18, .35, .69, 1.35
 # greedy_time .02, .175, .19, .21, .25
@@ -234,10 +322,10 @@ rects3 = plt.bar(index + bar_width + bar_width, default_time, bar_width,
                  color='r',
                  label='Default')
  
-plt.xlabel('Barriers')
+plt.xlabel('Barrier Penalty')
 plt.ylabel('Defender Score')
-plt.title('Average Outcome Given Barriers')
-plt.xticks(index + bar_width, ('1', '2', '3'))
+plt.title('Average Outcome Given Barrier Penalty')
+plt.xticks(index + bar_width, ('Stationary', '10', '50'))
 plt.legend()
  
 plt.tight_layout()
